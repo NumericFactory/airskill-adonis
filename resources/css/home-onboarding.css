@@ -1,8 +1,8 @@
 /* PARTIAL HOME/ONBOARDING 
 --------------------------------- */
-section {
+section.process-hire {
     padding: 50px 16px 50px 16px;
-    background: #fff !important;
+    background: #faf9f9 !important;
 
     h2 {
         padding-top: 50px;
