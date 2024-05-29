@@ -1,10 +1,11 @@
 // import type { HttpContext } from '@adonisjs/core/http'
 
 import Post from "#models/post"
+import { HttpContext } from "@adonisjs/core/http"
 
 export default class PostsController {
 
-    public async index({ view }: any) {
+    public async index({ view }: HttpContext) {
         const posts = await Post.query().preload('user')
         console.log(posts)
         return view.render('pages/blog', { posts })
