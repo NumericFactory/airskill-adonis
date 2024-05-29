@@ -9,6 +9,7 @@ export default defineConfig({
        * result in a separate bundle.
        */
       entrypoints: ['resources/js/app.js'],
+      assetsUrl: '/assets',
       /**
        * Paths to watch and reload the browser on file change
        */
