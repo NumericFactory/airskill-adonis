@@ -10,7 +10,8 @@ export default class PostsController {
         return view.render('pages/blog', { posts })
     }
 
-    // public async show({ view }) {
+    // public async show(id:number, { view }: any) {
+    //     const post = await Post.find(id)
     //     return view.render('posts/show')
     // }
 
