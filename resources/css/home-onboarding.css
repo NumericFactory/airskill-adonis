@@ -1,0 +1,81 @@
+/* PARTIAL HOME/ONBOARDING 
+--------------------------------- */
+section {
+    padding: 50px 16px 50px 16px;
+    background: #fff !important;
+
+    h2 {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        font-size: 2.5rem;
+        color: #13205363;
+    }
+
+    h3 {
+        color: #18308d
+    }
+}
+
+.container-max-1145 {
+    max-width: 1145px;
+}
+
+.onboarding-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.onboarding-item {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 0px solid #d2d2d2;
+    border-radius: 0px;
+    box-shadow: 0px 0px 1px #102cce;
+    min-height: 225px;
+    padding-top: 10px;
+
+
+    img {
+        margin-bottom: 10px;
+        align-self: center;
+        width: 55px;
+        filter: grayscale(1);
+    }
+
+    .onboarding-title {
+        align-self: center;
+        font-size: 22px;
+        line-height: 28px;
+        color: #173195;
+        text-shadow: 2px 2px 0px #FFFFFF;
+        margin-bottom: 15px;
+        font-family: "Rubik", sans-serif;
+        margin-left: 16px;
+    }
+
+    .onboarding-description {
+        font-size: 16px;
+    }
+
+    &:first-child {
+        border-radius: 8px 8px 0 0;
+    }
+
+    &:last-child {
+        border-radius: 0 0 8px 8px;
+    }
+
+    @media screen and (min-width:992px) {
+        &:first-child {
+            border-radius: 8px 0 0 8px;
+        }
+
+        &:last-child {
+            border-radius: 0 8px 8px 0;
+        }
+    }
+
+}

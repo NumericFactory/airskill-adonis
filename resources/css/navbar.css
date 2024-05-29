@@ -1,0 +1,41 @@
+/** Navbar **/
+.navbar .nav-link {
+    font-size: 17px;
+    font-weight: bold;
+    margin-right: 25px;
+    font-family: 'Rubik', sans-serif;
+}
+
+ul#header-menu {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.navbar .btn-search a {
+    font-family: 'Nunito Sans', sans-serif;
+    /* font-family: 'Rubik', sans-serif; */
+    font-size: 16px;
+    line-height: 21px;
+    /* color: #000; */
+    /* background: linear-gradient(132.32deg, #38E6DA 3.11%, #38E6B3 96.89%); */
+    color: #132053;
+    background: #f2f3f6;
+    box-shadow: 0px 0px 0px #000000;
+    border-radius: 5px;
+    padding: 12px 16px;
+    display: inline-block;
+    transform: translate(0px, 0px);
+    transition: all .3s ease;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 0.9em;
+}
+
+.navbar .btn-search a i {
+    font-weight: bold;
+    font-size: 1.2em;
+    position: relative;
+    left: -6px;
+    top: 1.5px;
+    color: rgb(0, 240, 160);
+}

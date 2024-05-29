@@ -1,0 +1,67 @@
+/* PARTIAL HOME/TRUSTCUSTOMERS
+--------------------------------- */
+
+.trust {
+    text-align: center;
+    min-height: 135px;
+    margin-top: 101px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.trust {
+    @media screen and (max-width: 992px) {
+        display: none !important;
+    }
+}
+
+.trust h3 {
+    font-size: 21px;
+    opacity: .35;
+}
+
+#clients-formations {
+    display: flex;
+    justify-content: space-around;
+    opacity: .55;
+}
+
+#clients-formations span {
+    height: 100px;
+    transform: scale(.55);
+}
+
+#clients-formations span.ajcformation {
+    background: transparent url('https://frederic-lossignol.com/images/clients-formations-3wacademy-escen-webforce3-infa-ajcformations.png?1ca089bd9cc9afca0f75d2fc77d8041a') no-repeat scroll -247px 1px;
+    width: 103px;
+}
+
+#clients-formations span.infa {
+    background: transparent url('https://frederic-lossignol.com/images/clients-formations-3wacademy-escen-webforce3-infa-ajcformations.png?1ca089bd9cc9afca0f75d2fc77d8041a') no-repeat scroll -428px 1px;
+    left: -257px;
+    width: 99px;
+}
+
+#clients-formations span.webforce {
+    background: transparent url('https://frederic-lossignol.com/images/clients-formations-3wacademy-escen-webforce3-infa-ajcformations.png?1ca089bd9cc9afca0f75d2fc77d8041a') no-repeat scroll -568px 1px;
+    left: -146px;
+    width: 280px;
+}
+
+#clients-formations span.escen {
+    background: transparent url('https://frederic-lossignol.com/images/clients-formations-3wacademy-escen-webforce3-infa-ajcformations.png?1ca089bd9cc9afca0f75d2fc77d8041a') no-repeat scroll -844px 1px;
+    left: 141px;
+    width: 257px;
+}
+
+#clients-formations span.wa {
+    background: transparent url($image-sprite-customers) no-repeat scroll -1111px 0;
+    display: inline-flex;
+    height: 97px;
+    margin: 5px;
+    right: 0;
+    width: 89px;
+    opacity: .55;
+    transition: opacity 1s ease-in-out;
+}

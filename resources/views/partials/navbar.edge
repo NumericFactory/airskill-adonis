@@ -1,0 +1,84 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+
+        <a class="navbar-brand" href="https://airskill.fr">
+            <picture>
+                <source media="(min-width: 1200px)" srcset="{{ asset('resources/images/logo.png') }}">
+                <img style="filter: invert(1);opacity: .8;width: 111px;"" 
+                src="{{ asset('resources/images/logo.png') }}" alt="Logo Airskill">
+            </picture>
+        </a>
+        <button class="navbar-toggler" id="ChangeToggle" type="button" data-toggle="collapse"
+            data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <div id="navbar-hamburger">
+                <img src="https://unlck.fr/wp-content/themes/unlck/assets/dist/images/icon/menu.svg" alt="Menu icon">
+            </div>
+            <div id="navbar-close" class="hidden">
+                <img src="https://unlck.fr/wp-content/themes/unlck/assets/dist/images/icon/cross.svg" alt="Close icon">
+            </div>
+        </button>
+
+        <div>
+            <ul id="header-menu" class="nav navbar-nav ml-auto align-items-center" itemtype="http://www.schema.org/SiteNavigationElement">
+
+                <li class="menu-item nav-item">
+                    <a href="#"class="nav-link">
+                      <span itemprop="name">Solutions</span>
+                    </a>
+                </li>
+
+                <li class="menu-item nav-item">
+                    <a href="#" class="nav-link">
+                      <span itemprop="name">Tarifs</span>
+                    </a>
+                </li>
+
+                <li class="menu-item nav-item">
+                    <a href="#" class="nav-link" id="menu-item-dropdown-631">
+                      <span itemprop="name">Qui sommes-nous</span>
+                    </a>
+                    {{--  <ul class="dropdown-menu" aria-labelledby="menu-item-dropdown-631">
+                        <li id="menu-item-41"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-41 nav-item"><a
+                                itemprop="url" href="https://airskill.fr/equipe/" class="dropdown-item"><span
+                                    itemprop="name">L’équipe</span></a></li>
+                        <li id="menu-item-9936"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9936 nav-item"><a
+                                itemprop="url" href="https://airskill.fr/mission-vision-et-valeurs/"
+                                class="dropdown-item"><span itemprop="name">Mission, vision et valeurs</span></a></li>
+                        <li id="menu-item-676"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-676 nav-item"><a
+                                itemprop="url" href="https://airskill.fr/postuler-chez-unlck/"
+                                class="dropdown-item"><span itemprop="name">Nous rejoindre</span></a></li>
+                        <li id="menu-item-3389"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3389 nav-item"><a
+                                itemprop="url" href="https://airskill.fr/offres-emploi/business-developer-paris/"
+                                class="dropdown-item"><span itemprop="name">– Business Developer Paris</span></a></li>
+                        <li id="menu-item-3390"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3390 nav-item"><a
+                                itemprop="url" href="https://airskill.fr/offres-emploi/business-developer-nantes/"
+                                class="dropdown-item"><span itemprop="name">– Business Developer Nantes</span></a></li>
+                        <li id="menu-item-3669"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3669 nav-item"><a
+                                itemprop="url" href="https://airskill.fr/offres-emploi/business-developer-lyon/"
+                                class="dropdown-item"><span itemprop="name">– Business Developer Lyon</span></a></li>
+                    </ul>  --}}
+                </li>
+
+                <li class="menu-item nav-item">
+                  <a itemprop="url" href="https://airskill.fr/le-blog/" class="nav-link">
+                    <span itemprop="name">Cas d'usage</span>
+                  </a>
+                </li>
+                
+                <li class="btn-search menu-item nav-item">
+                  <a itemprop="url" href="https://airskill.fr/nous-contacter/" class=""><span itemprop="name">
+                    <i class="bi bi-telephone"></i> 06 88 36 22 55</span>
+                  </a>
+                </li>
+              
+            </ul>
+        </div>
+    </div>
+</nav>

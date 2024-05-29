@@ -1,0 +1,134 @@
+/** PARTIAL HOME/EXPERTISES
+--------------------------------- **/
+section.expertises {
+    background-color: #132053 !important;
+    position: relative;
+}
+
+/* img {
+    filter: hue-rotate(25deg); 
+} */
+
+/* section:before {
+      content: "";
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background-image: url(https://images.centrepresseaveyron.fr/api/v1/images/view/5e0f5064d286c23df20e61f5/large/image.jpg?v=1) !important;
+       opacity: 0.1;
+       filter: blur(1px) opacity(0.1) sepia(1);
+       background-repeat: no-repeat;
+       background-size: cover;
+   } */
+
+section h2 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #9aa3ca;
+}
+
+.encart {
+    padding: 70px 0px;
+    display: block;
+    margin: -30px;
+
+    @media screen and (max-width:992px) {
+        margin: 0
+    }
+}
+
+.encart .number-container {
+    padding: 50px 50px;
+}
+
+.encart .number-container {
+    padding: 60px 30px;
+    position: relative;
+    box-sizing: border-box;
+    background: #ffffff;
+    background-clip: padding-box;
+    border: solid 2px transparent;
+    border-radius: 20px;
+    border: 0px solid #ffc83d;
+}
+
+
+.encart .number-container-deco:before {
+    content: url(https://unlck.fr/wp-content/themes/unlck/assets/dist/images/icon/salary-deco-top-left.svg);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    filter: hue-rotate(68deg);
+}
+
+.encart .number-container-deco:after {
+    content: url(https://unlck.fr/wp-content/themes/unlck/assets/dist/images/icon/salary-deco-bottom-right.svg);
+    position: absolute;
+    bottom: -5px;
+    right: 0px;
+    filter: hue-rotate(68deg);
+}
+
+.encart .number,
+.encart .percent {
+    font-family: "PTSans-Bold";
+    font-size: 70px;
+    line-height: 91px;
+    background: linear-gradient(132.32deg, #5b8cf8 30%, #1a48af 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(2px 3px 0px #82aaff);
+}
+
+.encart .text {
+    font-size: 25px;
+    line-height: 32px;
+    color: #000;
+    max-width: 150px;
+    margin-left: 20px;
+}
+
+
+/* SCENe EXPERTISES */
+.scene-list {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.scene-item {
+    padding: 0.5em 1.5em;
+    position: relative;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #00acff;
+    background-color: #1b4bc0;
+    border-top-left-radius: 2.25em;
+    border-bottom-left-radius: 2.25em;
+}
+
+.scene-item:not(:last-child) {
+    margin-bottom: 3vh;
+}
+
+.scene-item span:not(:last-child) {
+    margin-right: 1.5em;
+}
+
+.scene-item-title {
+    position: absolute;
+    top: 2px;
+    right: calc(100% + 1.6em);
+    white-space: nowrap;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #99deff;
+}
