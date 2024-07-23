@@ -4,7 +4,7 @@ section.process-hire {
     padding: 50px 16px 50px 16px;
     background: #faf9f9 !important;
 
-    h2 {
+    /* h2 {
         padding-top: 50px;
         padding-bottom: 50px;
         font-size: 2.5rem;
@@ -13,7 +13,7 @@ section.process-hire {
 
     h3 {
         color: #18308d
-    }
+    } */
 }
 
 .container-max-1145 {
@@ -26,6 +26,61 @@ section.process-hire {
     align-items: center;
 }
 
+.onboarding-item:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    z-index: 1;
+}
+
+.onboarding-item:hover>.link a {
+    color: var(--primary) !important;
+    transition-duration: .2s;
+}
+
+.onboarding-item:hover>.link a:after {
+    color: var(--primary) !important;
+    transform: translate(7px, 2px);
+    transition-duration: .2s;
+}
+
+.onboarding-item .link {
+    text-align: right;
+    padding: 16px;
+    color: #171c33;
+    font-weight: 600;
+    font-size: 15px;
+    transition-duration: .2s;
+}
+
+.onboarding-item .link a {
+    color: #212431 !important;
+    text-decoration: none;
+    font-size: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    transition-duration: .2s;
+}
+
+.onboarding-item .link a:hover {
+    color: rgb(59, 59, 208) !important;
+}
+
+.onboarding-item .link a:after {
+    content: "\F285";
+    margin-right: 3px;
+    font-family: bootstrap-icons !important;
+    transform: translate(3px, 2px);
+    transition-duration: .2s;
+    color: #b6b6c6
+}
+
+.onboarding-item .link a:hover:after {
+    color: var(--primary) !important;
+    transform: translate(7px, 2px);
+    transition-duration: .2s;
+}
+
 
 .onboarding-item {
     display: flex;
@@ -36,28 +91,40 @@ section.process-hire {
     box-shadow: 0px 0px 1px #102cce;
     min-height: 225px;
     padding-top: 10px;
+    padding: 0;
+    transition-duration: .3s;
 
 
     img {
         margin-bottom: 10px;
         align-self: center;
         width: 55px;
-        filter: grayscale(1);
+        filter: hue-rotate(73deg) saturate(1.3);
+    }
+
+    .onboarding-item-title {
+        color: var(--dark);
+        margin-bottom: 0px;
+        font-family: "Rubik", sans-serif;
+        padding: 0px;
+        transform: scale(0.85) translate(-10px, 2px);
+        background: #fafbfc;
     }
 
     .onboarding-title {
         align-self: center;
         font-size: 22px;
         line-height: 28px;
-        color: #173195;
+        color: var(--dark);
         text-shadow: 2px 2px 0px #FFFFFF;
-        margin-bottom: 15px;
+        margin-bottom: 5px;
         font-family: "Rubik", sans-serif;
-        margin-left: 16px;
+        margin-left: 12px;
     }
 
     .onboarding-description {
         font-size: 16px;
+        padding: 12px;
     }
 
     &:first-child {
@@ -78,4 +145,77 @@ section.process-hire {
         }
     }
 
+}
+
+/** Onbording Switch BUTTONS **/
+.switch-button {
+    background: rgb(229 230 232);
+    border-radius: 30px;
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    font-size: 15.5px;
+    letter-spacing: 0.5px;
+    color: var(--primary);
+    position: relative;
+    padding-right: 150px;
+    position: relative;
+    font-weight: 600;
+    line-height: 17px;
+}
+
+.switch-button:before {
+    content: "Un formateur";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.switch-button-checkbox {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 2;
+}
+
+.switch-button-checkbox+.switch-button-label {
+    position: relative;
+    padding: 12px 0;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+}
+
+.switch-button-checkbox+.switch-button-label:before {
+    content: "";
+    background: #bcd8ff;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 30px;
+    transform: translateX(0);
+    transition: transform 300ms;
+}
+
+.switch-button-checkbox:checked+.switch-button-label:before {
+    transform: translateX(150px);
+    transition: transform 200ms ease-in-out;
+}
+
+.switch-button-checkbox+.switch-button-label .switch-button-label-span {
+    position: relative;
 }

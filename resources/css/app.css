@@ -1,9 +1,149 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --gray: #f5f5f5;
+  --gray-dark: #333;
+  --gray-light: #f9f9f9;
+  --gray-lighter: #f1f1f1;
+  --primary: #0046fe;
+  /* --primary: #0eab71; */
+  --secondary: #ff4081;
+  --success: #4caf50;
+  --info: #00bcd4;
+  --warning: #ffeb3b;
+  --danger: #f44336;
+  --light: #f8f9fa;
+  --dark: #1a1b22;
+  --link: #007bff;
+}
+
+div.parent-cards {
+  display: flex;
+  justify-content: center;
+  transform: translate(45px, -7px);
+}
+
+div.card {
+  background: rgb(27 33 51 / 99%);
+  border: 2px solid #81a1f5;
+  width: 235px;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.6px);
+  -webkit-backdrop-filter: blur(1.6px);
+  transition-duration: .25s;
+}
+
+div.card:hover {
+  transform: translateY(-20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  background-color: #0046fe;
+}
+
+div.card:first-child {
+  transform-origin: right;
+  transform: rotate(-10deg) translateY(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+div.card:first-child:hover {
+  transform: rotate(-5deg) translateY(5px);
+  background-color: #2f4887;
+}
+
+div.card:last-child {
+  transform-origin: left;
+  transform: rotate(10deg) translateY(10px);
+  z-index: 0;
+}
+
+div.card:last-child:hover {
+  transform: rotate(5deg) translateY(5px);
+  background-color: #34322b;
+}
+
+div.card .img {
+  width: 174px;
+  position: relative;
+}
+
+div.card .img img {
+  width: 100%;
+  border-radius: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  position: relative;
+}
+
+
+div.card .img .circle {
+  width: 174px;
+  height: 174px;
+  background: #6666e1;
+  position: absolute;
+  top: 5px;
+  left: 4px;
+  z-index: 0;
+  border-radius: 100%;
+}
+
+div.card:first-child .img .circle {
+  background: #d55cff73;
+  top: 5px;
+  left: 9px;
+}
+
+div.card:last-child .img .circle {
+  background: #9bc3ff;
+  top: 3px;
+  left: -2px;
+}
+
+div.card h2 {
+  text-align: center;
+  color: var(--light);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 19px;
+  margin: 0;
+  padding: 12px;
+  letter-spacing: 0.5px;
+}
+
+div.placeholder-lines {
+  width: 175px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+div.placeholder-lines span {
+  height: 5px;
+  border-radius: 16px;
+  width: 100%;
+  background: #6881c438;
+  margin-bottom: 0px;
+  display: block;
+}
+
+div.placeholder-lines span:last-child {
+  width: 75%;
+}
+
+
+
 h1.title {
-  /* font-family: 'Nunito Sans', sans-serif; */
-  font-family: 'Rubik', sans-serif;
-  font-weight: 600;
-  font-size: 37px;
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  font-size: 32px;
+  color: #1e212c;
+  line-height: 37px;
 }
 
 .hero .subtitle {
@@ -19,8 +159,44 @@ h1.title {
   /* text-shadow: 2px 2px 2px #f6de86 !important; */
   font-weight: bold;
   font-size: 97%;
-  color: #4e557b;
+  /* color: var(--primary); */
 }
+
+.cta {
+  font-size: 16px;
+  line-height: 20px;
+  padding: 11px 25px;
+  background: var(--primary);
+  font-weight: 500;
+  letter-spacing: 0px;
+  border: 0;
+  color: #fff;
+  border-radius: 25px;
+  transition-duration: .3s;
+}
+
+.cta-wrapper {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 50px 20px 50px;
+  background-position: 50%;
+}
+
+.cta:hover {
+  background: #032e9b;
+}
+
+.cta-medium {
+  font-size: 17px;
+  line-height: 20px;
+  padding: 15px 30px;
+  margin: 5px;
+}
+
+
 
 .mb-6 {
   margin-bottom: 60px !important;
@@ -32,7 +208,7 @@ h1.title {
 
 .hero .wrap {
   color: #e9bb04;
-  background: linear-gradient(#0027ff, #3f51b5);
+  background: var(--primary);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -67,7 +243,7 @@ h1.title {
   line-height: 21px;
   line-height: 21px;
   color: #ffffff;
-  background: linear-gradient(132.32deg, #0027ff 3.11%, #3f51b5 96.89%);
+  background: var(--primary);
   box-shadow: 0px 0px 0px #000000;
   border-radius: 5px;
   padding: 15px 10px;
@@ -89,6 +265,22 @@ section {
 
 img {
   width: 100%;
+}
+
+.pattern-square::after {
+  background-image: url(https://block.codescandy.com/assets/images/pattern/pattern-square.svg);
+  background-position: top;
+  bottom: 0;
+  content: "";
+  height: 331px;
+  left: 0;
+  -webkit-mask-image: linear-gradient(0deg, transparent 35%, #000 75%);
+  mask-image: linear-gradient(0deg, transparent 35%, #000 75%);
+  padding: 40px 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 0;
 }
 
 

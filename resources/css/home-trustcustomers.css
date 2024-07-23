@@ -4,10 +4,12 @@
 .trust {
     text-align: center;
     min-height: 135px;
-    margin-top: 101px;
+    margin-top: 150px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    background: rgb(23 27 52);
+    border-radius: 17px;
 }
 
 .trust {

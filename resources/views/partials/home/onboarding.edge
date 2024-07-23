@@ -13,65 +13,98 @@ background-size: cover;"></div>
 
         <div class="d-flex flex-column align-items-center text-center">
             <h2 class="title p-0">Comment ça marche ?</h2>
-            <h3 class="mb-5">👌<span class="highlight">Un process clair, et optimisé </span></h3>
+            <h3 class="mb-5"><span class="highlight">Un process clair, une équipe à votre écoute </span>👌</h3>
+        </div>
+
+        <div class="d-flex justify-content-end my-3 align-items-center">
+            <h6 class="m-0 p-0 me-3">Vous recherchez</h6>
+            <div class="switch-button">
+                <input class="switch-button-checkbox" checked type="checkbox"></input>
+                <label class="switch-button-label" for=""><span class="switch-button-label-span">Un expert tech</span></label>
+            </div>
         </div>
 
         <!-- GROUPED ITEM-->
         <div class="onboarding-items row">
 
             <div class="onboarding-item col-lg-3 col-12">
-                <div class="d-flex">
+                <div class="d-flex onboarding-item-title">
                     <img decoding="async" src="https://unlck.fr/wp-content/themes/unlck/assets/dist/images/icon/1.png"
                         alt="1" class="number-logo">
                     <div class="onboarding-title">Cadrage</div>
                 </div>
-                <div class="onboarding-description"><strong>On échange sur vos
+                <div class="onboarding-description onboarding-item-1"><strong>On échange sur vos
                         besoins</strong> dès votre prise de contact puis nous définissons ensemble les détails de la
-                    collaboration.</div>
+                    collaboration.
+                </div>
+                <div class="link">
+                    <a href="#">Discutons de votre besoin</a>
+                </div>
             </div>
 
             <div class="onboarding-item col-lg-3 col-12">
-                <div class="d-flex">
+                <div class="d-flex onboarding-item-title">
                     <img decoding="async" src="https://unlck.fr/wp-content/themes/unlck/assets/dist/images/icon/2.png"
                         alt="2" class="number-logo">
                     <div class="onboarding-title">Ressources</div>
                 </div>
-                <div class="onboarding-description"><strong>On sélectionne le bon profil</strong> parmi nos talents
-                    disponibles,
-                    en respectant votre recherche et vos critères.
+                <div class="onboarding-description onboarding-item-2"><strong>On sélectionne le bon profil</strong> parmi nos meilleurs talents
+                    disponibles, en respectant vos critères de recherche.
+                </div>
+                <div class="link">
+                    <a href="#">Trouver un formateur</a>
                 </div>
             </div>
 
             <div class="onboarding-item col-lg-3 col-12">
-                <div class="d-flex">
+                <div class="d-flex onboarding-item-title">
                     <img decoding="async" src="https://unlck.fr/wp-content/themes/unlck/assets/dist/images/icon/3.png"
                         alt="3" class="number-logo">
                     <div class="onboarding-title">Action</div>
                 </div>
-                <div class="onboarding-description"><strong>Un<b>.</b>e expert<b>.</b>e Airskill intervient</strong>
+                <div class="onboarding-description onboarding-item-3"><strong>Un<b>.</b>e expert<b>.</b>e Airskill intervient</strong>
                     dans le cadre de la
                     mission
                     confiée et
                     réalisation de votre projet.
                 </div>
+                <div class="link">
+                    <a href="#">Voir un cas d'usage</a>
+                </div>
             </div>
 
             <div class="onboarding-item col-lg-3 col-12">
-                <div class="d-flex">
+                <div class="d-flex onboarding-item-title">
                     <img decoding="async" src="https://unlck.fr/wp-content/themes/unlck/assets/dist/images/icon/4.png"
                         alt="3" class="number-logo">
                     <div class="onboarding-title">Suivi</div>
                 </div>
-                <div class="onboarding-description"><strong>Notre équipe support est
+                <div class="onboarding-description onboarding-item-4"><strong>Notre équipe support est
                         présente</strong> de l'onboarding du talent à la fin de mission pour assurer le suivi, et le
                     conseil.
+                </div>
+                <div class="link">
+                    <a href="#">Nous contacter</a>
                 </div>
             </div>
 
         </div>
         <!-- END GROUPED ITEM -->
 
-        <app-use-cases></app-use-cases>
+        <!-- CTA 2 BUTTONS -->
+        <div class="text-center my-5 cta-wrapper">
+            <button class="cta cta-medium btn-light">
+                Je cherche expert tech
+            </button>  
+            <button class="cta cta-medium">
+                Je cherche un formateur
+            </button>      
+        </div>
+
+    </div> <!-- container -->
+
+    <!-- USE CASES -->
+    <app-use-cases></app-use-cases>
 
     </div>
 </section>

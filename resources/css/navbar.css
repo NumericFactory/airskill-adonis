@@ -1,26 +1,25 @@
 /** Navbar **/
+.navbar {
+    background-color: rgb(255 255 255) !important;
+    box-shadow: 0 4px 6px -1px #0000, 0 2px 4px -2px #00000030;
+}
+
 .navbar .nav-link {
-    font-size: 17px;
-    font-weight: bold;
-    margin-right: 25px;
+    font-size: 16px;
+    font-weight: lighter;
+    margin-right: 24px;
     font-family: 'Rubik', sans-serif;
 }
 
 ul#header-menu {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 .navbar .btn-search a {
     font-family: 'Nunito Sans', sans-serif;
-    /* font-family: 'Rubik', sans-serif; */
-    font-size: 16px;
-    line-height: 21px;
-    /* color: #000; */
-    /* background: linear-gradient(132.32deg, #38E6DA 3.11%, #38E6B3 96.89%); */
-    color: #132053;
-    background: #f2f3f6;
-    box-shadow: 0px 0px 0px #000000;
+    color: #c1c6d4;
+    background: #1e2435;
     border-radius: 5px;
     padding: 12px 16px;
     display: inline-block;
@@ -29,6 +28,7 @@ ul#header-menu {
     text-decoration: none;
     font-weight: normal;
     font-size: 0.9em;
+    line-height: 17px;
 }
 
 .navbar .btn-search a i {

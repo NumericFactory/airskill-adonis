@@ -5,6 +5,10 @@ section.expertises {
     position: relative;
 }
 
+section.expertises h2 {
+    color: aliceblue;
+}
+
 /* img {
     filter: hue-rotate(25deg); 
 } */
@@ -24,9 +28,8 @@ section.expertises {
    } */
 
 section h2 {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    color: #9aa3ca;
+    padding-top: 16px;
+    padding-bottom: 64px;
 }
 
 .encart {
@@ -60,7 +63,7 @@ section h2 {
     position: absolute;
     top: 0px;
     left: 0px;
-    filter: hue-rotate(68deg);
+    filter: hue-rotate(79deg);
 }
 
 .encart .number-container-deco:after {
@@ -68,7 +71,7 @@ section h2 {
     position: absolute;
     bottom: -5px;
     right: 0px;
-    filter: hue-rotate(68deg);
+    filter: hue-rotate(79deg);
 }
 
 .encart .number,
@@ -109,8 +112,8 @@ section h2 {
     position: relative;
     font-size: 1.125rem;
     font-weight: 700;
-    color: #00acff;
-    background-color: #1b4bc0;
+    color: #1b1d1d;
+    background-color: #bcd8ff;
     border-top-left-radius: 2.25em;
     border-bottom-left-radius: 2.25em;
 }
@@ -128,7 +131,7 @@ section h2 {
     top: 2px;
     right: calc(100% + 1.6em);
     white-space: nowrap;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 500;
-    color: #99deff;
+    color: #99daff;
 }
