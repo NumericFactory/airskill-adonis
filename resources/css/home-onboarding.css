@@ -57,11 +57,11 @@ section.process-hire {
 
 .onboarding-item .link {
     text-align: right;
-    padding: 16px;
+    padding: 12px;
     color: #171c33;
     font-weight: 600;
     font-size: 15px;
-    transition-duration: .2s;
+    transition-duration: .15s;
 }
 
 .onboarding-item .link a {
@@ -263,4 +263,22 @@ section.process-hire {
         border: 1px solid rgb(17 24 39 / 0.1);
         border-radius: 8px;
     }
+
+    .onboarding-item .link a {
+        color: rgb(59, 59, 208) !important;
+    }
+
+    .onboarding-item {
+        .onboarding-description {
+            font-size: 15.4px;
+            padding: 12px 16px;
+            height: 105px;
+        }
+
+        .onboarding-item-title {
+            transform: scale(0.75) translate(-42px, 2px);
+        }
+    }
+
+
 }
