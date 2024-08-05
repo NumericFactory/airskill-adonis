@@ -154,6 +154,7 @@ section h2 {
     .scene-item h3 {
         display: none;
     }
+
 }
 
 @media screen and (max-width:576px) {
@@ -163,5 +164,11 @@ section h2 {
 
     .encart .number-container {
         padding: 35px 12px;
+    }
+
+    .encart .number,
+    .encart .percent {
+        font-size: 50px;
+        line-height: 60px;
     }
 }
