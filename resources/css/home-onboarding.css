@@ -257,4 +257,10 @@ section.process-hire {
         letter-spacing: 0px;
 
     }
+
+    .onboarding-item {
+        box-shadow: none;
+        border: 1px solid rgb(17 24 39 / 0.1);
+        border-radius: 8px;
+    }
 }
