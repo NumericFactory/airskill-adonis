@@ -14,13 +14,23 @@ section.recontact .bloc-contact {
 }
 
 section.recontact {
-    background-color: #1543af;
+    background-color: #222f48;
     position: relative;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+section.recontact h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.9) !important;
 }
 
 section.recontact p {
-    font-size: 1.125rem;
-    color: aliceblue;
+    font-size: 1.225rem;
+    color: rgb(183 219 255) !important;
+    text-align: left;
+    padding-left: 10px;
 }
 
 section.recontact .svg-container {
@@ -41,8 +51,8 @@ section.recontact .macro {
 
 @media (max-width: 768px) {
     section.recontact {
-        padding-top: 7rem;
-        padding-bottom: 7rem;
+        padding-top: 1.25rem;
+        padding-bottom: 5rem;
     }
 
     section.recontact .bloc-contact {
@@ -54,5 +64,10 @@ section.recontact .macro {
 
     section.recontact .svg-container {
         display: none;
+    }
+
+    section.recontact h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
     }
 }

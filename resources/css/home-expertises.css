@@ -159,16 +159,22 @@ section h2 {
 
 @media screen and (max-width:576px) {
     .encart {
-        padding: 30px 12px 30px;
+        padding: 35px 6px;
     }
 
     .encart .number-container {
-        padding: 35px 12px;
+        padding: 25px 12px;
     }
 
     .encart .number,
     .encart .percent {
         font-size: 50px;
         line-height: 60px;
+    }
+
+    .scene-item span,
+    .scene-item li {
+        display: inline-block;
+        font-size: .94rem;
     }
 }
