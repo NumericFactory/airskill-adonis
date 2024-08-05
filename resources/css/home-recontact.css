@@ -51,7 +51,7 @@ section.recontact .macro {
 
 @media (max-width: 768px) {
     section.recontact {
-        padding-top: 1.25rem;
+        padding-top: 1rem;
         padding-bottom: 5rem;
     }
 
@@ -67,7 +67,7 @@ section.recontact .macro {
     }
 
     section.recontact h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: bold;
     }
 }
