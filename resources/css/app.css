@@ -515,6 +515,10 @@ img {
     font-size: 15px;
   }
 
+  ..card-founders-container {
+    gap: 24px;
+  }
+
 }
 
 
