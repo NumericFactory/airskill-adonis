@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --gray: #f5f5f5;
   --gray-dark: #333;
@@ -16,16 +20,71 @@
   --link: #007bff;
 }
 
+audio,
+canvas,
+embed,
+iframe,
+img,
+object,
+svg,
+video {
+  display: block;
+  vertical-align: middle;
+}
+
+.btn-check:checked+.btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check)+.btn:active {
+  color: #000000;
+  background-color: #f3f3f6;
+  border-color: #b4b4b4;
+}
+
+nav {
+  height: 60px;
+}
+
+#mobile-menu {
+  opacity: 0;
+  translate: -1024px 0;
+  transition-duration: .7s;
+  background-color: #fff;
+  height: 100vh;
+  padding: 7px 22px;
+}
+
+.masked {
+  display: block !important;
+  translate: 0 !important;
+  opacity: 1 !important;
+}
+
+
+
+@media (min-width: 1400px) {
+
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1280px;
+  }
+}
+
 div.parent-cards {
   display: flex;
   justify-content: center;
-  transform: translate(45px, -7px);
+  transform: translate(35px, -3px)
 }
 
-div.card {
+div.card.card-hero {
   background: rgb(27 33 51 / 99%);
-  border: 2px solid #81a1f5;
-  width: 235px;
+  border: 1px solid #8088a0;
+  width: 225px;
   height: 340px;
   display: flex;
   flex-direction: column;
@@ -38,40 +97,40 @@ div.card {
   transition-duration: .25s;
 }
 
-div.card:hover {
-  transform: translateY(-20px);
+div.card.card-hero:hover {
+  transform: translateY(-8px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  background-color: #0046fe;
+  background-color: #00228f;
 }
 
-div.card:first-child {
+div.card.card-hero:first-child {
   transform-origin: right;
   transform: rotate(-10deg) translateY(10px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
 }
 
-div.card:first-child:hover {
-  transform: rotate(-5deg) translateY(5px);
+div.card.card-hero:first-child:hover {
+  transform: rotate(-8deg) translateY(3px);
   background-color: #2f4887;
 }
 
-div.card:last-child {
+div.card.card-hero:last-child {
   transform-origin: left;
   transform: rotate(10deg) translateY(10px);
   z-index: 0;
 }
 
-div.card:last-child:hover {
-  transform: rotate(5deg) translateY(5px);
+div.card.card-hero:last-child:hover {
+  transform: rotate(8deg) translateY(3px);
   background-color: #34322b;
 }
 
-div.card .img {
+div.card.card-hero .img {
   width: 174px;
   position: relative;
 }
 
-div.card .img img {
+div.card.card-hero .img img {
   width: 100%;
   border-radius: 100%;
   top: 0;
@@ -81,7 +140,7 @@ div.card .img img {
 }
 
 
-div.card .img .circle {
+div.card.card-hero .img .circle {
   width: 174px;
   height: 174px;
   background: #6666e1;
@@ -92,19 +151,19 @@ div.card .img .circle {
   border-radius: 100%;
 }
 
-div.card:first-child .img .circle {
+div.card.card-hero:first-child .img .circle {
   background: #d55cff73;
   top: 5px;
   left: 9px;
 }
 
-div.card:last-child .img .circle {
+div.card.card-hero:last-child .img .circle {
   background: #9bc3ff;
   top: 3px;
   left: -2px;
 }
 
-div.card h2 {
+div.card.card-hero h2 {
   text-align: center;
   color: var(--light);
   font-family: Arial, Helvetica, sans-serif;
@@ -112,6 +171,97 @@ div.card h2 {
   margin: 0;
   padding: 12px;
   letter-spacing: 0.5px;
+}
+
+section.founders {
+  padding: 70px 16px 100px;
+  background: #fff;
+}
+
+section.founders p {
+  font-size: 1.055rem;
+  line-height: 28px;
+  color: #111;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.card-founders-container {
+  display: grid;
+  translate: 0px -25px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  transform: translatey(25px)
+}
+
+.card-founder {
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 16px;
+  transition-duration: .25s;
+  padding: 12px;
+  border-radius: 12px;
+  border-color: rgb(17 24 39 / 0.15);
+  box-shadow: 0 12px 12px -16px rgba(0, 0, 0, 0.25);
+}
+
+.card-founder figure {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+}
+
+.card-founder figure figcaption {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card-founder figure figcaption h3 {
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+}
+
+.card-founder img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  margin-bottom: 5px;
+}
+
+.card-founder .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 6px 12px;
+  ;
+  background: #fff !important;
+}
+
+.card-founder h3 {
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+}
+
+section.founders .card-founder p {
+  line-height: 22px;
+  margin: 0;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 1rem;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: #e9e9e9;
+  margin: 8px 0;
 }
 
 div.placeholder-lines {
@@ -158,8 +308,24 @@ h1.title {
   display: inline;
   /* text-shadow: 2px 2px 2px #f6de86 !important; */
   font-weight: bold;
-  font-size: 97%;
+  font-size: 0.95em;
   /* color: var(--primary); */
+}
+
+.glow {
+  -webkit-box-shadow: 0px 0px 90px 16px rgba(7, 3, 255, 0.38);
+  -moz-box-shadow: 0px 0px 90px 16px rgba(7, 3, 255, 0.38);
+  box-shadow: 0px 0px 90px 16px rgba(7, 3, 255, 0.38);
+}
+
+.linkedin {
+  margin-top: 8px;
+  color: #0c3f7e;
+}
+
+.linkedin:hover {
+  cursor: pointer;
+  color: #094895;
 }
 
 .cta {
@@ -171,7 +337,7 @@ h1.title {
   letter-spacing: 0px;
   border: 0;
   color: #fff;
-  border-radius: 25px;
+  border-radius: 8px;
   transition-duration: .3s;
 }
 
@@ -183,6 +349,7 @@ h1.title {
   width: 100%;
   padding: 50px 20px 50px;
   background-position: 50%;
+  flex-wrap: wrap;
 }
 
 .cta:hover {
@@ -190,10 +357,11 @@ h1.title {
 }
 
 .cta-medium {
-  font-size: 17px;
+  font-size: 16.4px;
   line-height: 20px;
-  padding: 15px 30px;
+  padding: 15px 24px;
   margin: 5px;
+  margin-bottom: 0;
 }
 
 
@@ -238,7 +406,7 @@ h1.title {
 
 .hero .btn-search {
   padding: 15px 20px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 21px;
   line-height: 21px;
@@ -246,7 +414,7 @@ h1.title {
   background: var(--primary);
   box-shadow: 0px 0px 0px #000000;
   border-radius: 5px;
-  padding: 15px 10px;
+  padding: 15px 12px;
   display: inline-block;
   transform: translate(0px, 0px);
   transition: all .3s ease;
@@ -282,6 +450,68 @@ img {
   top: 0;
   z-index: 0;
 }
+
+.customers {
+  translate: 0px 55px;
+}
+
+.customers h2 {
+  font-size: 1.125rem;
+  color: #868686;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.customers-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+  place-items: center;
+}
+
+.customers-container img {
+  width: 45%;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 1199px) {
+  div.parent-cards {
+    transform: translate(0px, 40px) !important;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .card-founders-container {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 16px;
+    transform: translatey(25px)
+  }
+
+  .customers-container img {
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  section.founders {
+    padding: 40px 16px 100px;
+  }
+
+  .customers-container img {
+    width: 85%;
+  }
+
+  section {
+    padding: 40px 12px;
+  }
+
+  .cta-wrapper {
+    padding: 0px 20px 50px;
+  }
+
+}
+
 
 
 

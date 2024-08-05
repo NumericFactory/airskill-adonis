@@ -1,0 +1,58 @@
+.animate-spin-slower {
+    animation: spin 6s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+section.recontact .bloc-contact {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(50%, 1fr));
+}
+
+section.recontact {
+    background-color: #1d2029;
+    position: relative;
+}
+
+section.recontact p {
+    font-size: 1.125rem;
+    color: aliceblue;
+}
+
+section.recontact .svg-container {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    height: 100%;
+    z-index: 0;
+    transform: translateX(-50%);
+}
+
+section.recontact .macro {
+    margin: 0 auto;
+    max-width: 850px;
+    padding: 2rem;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    section.recontact {
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+    }
+
+    section.recontact .bloc-contact {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(50%, 1fr));
+        width: 380px;
+    }
+
+
+    section.recontact .svg-container {
+        display: none;
+    }
+}
