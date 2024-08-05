@@ -14,7 +14,7 @@ section.recontact .bloc-contact {
 }
 
 section.recontact {
-    background-color: #1d2029;
+    background-color: #193169;
     position: relative;
 }
 
@@ -48,7 +48,7 @@ section.recontact .macro {
     section.recontact .bloc-contact {
         display: grid;
         grid-template-columns: repeat(1, minmax(50%, 1fr));
-        width: 380px;
+        width: 247px;
     }
 
 
