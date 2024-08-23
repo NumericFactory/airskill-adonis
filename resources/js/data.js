@@ -5,7 +5,7 @@ export const onBoardingData = {
             formateurs experts dans leur domaine.`,
             link: {
                 url: '#',
-                text: 'Découvrir nos formateurs'
+                text: 'Chercher un formateur'
             }
 
         },
