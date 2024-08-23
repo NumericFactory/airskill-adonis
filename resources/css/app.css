@@ -176,6 +176,10 @@ div.card.card-hero h2 {
 section.founders {
   padding: 70px 16px 100px;
   background: #f9f9fa;
+
+  .company-text {
+    padding: 23px;
+  }
 }
 
 section.founders p {
@@ -496,6 +500,10 @@ img {
 @media screen and (max-width: 576px) {
   section.founders {
     padding: 40px 16px 100px;
+
+    .company-text {
+      padding: 10px;
+    }
   }
 
   .customers-container img {
