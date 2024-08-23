@@ -64,3 +64,22 @@ nav a.active {
         border-bottom-color: rgb(37 99 235);
     }
 }
+
+nav a.menu-mobile-link.active {
+    color: rgb(29 78 216);
+    font-weight: 500;
+    border-bottom-width: 3px;
+    border-bottom-color: transparent;
+    background: rgb(239 246 255);
+    border-left: 4px solid rgb(37 99 235);
+
+
+    &:hover {
+        color: rgb(29 78 216);
+        font-weight: 500;
+        border-bottom-width: 3px;
+        border-bottom-color: transparent;
+        background: rgb(239 246 255);
+        border-left: 4px solid rgb(37 99 235);
+    }
+}

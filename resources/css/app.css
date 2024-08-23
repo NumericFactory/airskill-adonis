@@ -49,8 +49,8 @@ nav {
 #mobile-menu {
   opacity: 0;
   translate: -1024px 0;
-  transition-duration: .7s;
-  background-color: #fff;
+  transition-duration: .2s;
+  background-color: #f7f8fa;
   height: 100vh;
   padding: 7px 22px;
 }
