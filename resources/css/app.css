@@ -179,6 +179,7 @@ section.founders {
 
   .company-text {
     padding: 23px;
+    padding-top: 8px;
   }
 }
 
@@ -194,7 +195,7 @@ section.founders p {
   display: grid;
   translate: 0px -25px;
   grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 16px;
+  gap: 20px;
   transform: translatey(25px)
 }
 
@@ -502,7 +503,7 @@ img {
     padding: 40px 16px 100px;
 
     .company-text {
-      padding: 10px;
+      padding: 12px;
     }
   }
 
