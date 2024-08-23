@@ -44,3 +44,23 @@ ul#header-menu {
     top: 1.5px;
     color: rgb(0, 240, 160);
 }
+
+nav {
+    height: 4rem;
+}
+
+nav a {
+    transition-duration: .2s;
+}
+
+nav a.active {
+    color: rgb(17 24 39);
+    border-bottom-width: 3px;
+    border-bottom-color: rgb(37 99 235);
+
+    &:hover {
+        color: rgb(17 24 39);
+        border-bottom-width: 3px;
+        border-bottom-color: rgb(37 99 235);
+    }
+}

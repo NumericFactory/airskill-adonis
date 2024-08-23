@@ -39,4 +39,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+
+
+    /** click links */
+    const navLinks = document.querySelectorAll('nav a');
+    console.log(navLinks)
+    navLinks.forEach(element => {
+        element.addEventListener('click', function () {
+            console.log(this)
+            removeClassActiveToNavLinks()
+            this.classList.add('active')
+        })
+    });
+
+    function removeClassActiveToNavLinks() {
+        navLinks.forEach(element => {
+            element.classList.remove('active')
+        })
+    }
+
 });
