@@ -110,7 +110,7 @@ section h2 {
 .scene-item {
     padding: 0.3em 1.35em;
     position: relative;
-    font-size: 0.97rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: #132053;
     background-color: #c1d6f5;
@@ -169,12 +169,27 @@ section h2 {
     .encart .number,
     .encart .percent {
         font-size: 50px;
-        line-height: 60px;
     }
 
     .scene-item span,
     .scene-item li {
         display: inline-block;
         font-size: .94rem;
+    }
+
+    .image-expert-tech {
+        margin: 0 auto;
+        width: 70%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .encart .text {
+        font-size: 25px;
+        line-height: 32px;
+        color: #000;
+        max-width: 201px;
+        margin-left: 32px;
+        font-weight: 400;
     }
 }
