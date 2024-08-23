@@ -72,6 +72,7 @@ section h2 {
     bottom: -5px;
     right: 0px;
     filter: hue-rotate(79deg);
+    display: none;
 }
 
 .encart .number,

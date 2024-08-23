@@ -406,20 +406,29 @@
 @media screen and (max-width: 768px) {
     .body-space {
         min-height: 1170px;
-        padding: 70px 0;
+        padding: 40px 0;
     }
 }
 
 @media screen and (max-width:576px) {
     .body-space {
         min-height: 1260px;
-        padding: 70px 0;
+        padding: 35px 0;
     }
 
     .body-space h2 {
         color: aliceblue;
         padding-top: 16px;
         padding-bottom: 32px;
+    }
+
+    .encart .text {
+        font-size: 25px;
+        line-height: 32px;
+        color: #000;
+        max-width: 201px;
+        margin-left: 32px;
+        font-weight: 400;
     }
 
 
