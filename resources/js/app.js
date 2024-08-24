@@ -29,7 +29,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     document.querySelector('#burger-btn').addEventListener('click', function (ev) {
-        menuMobile.classList.toggle('masked');
+        //menuMobile.classList.toggle('masked');
+        if (menuMobile.classList.contains('masked')) {
+            menuMobile.classList.remove('masked');
+            document.querySelector('#burger-btn').style.color = "#123";
+            document.querySelector('#burger-btn').classList.remove('is-active');
+
+        }
+        else {
+            menuMobile.classList.add('masked');
+            document.querySelector('#burger-btn').style.color = "blue";
+            document.querySelector('#burger-btn').classList.add('is-active');
+        }
     });
 
     window.addEventListener("resize", (event) => {
