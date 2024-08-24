@@ -90,7 +90,7 @@ nav a.menu-mobile-link.active {
 }
 
 .hamburger .line {
-    width: 30px;
+    width: 28px;
     height: 4px;
     background-color: #999faa;
     display: block;
@@ -110,9 +110,8 @@ nav a.menu-mobile-link.active {
 #burger-btn {
     background: whitesmoke;
     border-radius: 5px;
-    border: 1px solid #e2e2e7;
-    width: 42px;
-    height: 40px;
+    width: 41px;
+    height: 38px;
 }
 
 #burger-btn.is-active .line:nth-child(2) {
