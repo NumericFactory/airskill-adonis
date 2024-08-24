@@ -57,9 +57,9 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(navLinks)
     navLinks.forEach(element => {
         element.addEventListener('click', function () {
-            console.log(this)
             removeClassActiveToNavLinks()
             this.classList.add('active')
+            document.querySelector('#burger-btn').classList.remove('is-active');
         })
     });
 

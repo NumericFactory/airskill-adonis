@@ -90,11 +90,11 @@ nav a.menu-mobile-link.active {
 }
 
 .hamburger .line {
-    width: 28px;
-    height: 4px;
+    width: 22px;
+    height: 2px;
     background-color: #999faa;
     display: block;
-    margin: 6px auto;
+    margin: 3.5px auto;
     border-radius: 10px;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -108,10 +108,10 @@ nav a.menu-mobile-link.active {
 /* ONE */
 
 #burger-btn {
-    background: whitesmoke;
     border-radius: 5px;
-    width: 41px;
-    height: 38px;
+    border: 1px solid #e2e2e7;
+    width: 35px;
+    height: 34px;
 }
 
 #burger-btn.is-active .line:nth-child(2) {
@@ -119,17 +119,17 @@ nav a.menu-mobile-link.active {
 }
 
 #burger-btn.is-active .line:nth-child(1) {
-    -webkit-transform: translateY(9px) rotate(45deg);
-    -ms-transform: translateY(9px) rotate(45deg);
-    -o-transform: translateY(9px) rotate(45deg);
-    transform: translateY(9px) rotate(45deg);
+    -webkit-transform: translateY(7px) translateX(1px) rotate(45deg);
+    -ms-transform: translateY(7px) translateX(1px) rotate(45deg);
+    -o-transform: translateY(7px) translateX(1px)rotate(45deg);
+    transform: translateY(7px) translateX(1px) rotate(45deg);
     background: #87888a;
 }
 
 #burger-btn.is-active .line:nth-child(3) {
-    -webkit-transform: translateY(-11px) rotate(-45deg);
-    -ms-transform: translateY(-11px) rotate(-45deg);
-    -o-transform: translateY(-11px) rotate(-45deg);
-    transform: translateY(-11px) rotate(-45deg);
+    -webkit-transform: translateY(-5px) translateX(1px) rotate(-45deg);
+    -ms-transform: translateY(-5px) translateX(1px) rotate(-45deg);
+    -o-transform: translateY(-5px) translateX(1px) rotate(-45deg);
+    transform: translateY(-5px) translateX(1px) rotate(-45deg);
     background: #87888a;
 }
