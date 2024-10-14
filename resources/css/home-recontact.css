@@ -14,7 +14,7 @@ section.recontact .bloc-contact {
 }
 
 section.recontact {
-    background-color: #222835;
+    background-color: #192132;
     position: relative;
     padding-top: 20px;
     padding-bottom: 50px;
@@ -29,7 +29,7 @@ section.recontact h2 {
 
 section.recontact p {
     font-size: 1.225rem;
-    color: rgb(183 219 255) !important;
+    color: #adc1d4d6 !important;
     text-align: left;
     padding-left: 10px;
 }
