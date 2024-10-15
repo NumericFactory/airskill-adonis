@@ -4,7 +4,7 @@
          <!--LEFT SIDE -->
         <div class="flex">
           <div class="flex flex-shrink-0 items-center">
-            <a style="height:27px" href="#">
+            <a style="height:27px" href="https://airskill.fr">
               <picture style="translate: 0px 2px;margin-right: 30px;">
                   <source media="(min-width: 1200px)" srcset="{{ asset('resources/images/logo.png') }}">
                   <img style="filter: invert(1);opacity: .8;width: 111px;"" 
@@ -20,6 +20,7 @@
                 <a href="#comment-ca-marche" class="inline-flex text-base border-b-2 border-transparent items-center px-1 pt-1 font-medium text-gray-500 hover:border-gray-400 hover:text-gray-900">Besoin d'un formateur ?</a>
                 <a href="#expertises" class="inline-flex text-base items-center border-b-2 border-transparent px-1 pt-1 font-medium text-gray-500 hover:border-gray-400 hover:text-gray-900">Expertises</a>
                 <a href="#founders" class="inline-flex text-base items-center border-b-2 border-transparent px-1 pt-1 font-medium text-gray-500 hover:border-gray-400 hover:text-gray-900">Qui sommes-nous</a>
+                <a href="{{ route('courses.index')}}" class="inline-flex text-base items-center border-b-2 border-transparent px-1 pt-1 font-medium text-gray-500 hover:border-gray-400 hover:text-gray-900">Nos formations entreprise</a>
                 {{--  <a href="#" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Calendar</a>  --}}
               </div>
           <div class="relative ml-3">
@@ -63,6 +64,9 @@
         <a href="#comment-ca-marche" class="menu-mobile-link block border-l-4 py-2 pl-3 pr-4 text-lg font-medium text-gray-700">Besoin d'un formateur ?</a>
         <a href="#expertises" class="menu-mobile-link block border-l-4  py-2 pl-3 pr-4 text-lg font-medium text-gray-700 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">Expertises</a>
         <a href="#founders" class="menu-mobile-link block border-l-4 py-2 pl-3 pr-4 text-lg font-medium text-gray-700 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">Qui sommes-nous</a>
+        <a href="{{ route('courses.index')}}" class="menu-mobile-link block border-l-4 py-2 pl-3 pr-4 text-lg font-medium text-gray-700 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">Nos formations entreprise</a>
+           
+      </li>
         {{--  <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">Calendar</a>  --}}
       </div>
       <div class="border-t border-gray-200 pb-3 pt-4">

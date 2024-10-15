@@ -49,6 +49,11 @@
           <h1 class="fs-1 text-center">Nos formations pour les entreprises</h1>
   
             <ul class="d-flex justify-content-evenly my-5 nav-formation">
+              <li>
+                <a class="link" href="">
+                  <strong>Tous</strong>
+                </a>
+              </li>
               @each(category in categories) 
               <li>
                 <a class="link" href="{{ route('courses.indexbycategory', [category.name, category.id]) }}">
@@ -69,7 +74,7 @@
             <ul role="list" class="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
 
                 @each(course in courses)
-                <a href="{{ route('courses.show', [course.name.toLowerCase()]) }}">
+                <a href="{{ route('courses.show', [course.name.toLowerCase(), course.id]) }}">
                 <li style="position: relative" class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow h-100">
                   <div style="min-height:180px" class="flex w-full items-start justify-between space-x-6 p-6">
                     <div class="flex-1 truncate">

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container">
 
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{route('home')}}">
             <picture>
                 <source media="(min-width: 1200px)" srcset="{{ asset('resources/images/logo.png') }}">
                 <img style="filter: invert(1);opacity: .8;width: 111px;"" 
@@ -22,6 +22,11 @@
         <div>
             <ul id="header-menu" class="nav navbar-nav ml-auto align-items-center" itemtype="http://www.schema.org/SiteNavigationElement">
 
+                <li class="menu-item nav-item">
+                    <a href="{{ route('courses.index')}}" itemprop="url" class="nav-link">
+                      <span itemprop="name">Nos formations entreprise</span>
+                    </a>
+                </li>
                 <li class="menu-item nav-item">
                     <a href="#"class="nav-link">
                       <span itemprop="name">Je recherche un formateur</span>

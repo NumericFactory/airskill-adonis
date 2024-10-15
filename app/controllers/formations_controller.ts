@@ -9,7 +9,7 @@ export default class FormationsController {
     }
 
     public async indexByCategory({ view, request }: HttpContext) {
-        const categoryId = request.param('id');
+        const categoryId = request.param('categoryname');
         const categories: any = await this.fetchCourseCategories();
         const result: any = await this.fetchCoursesByCategory(categoryId);
         return view.render('pages/courses', {
@@ -42,7 +42,11 @@ export default class FormationsController {
             .then(res => res.json())
     }
 
-    private async fetchCoursesByCategory(categoryId: number) {
+    private async fetchCoursesByCategory(categoryName: string) {
+        const categoriesFetch: any = await this.fetchCourseCategories();
+        const categories = categoriesFetch.categories;
+        const categoryId = categories.find((category: any) =>
+            category.name.toLowerCase() === categoryName.toLowerCase()).id
         return fetch(`https://frederic-lossignol.com/api/v1/categories/${categoryId}`)
             .then(res => res.json())
     }
