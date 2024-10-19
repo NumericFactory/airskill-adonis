@@ -23,7 +23,13 @@ export default class FormationsController {
         const ask: any = await this.fetchCourses();
         const courseId = ask.courses.find((course: any) => course.name.toLowerCase() === courseName).id
         const result: any = await this.fetchCourse(courseId);
-        return view.render('pages/course', { course: result.course })
+        const course = result.course;
+        let goals = course.goal;
+        goals = goals.split('*');
+        goals.shift();
+        goals = goals.map((goal: string) => goal.replaceAll('\r\n', ''));
+        console.log('GG: ', goals);
+        return view.render('pages/course', { course: course, goals });
     }
 
 
