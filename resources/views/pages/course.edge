@@ -1,124 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Airskill | Dénicheur de compétences Tech</title>
-  <link rel="icon" type="image/png" href="{{ asset('resources/images/favicon.ico') }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('resources/images/apple-touch-icon.png') }}">
-  {{--  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('resources/images/favicon-32x32.png') }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('resources/images/favicon-16x16.png') }}">  --}}
-  {{--  <link rel="manifest" href="{{ asset('resources/images/site.webmanifest') }}">  --}}
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=Rubik:wght@500&display=swap"
-    rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.8.1/rxjs.umd.min.js" integrity="sha512-D9LDs8YUUVa4V9Gl4Zb+xqRAc7RCzooR3+zzebgK2RMu/KU+dh90pbjEEMzPiSyRSGbSp9j1pZnrO4joGa5WEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!-- CSS -->
-  @vite(['resources/js/app.js'])
+@include('partials/header')
 
-  <style>
-  body {
-    background: #fcfcfe;
-    font-size: 17px;
-  }
-  @media (min-width: 1200px) {
-    .fs-1 {
-        font-size: 3.5rem !important;
-    }
-  }
-  section.programme, section.objectifs {
-    padding: 8px 0;
-  }
-  section.programme h2, section.objectifs h2 {
-    padding: 12px 0;
-  }
-  section.objectifs li {
-    list-style: inside;
-  }
-  .container-video {
-  position: relative;
-  width: 95%;
-  }
+<!-- MODAL -->
 
-  .container-video > img {
-    width: 100%;
-    height: auto;
-    filter:brightness(.95)
-  }
+{{--  @!component('components/modal-video', { text: 'Login' })  --}}
 
-  .container-video > i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    opacity: .9;
-    font-size: 3rem;
-    color: #d65500;
-    transition-duration: .3s;
-  }
-
-  .container-video > i:hover {
-    color: blue;
-  }
-
-  header {
-    position: relative;
-    background:#e4e2ff;
-    background: url(https://www.m2iformation.fr/images/visuel-homepage.jpg);
-    background-repeat: no-repeat;
-    color: #fff;
-    background-position: 0px;
-    padding-bottom:200px;
-    background-size: cover;
-
-  }
-
-  header > div.gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height:100%;
-    width: 100%;
-    background: linear-gradient(103deg, rgb(0 25 255 / 42%) 0%, rgb(0 5 120 / 82%) 80%);
-    filter: brightness(0.3);
-  }
-
-  @media screen and (max-width:1024px) {
-    .container-video {
-      width: 100%;
-    }
-  }
-  </style>
-
-</head>
-<body>
-
-
-@include('partials/home/navbar-tw')
-
+<div class="main">
 <header style="padding:16px 0px 200px;">
 <div class="gradient"></div>
 <div class="container">
   <div class="row mt-6">
     {{--  <div class="grid grid-cols-1 lg:grid-cols-[752px_minmax(442px,_1fr)_300px] gap-5">  --}}
-      <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-4 max-w-7xl"> 
+      <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-5 max-w-7xl"> 
       <!-- header left -->
       <div style="position:relative">
         <h1 class="fs-1 my-1 font-semibold">Formation {{course.name}}</h1>
@@ -147,54 +39,163 @@
 </div>
 </header>
 
-
-<section class="objectifs">
+<main>
   <div class="container">
-    <div class="row mt-2">
-      <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-4 max-w-7xl">
-        <div>
-          <h2 class="fs-3 font-semibold my-0">Objectifs de la formation</h2>
-          <ul>
-          @each((goal, index) in goals)
-            <li>{{goal}}</li>
+  <div class="grid grid-cols-1 lg:grid-cols-[50%_50%] gap-5 max-w-7xl">
+  
+    <section class="objectifs">
+      
+       
+            <div class="row mt-2">
+              <h2 class="fs-3 font-semibold my-0">Objectifs de la formation</h2>
+              <ul>
+              @each((goal, index) in goals)
+                <li>{{goal}}</li>
+              @end
+              </ul>
+            </div>
+
+            <div class="row mt-2">
+              <!-- programme -->
+              <div>
+              <h2 class="fs-3 font-semibold my-1">Programme</h2>
+              <ul class="programme">
+                  @each((module, index) in course.modules)
+                      <li class="p-2 bg-gray-100 my-2 rounded-md">
+                        <div class="flex flex-column">
+                          <span class="text-xs font-bold">PARTIE {{index+1}}</span>
+                          <span>{{module.name}}</span>
+                        </div>
+                      </li>
+                  @end
+              </ul>
+              </div>
+              <!-- fixed infos -->
+            </div>
+
+          
+
+       
+    </section>
+
+     <!-- CARD INFO PROGRAMME FIXED-->
+     <div style="position: sticky;top: 287px;
+    height: calc(100vh - 190px) !important;
+    transform: translate(0px, -77px);
+    width: 95%;" class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow h-100">
+      <div style="min-height: 136px;
+    background: #fafcff;
+    border-bottom: 1px solid #eee;
+    border-radius: 11px 11px 3px 3px;" class="flex w-full items-start justify-between space-x-6 p-6">
+        <div class="flex-1 truncate">
+          <div class="flex items-center space-x-3">
+            <h2 class="truncate text-2xl font-bold text-gray-800">1500€ / apprenant</h2>
+          </div>
+          <h3 class="mt-1 fs-5 text-gray-700 text-wrap">
+            Sessions disponibles
+          </h3>
+          @if(course.duration)
+          <p style="position:absolute;bottom:10px;" class="fs-5">{{course.duration}} jours</p>
           @end
-          </ul>
+          {{--  <p class="mt-3 text-sm text-gray-500">
+            {{course.goal}}
+          </p>  --}}
         </div>
+        <img class="h-10 w-10 flex-shrink-0 rounded-full bg-gray-50" 
+        src="https://frederic-lossignol.com/{{course.iconurl}}" alt="">
       </div>
-
-      <!-- Card --> 
-
-
-
     </div>
+
   </div>
-</section>
+  </div>
+</main>
+
+
+
 <!-- PRGRAMME -->
-<section class="programme">
+{{--  <section class="programme">
   <div class="container">
 
-    <div class="row mt-2">
-      <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-4 max-w-7xl">
-      <!-- programme -->
-      <div>
-      <h2 class="fs-3 font-semibold my-1">Programme</h2>
-      <ul>
-          @each((module, index) in course.modules)
-              <li class="p-2 bg-gray-100 my-2 rounded-md">
-                <div class="flex flex-column">
-                  <span class="text-xs font-bold">PARTIE {{index+1}}</span>
-                  <span>{{module.name}}</span>
-                </div>
-              </li>
-          @end
-      </ul>
-      </div>
-
-      <!-- fixed infos -->
-      <div>
-      </div>
-
-    </div>
-    </div>
+   
   </div>
-</section>
+</section>  --}}
+</div>
+
+@include('partials/home/recontact')
+@include('partials/footer')
+
+<style>
+  body {
+    background: #fcfcfe;
+    font-size: 17px;
+  }
+  @media (min-width: 1200px) {
+    .fs-1 {
+        font-size: 3.5rem !important;
+    }
+  }
+  section.programme, section.objectifs {
+    padding: 8px 0;
+  }
+  section.programme h2, section.objectifs h2 {
+    padding: 12px 0;
+  }
+  section.objectifs li {
+    list-style: inside;
+  }
+  .container-video {
+  position: relative;
+  width: 95%;
+  }
+  .container-video > img {
+    width: 100%;
+    height: auto;
+    filter:brightness(.95)
+  }
+  .container-video > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    opacity: .9;
+    font-size: 3rem;
+    color: #d65500;
+    transition-duration: .3s;
+  }
+  .container-video > i:hover {
+    color: blue;
+  }
+  header {
+    position: relative;
+    background:#e4e2ff;
+    background: url(https://www.m2iformation.fr/images/visuel-homepage.jpg);
+    background-repeat: no-repeat;
+    color: #fff;
+    background-position: 0px;
+    padding-bottom:200px;
+    background-size: cover;
+
+  }
+  header > div.gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+    background: linear-gradient(103deg, rgb(0 25 255 / 42%) 0%, rgb(0 5 120 / 82%) 80%);
+    filter: brightness(0.3);
+  }
+  ul.programme li {
+    list-style: none;
+  }
+
+  @media screen and (max-width:1024px) {
+    .container-video {
+      width: 100%;
+    }
+  }
+  </style>

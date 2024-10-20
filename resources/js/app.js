@@ -10,6 +10,8 @@ import.meta.glob([
     '../images/**',
     '../fonts/**',
 ]);
+import 'unpoly/unpoly.css';
+import 'unpoly/unpoly.js';
 console.log('Bienvenue sur Airskill, la plateforme humaine de mise en relation entre formateurs et entreprises.');
 
 

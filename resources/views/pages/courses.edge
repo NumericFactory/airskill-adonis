@@ -1,65 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Airskill | Nos formations pro</title>
-  <link rel="icon" type="image/png" href="{{ asset('resources/images/favicon.ico') }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('resources/images/apple-touch-icon.png') }}">
-  {{--  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('resources/images/favicon-32x32.png') }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('resources/images/favicon-16x16.png') }}">  --}}
-  {{--  <link rel="manifest" href="{{ asset('resources/images/site.webmanifest') }}">  --}}
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=Rubik:wght@500&display=swap"
-    rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.8.1/rxjs.umd.min.js" integrity="sha512-D9LDs8YUUVa4V9Gl4Zb+xqRAc7RCzooR3+zzebgK2RMu/KU+dh90pbjEEMzPiSyRSGbSp9j1pZnrO4joGa5WEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!-- CSS -->
-  @vite(['resources/js/app.js'])
-  <style>
-     body {
-      background: #fcfcfe;
-    }
-    .ul.nav-formation li a.link {
-      color: blue;
-      &:hover {
-        color: black
-      }
-    }
-  </style>
-</head>
-<body>
+@let(title = 'Airskill | Formations entreprises')
+@include('partials/header')
 
-
-@include('partials/home/navbar-tw')
-
-
+<main class="main">
 <div class="container">
     <div class="row mt-6">
         <div class="col-12">
           <h1 class="fs-1 text-center">Nos formations pour les entreprises</h1>
   
-            <ul class="d-flex justify-content-evenly my-5 nav-formation">
-              <li>
-                <a class="link" href="">
+            <ul style="    overflow: auto;background: #263645;padding: 6px;border-radius: 50px;color: #b7dbe2;"  class="d-flex flex-nowrap justify-content-evenly my-5 nav-formation">
+              <li style="padding-right: 16px;padding-left: 16px;text-wrap: nowrap;">
+                <a up-target=".courses-list" class="link" href="{{route('courses.index')}}">
                   <strong>Tous</strong>
                 </a>
               </li>
               @each(category in categories) 
-              <li>
-                <a class="link" href="{{ route('courses.indexbycategory', [category.name, category.id]) }}">
+              <li style="padding-right: 16px;padding-left: 16px;text-wrap: nowrap;">
+                <a up-target=".courses-list" class="link" href="{{ route('courses.indexbycategory', [category.name, category.id]) }}">
                   <strong>{{category.name}}</strong>
                 </a>
               </li>
@@ -67,7 +23,7 @@
             </ul>
         
         </div>
-        <div class="col-12 mt-0 mb-5">
+        <div class="col-12 mt-0 mb-5 courses-list">
 
           @if(!courses.length) 
           <h2 class="fs-4 text-center">Des formations bientôt disponibles.</h2>
@@ -121,7 +77,7 @@
               
      
 </div>
+</main>
 
 @include('partials/home/recontact')
-
 @include('partials/footer')

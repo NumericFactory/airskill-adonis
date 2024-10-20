@@ -20,6 +20,10 @@
   --link: #007bff;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 audio,
 canvas,
 embed,
