@@ -4,7 +4,7 @@
 
 {{--  @!component('components/modal-video', { text: 'Login' })  --}}
 
-<div class="main">
+<main class="main">
 <header style="padding:16px 0px 200px;">
 <div class="gradient"></div>
 <div class="container">
@@ -39,9 +39,9 @@
 </div>
 </header>
 
-<main>
-  <div class="container">
-  <div class="grid grid-cols-1 lg:grid-cols-[50%_50%] gap-5 max-w-7xl">
+<div>
+  <div style="max-width:calc(100% - 400px)" class="container-fluid">
+  <div class="grid p-5 grid-cols-1 lg:grid-cols-[50%_50%] gap-5 mx-auto">
   
     <section class="objectifs">
       
@@ -108,6 +108,8 @@
 
   </div>
   </div>
+</div>
+ 
 </main>
 
 
@@ -119,83 +121,6 @@
    
   </div>
 </section>  --}}
-</div>
 
 @include('partials/home/recontact')
 @include('partials/footer')
-
-<style>
-  body {
-    background: #fcfcfe;
-    font-size: 17px;
-  }
-  @media (min-width: 1200px) {
-    .fs-1 {
-        font-size: 3.5rem !important;
-    }
-  }
-  section.programme, section.objectifs {
-    padding: 8px 0;
-  }
-  section.programme h2, section.objectifs h2 {
-    padding: 12px 0;
-  }
-  section.objectifs li {
-    list-style: inside;
-  }
-  .container-video {
-  position: relative;
-  width: 95%;
-  }
-  .container-video > img {
-    width: 100%;
-    height: auto;
-    filter:brightness(.95)
-  }
-  .container-video > i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    opacity: .9;
-    font-size: 3rem;
-    color: #d65500;
-    transition-duration: .3s;
-  }
-  .container-video > i:hover {
-    color: blue;
-  }
-  header {
-    position: relative;
-    background:#e4e2ff;
-    background: url(https://www.m2iformation.fr/images/visuel-homepage.jpg);
-    background-repeat: no-repeat;
-    color: #fff;
-    background-position: 0px;
-    padding-bottom:200px;
-    background-size: cover;
-
-  }
-  header > div.gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height:100%;
-    width: 100%;
-    background: linear-gradient(103deg, rgb(0 25 255 / 42%) 0%, rgb(0 5 120 / 82%) 80%);
-    filter: brightness(0.3);
-  }
-  ul.programme li {
-    list-style: none;
-  }
-
-  @media screen and (max-width:1024px) {
-    .container-video {
-      width: 100%;
-    }
-  }
-  </style>

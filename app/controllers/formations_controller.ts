@@ -5,23 +5,35 @@ export default class FormationsController {
     public async index({ view }: HttpContext) {
         const categories: any = await this.fetchCourseCategories();
         const result: any = await this.fetchCourses();
-        return view.render('pages/courses', { categories: categories.categories, courses: result.courses })
+        const courses = result.courses.map((course: any) => {
+            course.slug = course.name.toLowerCase().replaceAll(' ', '-');
+            console.log(course.slug)
+            return course;
+        })
+
+        return view.render('pages/courses', { categories: categories.categories, courses: courses })
     }
 
     public async indexByCategory({ view, request }: HttpContext) {
-        const categoryId = request.param('categoryname');
+        const categoryId = decodeURI(request.param('categoryname'));
+        console.log('CC', categoryId)
         const categories: any = await this.fetchCourseCategories();
         const result: any = await this.fetchCoursesByCategory(categoryId);
+        const courses = result.category.courses.map((course: any) => {
+            course.slug = course.name.toLowerCase().replaceAll(' ', '-');
+            return course;
+        })
         return view.render('pages/courses', {
             categories: categories.categories,
-            courses: result.category.courses
+            courses: courses
         })
     }
 
     public async show({ view, request }: HttpContext) {
-        const courseName = request.param('name');
+        const courseName = request.param('name').replaceAll('-', ' ');
+        console.log('COURSENAME : ', courseName)
         const ask: any = await this.fetchCourses();
-        const courseId = ask.courses.find((course: any) => course.name.toLowerCase() === courseName).id
+        const courseId = ask.courses.find((course: any) => course.name.toLowerCase() === courseName.toLowerCase()).id
         const result: any = await this.fetchCourse(courseId);
         const course = result.course;
         let goals = course.goal;
