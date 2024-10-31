@@ -16,7 +16,6 @@ export default class FormationsController {
 
     public async indexByCategory({ view, request }: HttpContext) {
         const categoryId = decodeURI(request.param('categoryname'));
-        console.log('CC', categoryId)
         const categories: any = await this.fetchCourseCategories();
         const result: any = await this.fetchCoursesByCategory(categoryId);
         const courses = result.category.courses.map((course: any) => {
