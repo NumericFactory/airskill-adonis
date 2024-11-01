@@ -36,15 +36,17 @@ export default class FormationsController {
         const result: any = await this.fetchCourse(courseId);
         const course = result.course;
         let goals = course.goal;
+        let goalsTitle: string = '';
         if (goals) {
             goals = goals.split('*');
+            goalsTitle = goals[0].length ? goals[0] : '';
             goals.shift();
             goals = goals.map((goal: string) => goal.replaceAll('\r\n', ''));
         }
         else {
             goals = []
         }
-        return view.render('pages/course', { course: course, goals });
+        return view.render('pages/course', { course: course, goals, goalsTitle });
     }
 
 

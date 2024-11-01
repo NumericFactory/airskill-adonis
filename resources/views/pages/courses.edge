@@ -32,8 +32,9 @@
             <ul role="list" class="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
 
                 @each(course in courses)
-                <a up-transition="cross-fade" up-preload="hover" up-target=":main" href="{{ route('courses.show', [course.slug, course.id]) }}">
+               
                 <li style="position: relative" class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow h-100">
+                  <a up-preload="hover" up-target=":main"  up-transition="cross-fade" href="{{ route('courses.show', [course.slug, course.id]) }}">
                   <div style="min-height:180px" class="flex w-full items-start justify-between space-x-6 p-6">
                     <div class="flex-1 truncate">
                       <div class="flex items-center space-x-3">
@@ -63,8 +64,8 @@
                     src="https://frederic-lossignol.com/{{course.iconurl}}" alt="">
                   </div>
                   
-                </li>
-            </a>
+                </a>
+              </li>
             @end
               
               </ul>

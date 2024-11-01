@@ -18,10 +18,10 @@
 
         <div style="width:100%" class="grid grid-cols-1 lg:grid-cols-1 gap-2">
           <div>
-            <p class="fs-5 font-bold"><i class="bi bi-buildings mr-3"></i> Intra / Inter / Distanciel</p>
+            <p class="fs-5 font-bold"><i style="color: #ff9087" class="bi bi-buildings mr-3"></i> Intra / Inter / Distanciel</p>
           </div>
           <div>
-            <p class="fs-5 font-bold"><i class="bi bi-alarm mr-3"></i> {{course.duration}} jours ({{course.duration*7}} heures)</p>
+            <p class="fs-5 font-bold"><i style="color: #ff9087" class="bi bi-alarm mr-3"></i> {{course.duration}} jours ({{course.duration*7}} heures)</p>
           </div>
         </div>
       </div>
@@ -45,9 +45,13 @@
   <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-5 mx-auto">
   
     <section class="objectifs">
+            <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10">
             <div class="row mt-2">
               <div>
-                <h2 class="fs-3 font-semibold my-0">Objectifs de la formation</h2>
+                <h2 class="fs-3 font-semibold my-0 pt-0 pb-2">Objectifs de la formation</h2>
+                @if(goalsTitle) 
+                  <p class="my-2"><strong>{{goalsTitle}}</strong></p>
+                @endif
                 <ul>
                 @each((goal, index) in goals)
                   <li>{{goal}}</li>
@@ -56,17 +60,30 @@
               </div>
             </div>
 
+            <hr class="w-48 mx-auto my-4 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+
             <div class="row mt-2">
               <div>
-                <h2 class="fs-3 font-semibold my-0">Public</h2>
+                <h2 class="fs-3 font-semibold my-0 pt-0 pb-2">Public concerné</h2>
                 <p>{{course.public}}</p>
               </div>
             </div>
 
+            <hr class="w-48 mx-auto my-4 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+
+            <div class="row mt-2">
+              <div>
+                <h2 class="fs-3 font-semibold my-0 pt-0 pb-2">Niveau requis</h2>
+                <p>{{course.requiredlevel}}</p>
+              </div>
+            </div>
+
+            <hr class="w-48 mx-auto my-4 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+
             <div class="row mt-2">
               <!-- programme -->
               <div>
-                <h2 class="fs-3 font-semibold my-1">Programme</h2>
+                <h2 class="fs-3 font-semibold my-1 pt-0 pb-2">Programme</h2>
                 <ul class="programme">
                     @each((module, index) in course.modules)
                         <li class="p-2 bg-gray-100 my-2 rounded-md">
@@ -81,19 +98,32 @@
               <!-- fixed infos -->
             </div>
 
+            <hr class="w-48 mx-auto my-4 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+
+            <div class="row mt-2">
+              <div>
+                <h2 class="fs-3 font-semibold my-0 pt-0 pb-2">Modalités pratiques</h2>
+                <p><strong>Travaux pratiques</strong><br>
+                  Création d'une application fil rouge avec les derniers standards : standalone components, l'API Signal pour gérer la réactivité, la syntaxe de control flow.</p>
+                <p><strong>Méthodes pédagogiques</strong><br>
+                  Chaque nouveau concept théorique sera appliqué immédiatement de façon pratique.</p>
+              </div>
+            </div>
+
+            <hr class="w-48 mx-auto my-4 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+
     </section>
 
      <!-- CARD INFO PROGRAMME FIXED-->
-     <div style="position: sticky;top: 287px; align-self: start;
+     <div style="position: sticky;top: 91px; align-self: start;
     height: calc(100vh - 190px) !important;
-    transform: translate(0px, -377px);
-    width: 95%;" class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow h-100">
+    margin-top:-401px;
+    width: 100%;" class="col-span-1 rounded-xl bg-white shadow h-100">
       <div style="min-height: 136px;
     background: #fafcff;
-    border-bottom: 1px solid #eee;
     border-radius: 11px 11px 3px 3px;" class="flex flex-column w-full items-start p-2">
        <div class="container-video">
-        <img class="rounded-md" src="{{ asset('resources/images/miniatures/angular-miniature-video-4.png') }}" 
+        <img class="rounded-lg" src="{{ asset('resources/images/miniatures/angular-miniature-video-4.png') }}" 
             alt="Video introduction à la Formation {{course.name}}">
         <i class="bi bi-play-circle-fill"></i>
       </div>
@@ -120,6 +150,14 @@
       <div class="flex justify-content-center items-center space-x-3 py-2 px-1">
         <h2 class="truncate text-center text-xl font-medium text-gray-800">Sessions disponibles</h2>
         <hr>
+      </div>
+
+      <div class="grid grid-cols-1 divide-y divide-gray-100 px-3 py-2">
+        <div class="py-1 flex justify-content-between"><p>du 03 au 06 Novembre 2024</p><button class="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-white/20">Nous contacter</button></div>
+        <div class="py-1 flex justify-content-between"><p>du 10 au 13 Novembre 2024</p><button class="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-white/20">Nous contacter</button></div>
+        <div class="py-1 flex justify-content-between"><p>du 17 au 20 Novembre 2024</p><button class="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-white/20">Nous contacter</button></div>
+        <div class="py-1 flex justify-content-between"><p>du 01 au 03 Décembre 2024</p><button class="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-white/20">Nous contacter</button></div>
+        <div class="py-1 flex justify-content-between"><p>du 08 au 11 Décembre 2024</p><button class="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-white/20">Nous contacter</button></div>
       </div>
     </div>
 
