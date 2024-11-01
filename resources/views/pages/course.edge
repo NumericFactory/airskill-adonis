@@ -4,7 +4,6 @@
 
 {{--  @!component('components/modal-video', { text: 'Login' })  --}}
 
-<main class="main">
 <header style="padding:16px 0px 200px;">
    {{--  <video controls  style="border-radius: 6px;" src="https://frederic-lossignol.com/video/signals-en-12mn.mp4"></video>  --}}
 <div class="gradient"></div>
@@ -58,6 +57,13 @@
             </div>
 
             <div class="row mt-2">
+              <div>
+                <h2 class="fs-3 font-semibold my-0">Public</h2>
+                <p>{{course.public}}</p>
+              </div>
+            </div>
+
+            <div class="row mt-2">
               <!-- programme -->
               <div>
                 <h2 class="fs-3 font-semibold my-1">Programme</h2>
@@ -85,12 +91,14 @@
       <div style="min-height: 136px;
     background: #fafcff;
     border-bottom: 1px solid #eee;
-    border-radius: 11px 11px 3px 3px;" class="flex w-full items-start p-2">
+    border-radius: 11px 11px 3px 3px;" class="flex flex-column w-full items-start p-2">
        <div class="container-video">
         <img class="rounded-md" src="{{ asset('resources/images/miniatures/angular-miniature-video-4.png') }}" 
             alt="Video introduction à la Formation {{course.name}}">
         <i class="bi bi-play-circle-fill"></i>
       </div>
+     
+      
 
         {{--  <div class="flex-1 truncate">
           <div class="flex items-center space-x-3">
@@ -108,7 +116,10 @@
         </div>  --}}
         {{--  <img class="h-10 w-10 flex-shrink-0 rounded-full bg-gray-50" 
         src="https://frederic-lossignol.com/{{course.iconurl}}" alt="">  --}}
-        
+      </div>
+      <div class="flex justify-content-center items-center space-x-3 py-2 px-1">
+        <h2 class="truncate text-center text-xl font-medium text-gray-800">Sessions disponibles</h2>
+        <hr>
       </div>
     </div>
 
@@ -116,17 +127,7 @@
   </div>
 </div>
  
-</main>
+</div>
 
 
-
-<!-- PRGRAMME -->
-{{--  <section class="programme">
-  <div class="container">
-
-   
-  </div>
-</section>  --}}
-
-@include('partials/home/recontact')
 @include('partials/footer')

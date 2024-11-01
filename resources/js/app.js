@@ -6,12 +6,13 @@ import '../css/home-trustcustomers.css';
 import '../css/home-recontact.css';
 import '../css/home-space.css';
 import '../js/home.js';
+import 'unpoly/unpoly.css';
+import 'unpoly/unpoly.js';
 import.meta.glob([
     '../images/**',
     '../fonts/**',
 ]);
-import 'unpoly/unpoly.css';
-import 'unpoly/unpoly.js';
+
 console.log('Bienvenue sur Airskill, la plateforme humaine de mise en relation entre formateurs et entreprises.');
 
 

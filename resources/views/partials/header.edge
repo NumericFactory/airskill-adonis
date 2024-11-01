@@ -30,6 +30,9 @@
   @vite(['resources/js/app.js'])
 
   <style>
+    html {
+	    scroll-behavior: smooth !important;
+    }
     body {
       background: #fcfcfe;
       font-size: 17px;
@@ -55,7 +58,11 @@
     .container-video > img {
       width: 100%;
       height: auto;
-      filter:brightness(.95)
+      filter: brightness(.785);
+    }
+    .container-video:hover > img {
+      filter: brightness(0.97);
+      cursor: pointer;
     }
     .container-video > i {
       position: absolute;
@@ -67,9 +74,13 @@
       cursor: pointer;
       border-radius: 5px;
       opacity: .9;
+      font-size: 2.5rem;
+      color: #111;
+      transition-duration: .15s;
+    }
+    .container-video:hover > i {
       font-size: 3rem;
-      color: #e10651;
-      transition-duration: .3s;
+      color: #000;
     }
     .container-video > i:hover {
       color: blue;
@@ -109,3 +120,5 @@
 <body>
 
 @include('partials/home/navbar-tw')
+
+<main>

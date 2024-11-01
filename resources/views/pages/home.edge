@@ -1,14 +1,16 @@
 @include('partials/header')
 
-<main class="main">
+{{--  <div class="contentup"> (in header.edge) --}}
+
   @include('partials/home/hero')
   @include('partials/home/onboarding')
   {{--  @include('partials/home/expertises')  --}}
   @include('partials/home/space')
   @include('partials/home/founders')
-</main>
+  @include('partials/home/recontact')
 
-@include('partials/home/recontact')
+{{--  </div> (in footer.edge) --}}
+
 
 @include('partials/footer')
 

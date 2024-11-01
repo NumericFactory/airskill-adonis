@@ -4,7 +4,7 @@
          <!--LEFT SIDE -->
         <div class="flex">
           <div class="flex flex-shrink-0 items-center">
-            <a up-target=".main" style="height:27px" href="{{ route('home')}}">
+            <a up-transition="cross-fade" up-target=":main" style="height:27px" href="{{ route('home')}}">
               <picture style="translate: 0px 2px;margin-right: 30px;">
                   <source media="(min-width: 1200px)" srcset="{{ asset('resources/images/logo.png') }}">
                   <img style="filter: invert(1);opacity: .8;width: 111px;"
@@ -17,12 +17,12 @@
         <!-- RIGHT SIDE -->
         <div class="hidden lg:ml-6 lg:flex lg:items-center">
             <div class="hidden sm:ml-6 sm:flex sm:space-x-8 h-16">
-                <a href="{{ route('home')}}#comment-ca-marche" class="inline-flex text-base border-b-2 border-transparent items-center px-1 font-medium text-gray-500 hover:border-gray-400 hover:text-gray-900">Besoin d'un formateur ?</a>
-                <a href="{{ route('home')}}#expertises" class="inline-flex text-base items-center border-b-2 border-transparent px-1 font-medium text-gray-500 hover:border-gray-400 hover:text-gray-900">Expertises</a>
-                <a href="{{ route('home')}}#founders" class="inline-flex text-base items-center border-b-2 border-transparent px-1 font-medium text-gray-500 hover:border-gray-400 hover:text-gray-900">Qui sommes-nous</a>
-                <a up-target=".main" href="{{ route('courses.index')}}" class="inline-flex text-base items-center border-b-2 border-transparent px-1 font-medium text-gray-500 hover:border-gray-400 hover:text-gray-900">Nos formations entreprise</a>
+                <a up-scroll="hash or reset" up-target=":main" href="{{ route('home')}}#comment-ca-marche" class="inline-flex text-base border-b-2 border-transparent items-center px-1 font-medium text-gray-500 hover:border-gray-400 hover:text-gray-900">Besoin d'un formateur ?</a>
+                <a up-scroll="hash or reset" up-target=":main" href="{{ route('home')}}#expertises" class="inline-flex text-base items-center border-b-2 border-transparent px-1 font-medium text-gray-500 hover:border-gray-400 hover:text-gray-900">Expertises</a>
+                <a up-scroll="hash or reset" up-target=":main" href="{{ route('home')}}#founders" class="inline-flex text-base items-center border-b-2 border-transparent px-1 font-medium text-gray-500 hover:border-gray-400 hover:text-gray-900">Qui sommes-nous</a>
+                <a up-transition="cross-fade" up-target=":main" href="{{ route('courses.index')}}" class="inline-flex text-base items-center border-b-2 border-transparent px-1 font-medium text-gray-500 hover:border-gray-400 hover:text-gray-900">Nos formations entreprise</a>
                 {{--  <a href="#" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Calendar</a>  --}}
-              </div>
+            </div>
           <div class="relative ml-3">
             
             <div>
@@ -61,9 +61,9 @@
     <div class="lg:hidden" id="mobile-menu">
       <div class="space-y-1 pb-3 pt-2">
         <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" -->
-        <a href="#comment-ca-marche" class="menu-mobile-link block border-l-4 py-2 pl-3 pr-4 text-lg font-medium text-gray-700">Besoin d'un formateur ?</a>
-        <a href="#expertises" class="menu-mobile-link block border-l-4  py-2 pl-3 pr-4 text-lg font-medium text-gray-700 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">Expertises</a>
-        <a href="#founders" class="menu-mobile-link block border-l-4 py-2 pl-3 pr-4 text-lg font-medium text-gray-700 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">Qui sommes-nous</a>
+        <a href="{{ route('home')}}#comment-ca-marche" class="menu-mobile-link block border-l-4 py-2 pl-3 pr-4 text-lg font-medium text-gray-700">Besoin d'un formateur ?</a>
+        <a href="{{ route('home')}}#expertises" class="menu-mobile-link block border-l-4  py-2 pl-3 pr-4 text-lg font-medium text-gray-700 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">Expertises</a>
+        <a href="{{ route('home')}}#founders" class="menu-mobile-link block border-l-4 py-2 pl-3 pr-4 text-lg font-medium text-gray-700 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">Qui sommes-nous</a>
         <a href="{{ route('courses.index')}}" class="menu-mobile-link block border-l-4 py-2 pl-3 pr-4 text-lg font-medium text-gray-700 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">Nos formations entreprise</a>
            
       </li>
