@@ -75,7 +75,7 @@ nav {
   .container-sm,
   .container-xl,
   .container-xxl {
-    max-width: 1340px;
+    max-width: 1368px;
   }
 }
 
@@ -481,6 +481,14 @@ img {
 .customers-container img {
   width: 45%;
   object-fit: contain;
+}
+
+.course-item-formations-list {
+  transition-duration: .2s;
+}
+
+.course-item-formations-list:hover {
+  transform: scale(1.04);
 }
 
 @media screen and (max-width: 1199px) {
