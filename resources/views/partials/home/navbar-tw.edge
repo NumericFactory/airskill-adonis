@@ -15,7 +15,7 @@
         </div>
 
         <!-- RIGHT SIDE -->
-        <div class="hidden lg:ml-6 lg:flex lg:items-center">
+        <div class="hidden xl:ml-6 xl:flex xl:items-center">
             <div class="hidden sm:ml-6 sm:flex sm:space-x-8 h-16">
                 <a up-scroll="hash or reset" up-target=":main" href="{{ route('home')}}#comment-ca-marche" class="inline-flex text-base border-b-2 border-transparent items-center px-1 font-medium text-gray-500 hover:border-gray-400 hover:text-gray-900">Besoin d'un formateur ?</a>
                 <a up-scroll="hash or reset" up-target=":main" href="{{ route('home')}}#expertises" class="inline-flex text-base items-center border-b-2 border-transparent px-1 font-medium text-gray-500 hover:border-gray-400 hover:text-gray-900">Expertises</a>
@@ -30,7 +30,7 @@
             </div>
           </div>
         </div>
-        <div class="mr-2 flex items-center lg:hidden">
+        <div class="mr-2 flex items-center xl:hidden">
           <!-- Mobile menu button -->
           <button type="button" id="burger-btn" class="hamburger"
           class="relative bg-gray-200 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-300" aria-controls="mobile-menu" aria-expanded="false">
@@ -58,7 +58,7 @@
     </div>
   
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="lg:hidden" id="mobile-menu">
+    <div class="xl:hidden" id="mobile-menu">
       <div class="space-y-1 pb-3 pt-2">
         <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" -->
         <a href="{{ route('home')}}#comment-ca-marche" class="menu-mobile-link block border-l-4 py-2 pl-3 pr-4 text-lg font-medium text-gray-700">Besoin d'un formateur ?</a>
