@@ -42,7 +42,7 @@
 <div>
   {{--  <div style="max-width:calc(100% - 400px)" class="container-fluid">  --}}
     <div class="container">
-  <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-5 mx-auto">
+  <div class="grid grid-cols-1 lg:grid-cols-[63%_33%] gap-5 mx-auto">
   
     <section class="objectifs">
             <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10">
@@ -112,16 +112,20 @@
 
             <hr class="w-48 mx-auto my-4 border-0 rounded md:my-10 border-gray-800 dark:border-white">
 
+            <div class="row mt-2">
+              <div>
+                <h2 class="fs-3 font-semibold my-0 pt-0 pb-2">Modalités d'évalutation</h2>
+                <p>{{course.evaluation}}</p>
+              </div>
+            </div>
+
     </section>
 
      <!-- CARD INFO PROGRAMME FIXED-->
-     <div style="position: sticky;top: 91px; align-self: start;
-    height: calc(100vh - 190px) !important;
-    margin-top:-401px;
-    width: 100%;" class="col-span-1 rounded-xl bg-white shadow h-100">
+     <div class="col-span-1 rounded-xl bg-white shadow h-100 bloc-cta-formations-entreprises">
       <div style="min-height: 136px;
     background: #fafcff;
-    border-radius: 11px 11px 3px 3px;" class="flex flex-column w-full items-start p-2">
+    border-radius: 11px 11px 3px 3px;" class="flex flex-column w-full items-start p-3">
        <div class="container-video">
         <img class="rounded-lg" src="{{ asset('resources/images/miniatures/angular-miniature-video-4.png') }}" 
             alt="Video introduction à la Formation {{course.name}}">
@@ -152,14 +156,21 @@
         <hr>
       </div>
 
-      <div class="grid grid-cols-1 divide-y divide-gray-100 px-3 py-2">
-        <div class="py-1 flex justify-content-between"><p>du 03 au 06 Novembre 2024</p><button class="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-white/20">Nous contacter</button></div>
-        <div class="py-1 flex justify-content-between"><p>du 10 au 13 Novembre 2024</p><button class="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-white/20">Nous contacter</button></div>
-        <div class="py-1 flex justify-content-between"><p>du 17 au 20 Novembre 2024</p><button class="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-white/20">Nous contacter</button></div>
-        <div class="py-1 flex justify-content-between"><p>du 01 au 03 Décembre 2024</p><button class="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-white/20">Nous contacter</button></div>
-        <div class="py-1 flex justify-content-between"><p>du 08 au 11 Décembre 2024</p><button class="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-white/20">Nous contacter</button></div>
+      <div class="grid grid-cols-1 divide-y divide-gray-100 px-4 py-2">
+        <div class="py-1 flex justify-content-between align-items-center"><p>du 03 au 06 Novembre 2024</p><button class="rounded bg-gray-100 px-2 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300">Réserver</button></div>
+        <div class="py-1 flex justify-content-between align-items-center"><p>du 10 au 13 Novembre 2024</p><button class="rounded bg-gray-100 px-2 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300">Réserver</button></div>
+        <div class="py-1 flex justify-content-between align-items-center"><p>du 17 au 20 Novembre 2024</p><button class="rounded bg-gray-100 px-2 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300">Réserver</button></div>
+        <div class="py-1 flex justify-content-between align-items-center"><p>du 01 au 03 Décembre 2024</p><button class="rounded bg-gray-100 px-2 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300">Réserver</button></div>
+        <div class="py-1 flex justify-content-between align-items-center"><p>du 08 au 11 Décembre 2024</p><button class="rounded bg-gray-100 px-2 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300">Réserver</button></div>
       </div>
+
+
+      <div class="flex justify-content-center items-center space-x-3 pt-4 px-3">
+        <button class="btn w-100 text-slate-50 text-lg bg-gray-900 hover:text-slate-100 hover:bg-gray-700">Contactez-nous</button>
+      </div>
+
     </div>
+
 
   </div>
   </div>
