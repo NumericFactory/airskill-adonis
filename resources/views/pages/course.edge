@@ -54,7 +54,7 @@
                 @endif
                 <ul>
                 @each((goal, index) in goals)
-                  <li>{{goal}}</li>
+                  <li class="item">{{goal}}</li>
                 @end
                 </ul>
               </div>
@@ -152,7 +152,7 @@
         src="https://frederic-lossignol.com/{{course.iconurl}}" alt="">  --}}
       </div>
       <div class="flex justify-content-center items-center space-x-3 py-2 px-1">
-        <h2 class="truncate text-center text-xl font-medium text-gray-800">Sessions disponibles</h2>
+        <h2 class="truncate text-center text-xl font-medium text-gray-800">Sessions disponibles <small>en présenciel ou distanciel</small></h2>
         <hr>
       </div>
 
@@ -176,11 +176,11 @@
 
 
       <div class="flex justify-content-center items-center space-x-3 pt-4 px-3">
-        <button class="btn w-100 text-slate-50 text-lg bg-gray-900 hover:text-slate-100 hover:bg-gray-700">Demander des informations</button>
+        <button class="btn w-100 text-slate-50 text-lg bg-gray-900 hover:text-slate-100 hover:bg-gray-700">Demander + d'information</button>
       </div>
 
       <div class="flex justify-content-center items-center space-x-3 pt-1 pb-4 px-3">
-        <button class="btn w-100 text-blue-900 text-md bg-blue-100 hover:text-slate-100 hover:bg-blue-500">Télécharger un extrait video offert</button>
+        <button style="background: rgb(200 65 72);" class="btn w-100 text-gray-50 text-md bg-blue-100 hover:text-slate-100 hover:bg-blue-500">Télécharger un extrait video offert</button>
       </div>
 
     </div>

@@ -47,9 +47,41 @@
     }
     section.programme h2, section.objectifs h2 {
       padding: 12px 0;
+      position: relative;
+      display: inline-block;
+    }
+    section.objectifs h2::after {
+      content: '';
+      height: 10px;
+      background: #7a8dbb4d;
+      position: absolute;
+      top: 23px;
+      left: 0;
+      z-index: -1;
+      width: calc(100% + 9px);
+      border-radius: 20px;
     }
     section.objectifs li {
-      list-style: inside;
+      list-style: none;
+      font-size: 1.04rem;
+      line-height: 24px;
+      margin-bottom: 0px;
+      margin-top: 11px;
+
+    }
+    section.objectifs li.item {
+      margin-left: 30px;
+      position: relative;
+    }
+    section.objectifs li.item::before {
+      content: "\F133";
+      font-family: bootstrap-icons;
+      font-style: normal;
+      color: #111827;
+      position: absolute;
+      left: -30px;
+      top: 1px;
+      font-size: x-large;
     }
     .container-video {
     position: relative;
