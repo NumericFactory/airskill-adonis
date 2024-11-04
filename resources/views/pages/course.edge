@@ -125,39 +125,29 @@
      <div class="col-span-1 rounded-xl bg-white shadow h-100 bloc-cta-formations-entreprises">
       <div style="min-height: 136px;
     background: #fafcff;
-    border-radius: 11px 11px 3px 3px;" class="flex flex-column w-full items-start p-3">
+    border-radius: 11px 11px 3px 3px;" class="flex flex-column w-full items-start p-3 sm:p-1">
        <div class="container-video">
         <img class="rounded-lg" src="{{ asset('resources/images/miniatures/angular-miniature-video-4.png') }}" 
             alt="Video introduction à la Formation {{course.name}}">
         <i class="bi bi-play-circle-fill"></i>
       </div>
-     
-      
-
-        {{--  <div class="flex-1 truncate">
-          <div class="flex items-center space-x-3">
-            <h2 class="truncate text-2xl font-bold text-gray-800">1500€ / apprenant</h2>
-          </div>
-          <h3 class="mt-1 fs-5 text-gray-700 text-wrap">
-            Sessions disponibles
-          </h3>
-          @if(course.duration)
-          <p style="position:absolute;bottom:10px;" class="fs-5">{{course.duration}} jours</p>
-          @end
-           <p class="mt-3 text-sm text-gray-500">
-            {{course.goal}}
-          </p>
-        </div>  --}}
-        {{--  <img class="h-10 w-10 flex-shrink-0 rounded-full bg-gray-50" 
-        src="https://frederic-lossignol.com/{{course.iconurl}}" alt="">  --}}
+       
       </div>
       <div class="flex justify-content-center items-center space-x-3 py-2 px-1">
-        <h2 class="truncate text-center text-xl font-medium text-gray-800">Sessions disponibles <small>en présenciel ou distanciel</small></h2>
+        <div>
+          <p><small>INTRA/INTER présenciel ou distanciel</small></p>
+          <h2 class="truncate text-center text-xl font-medium text-gray-800">Sessions disponibles</h2>
+        </div>
         <hr>
       </div>
 
-      <div class="grid grid-cols-1 divide-y divide-gray-100 px-4 py-2">
+      <div style="overflow: auto;height: 197px;box-shadow:rgb(207, 218, 227) -1.8px -0.8px 3px 0px inset, rgb(255, 255, 255) 3.2px -3.2px 8px 0px inset" class="grid grid-cols-1 divide-y divide-gray-100 px-4 py-2">
+        @each((date, index) in calendar)
         <div class="py-1 flex justify-content-between align-items-center hover:bg-gray-50 px-2">
+          <p>{{date.phrase}} {{date.endOfWeek.getFullYear()}}</p><button class="rounded bg-gray-100 px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300">Réserver</button>
+        </div>
+        @end
+        {{--  <div class="py-1 flex justify-content-between align-items-center hover:bg-gray-50 px-2">
           <p>du 03 au 06 Novembre 2024</p><button class="rounded bg-gray-100 px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300">Réserver</button>
         </div>
         <div class="py-1 flex justify-content-between align-items-center hover:bg-gray-50 px-2">
@@ -171,16 +161,16 @@
         </div>
         <div class="py-1 flex justify-content-between align-items-center hover:bg-gray-50 px-2">
           <p>du 08 au 11 Décembre 2024</p><button class="rounded bg-gray-100 px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300">Réserver</button>
-        </div>
+        </div>  --}}
       </div>
 
 
       <div class="flex justify-content-center items-center space-x-3 pt-4 px-3">
-        <button class="btn w-100 text-slate-50 text-lg bg-gray-900 hover:text-slate-100 hover:bg-gray-700">Demander + d'information</button>
+        <button class="btn w-100 text-slate-50 text-lg bg-gray-900 hover:text-slate-100 hover:bg-gray-800">Demander + d'information</button>
       </div>
 
       <div class="flex justify-content-center items-center space-x-3 pt-1 pb-4 px-3">
-        <button style="background: rgb(200 65 72);" class="btn w-100 text-gray-50 text-md bg-blue-100 hover:text-slate-100 hover:bg-blue-500">Télécharger un extrait video offert</button>
+        <button class="btn w-100 text-blue-100 text-md bg-blue-800 hover:text-slate-100 hover:bg-blue-700">Télécharger un extrait video offert</button>
       </div>
 
     </div>
