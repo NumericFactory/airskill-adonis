@@ -86,12 +86,17 @@
                 <h2 class="fs-3 font-semibold my-1 pt-0 pb-2">Programme</h2>
                 <ul class="programme">
                     @each((module, index) in course.modules)
-                        <li class="p-2 bg-gray-100 my-2 rounded-md">
+                        <li class="p-2 bg-gray-100 my-3 rounded-md">
                           <div class="flex flex-column">
-                            <span class="text-xs font-bold">PARTIE {{index+1}}</span>
-                            <span>{{module.name}}</span>
+                            <span class="text-xs font-bold text-blue-700">PARTIE {{index+1}}</span>
+                            <span class="text-xl">{{module.name}}</span>
                           </div>
                         </li>
+                        <ul class="lessons">
+                          @each((course, index) in module.lessons)
+                          <li>{{course.name}}</li>
+                          @end
+                        </ul>
                     @end
                 </ul>
               </div>
@@ -141,7 +146,7 @@
         <hr>
       </div>
 
-      <div style="overflow: auto;height: 197px;box-shadow:rgb(207, 218, 227) -1.8px -0.8px 3px 0px inset, rgb(255, 255, 255) 3.2px -3.2px 8px 0px inset" class="grid grid-cols-1 divide-y divide-gray-100 px-4 py-2">
+      <div style="overflow: auto;height: 231px;box-shadow:rgb(207, 218, 227) -1.8px -0.8px 3px 0px inset, rgb(255, 255, 255) 3.2px -3.2px 8px 0px inset" class="grid grid-cols-1 divide-y divide-gray-100 px-4 py-2">
         @each((date, index) in calendar)
         <div class="py-1 flex justify-content-between align-items-center hover:bg-gray-50 px-2">
           <p>{{date.phrase}} {{date.endOfWeek.getFullYear()}}</p><button class="rounded bg-gray-100 px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300">Réserver</button>
@@ -166,12 +171,12 @@
 
 
       <div class="flex justify-content-center items-center space-x-3 pt-4 px-3">
-        <button class="btn w-100 text-slate-50 text-lg bg-gray-900 hover:text-slate-100 hover:bg-gray-800">Demander + d'information</button>
+        <button class="btn w-100 text-slate-50 text-sm bg-gray-900 hover:text-slate-100 hover:bg-gray-800">Nous contacter</button>
+        <button class="btn w-100 text-blue-100 text-sm bg-blue-800 hover:text-slate-100 hover:bg-blue-700">Télécharger un extrait video</button>
       </div>
 
-      <div class="flex justify-content-center items-center space-x-3 pt-1 pb-4 px-3">
-        <button class="btn w-100 text-blue-100 text-md bg-blue-800 hover:text-slate-100 hover:bg-blue-700">Télécharger un extrait video offert</button>
-      </div>
+      {{--  <div class="flex justify-content-center items-center space-x-3 pt-1 pb-4 px-3">
+      </div>  --}}
 
     </div>
 
