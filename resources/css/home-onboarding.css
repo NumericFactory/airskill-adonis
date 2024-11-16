@@ -163,15 +163,14 @@ section.process-hire {
 
 /** Onbording Switch BUTTONS **/
 .switch-button {
-    background: rgb(229 230 232);
+    background: rgb(133 144 162);
     border-radius: 30px;
     overflow: hidden;
     width: 280px;
     text-align: center;
     font-size: 0.9rem;
     letter-spacing: 0.1px;
-    color: #111;
-    position: relative;
+    color: #fff;
     padding-right: 140px;
     position: relative;
     font-weight: 600;
@@ -214,7 +213,7 @@ section.process-hire {
 
 .switch-button-checkbox+.switch-button-label:before {
     content: "";
-    background: #bcd8ff;
+    background: rgb(23 52 96);
     height: 100%;
     width: 100%;
     position: absolute;

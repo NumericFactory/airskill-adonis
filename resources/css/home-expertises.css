@@ -5,8 +5,12 @@ section.expertises {
     position: relative;
 }
 
-section.expertises h2 {
-    color: aliceblue;
+section#expertises h2 {
+    color: aliceblue !important;
+}
+
+section#expertises h3 {
+    color: rgb(197, 211, 223) !important;
 }
 
 /* img {

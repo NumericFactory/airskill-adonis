@@ -54,14 +54,14 @@ nav a {
 }
 
 nav a.active {
-    color: rgb(17 24 39);
+    color: rgb(0 31 68);
     border-bottom-width: 3px;
-    border-bottom-color: rgb(37 99 235);
+    border-bottom-color: rgb(233 30 99);
 
     &:hover {
-        color: rgb(17 24 39);
+        color: rgb(0 31 68);
         border-bottom-width: 3px;
-        border-bottom-color: rgb(37 99 235);
+        border-bottom-color: rgb(233 30 99);
     }
 }
 
