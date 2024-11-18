@@ -13,7 +13,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-5 max-w-7xl"> 
       <!-- header left -->
       <div style="position:relative">
-        <h1 style="color:#fff !important;" class="fs-1 my-1 font-bold">Formation {{course.name}}</h1>
+        <h1 style="color:#fff !important;" class="super-title my-1 font-bold">Formation {{course.name}}</h1>
         <p class="fs-5 mb-5">{{course.subtitle}}</p>
 
         <div style="width:100%" class="grid grid-cols-1 lg:grid-cols-1 gap-2">
@@ -146,28 +146,13 @@
         <hr>
       </div>
 
-      <div style="overflow: auto;height: 231px;box-shadow:rgb(207, 218, 227) -1.8px -0.8px 3px 0px inset, rgb(255, 255, 255) 3.2px -3.2px 8px 0px inset" class="grid grid-cols-1 divide-y divide-gray-100 px-4 py-2">
+      {{--  <div style="overflow: auto;height: 231px;box-shadow:rgb(207, 218, 227) -1.8px -0.8px 3px 0px inset, rgb(255, 255, 255) 3.2px -3.2px 8px 0px inset" class="grid grid-cols-1 divide-y divide-gray-100 px-4 py-2">
         @each((date, index) in calendar)
         <div class="py-1 flex justify-content-between align-items-center hover:bg-gray-50 px-2">
           <p>{{date.phrase}} {{date.endOfWeek.getFullYear()}}</p><button class="rounded bg-gray-100 px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300">Réserver</button>
         </div>
-        @end
-        {{--  <div class="py-1 flex justify-content-between align-items-center hover:bg-gray-50 px-2">
-          <p>du 03 au 06 Novembre 2024</p><button class="rounded bg-gray-100 px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300">Réserver</button>
-        </div>
-        <div class="py-1 flex justify-content-between align-items-center hover:bg-gray-50 px-2">
-          <p>du 10 au 13 Novembre 2024</p><button class="rounded bg-gray-100 px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300">Réserver</button>
-        </div>
-        <div class="py-1 flex justify-content-between align-items-center hover:bg-gray-50 px-2">
-          <p>du 17 au 20 Novembre 2024</p><button class="rounded bg-gray-100 px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300">Réserver</button>
-        </div>
-        <div class="py-1 flex justify-content-between align-items-center hover:bg-gray-50 px-2">
-          <p>du 01 au 03 Décembre 2024</p><button class="rounded bg-gray-100 px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300">Réserver</button>
-        </div>
-        <div class="py-1 flex justify-content-between align-items-center hover:bg-gray-50 px-2">
-          <p>du 08 au 11 Décembre 2024</p><button class="rounded bg-gray-100 px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300">Réserver</button>
-        </div>  --}}
-      </div>
+        @end 
+      </div>  --}}
 
 
       <div class="flex justify-content-center items-center space-x-3 pt-4 px-3">
