@@ -1,7 +1,8 @@
 /* PARTIAL HOME/ONBOARDING 
 --------------------------------- */
 section.process-hire {
-    padding: 50px 16px 50px 16px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     background: #faf9f9 !important;
 
     /* h2 {
@@ -242,7 +243,8 @@ section.process-hire {
 
 @media (max-width: 768px) {
     section.process-hire {
-        padding: 0px 8px 0px 8px;
+        padding-top: 30px;
+        padding-bottom: 30px;
     }
 
     .onboarding-container {

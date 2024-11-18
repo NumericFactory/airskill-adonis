@@ -80,6 +80,10 @@ nav {
   .container-xxl {
     max-width: 1368px;
   }
+
+  .fs-2.super-title {
+    font-size: calc(1.975rem + .9vw) !important;
+  }
 }
 
 h1,
@@ -95,6 +99,14 @@ fs-4,
 fs-5,
 fs-6 {
   color: #001f44 !important;
+}
+
+.fs-2 {
+  font-size: calc(1.975rem + .9vw) !important;
+}
+
+.super-title {
+  font-size: calc(2.575rem + .9vw) !important
 }
 
 section h2 {
@@ -558,7 +570,7 @@ img {
   }
 
   section {
-    padding: 40px 12px;
+    padding: 30px 0px;
   }
 
   .cta-wrapper {
