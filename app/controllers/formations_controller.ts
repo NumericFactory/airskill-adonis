@@ -5,11 +5,14 @@ export default class FormationsController {
     public async index({ view }: HttpContext) {
         const categories: any = await this.fetchCourseCategories();
         const result: any = await this.fetchCourses();
-        const courses = result.courses.map((course: any) => {
-            course.slug = course.name.toLowerCase().replaceAll(' ', '-');
-            console.log(course.slug)
-            return course;
-        })
+
+        const courses = result.courses
+            .filter((course: any) => course.online)
+            .map((course: any) => {
+                course.slug = course.name.toLowerCase().replaceAll(' ', '-');
+                console.log(course.slug)
+                return course;
+            })
 
         return view.render('pages/courses', { categories: categories.categories, courses: courses })
     }

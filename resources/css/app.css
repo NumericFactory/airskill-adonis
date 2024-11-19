@@ -535,7 +535,17 @@ img {
 
 .course-item-formations-list:hover {
   transform: scale(1.04);
+  background: #d7dadf;
 }
+
+.course-item-formations-list img.icon-skill-img {
+  transition-duration: .2s;
+}
+
+.course-item-formations-list:hover img.icon-skill-img {
+  transform: scale(1.3) translateY(-5px);
+}
+
 
 @media screen and (max-width: 1199px) {
   div.parent-cards {
