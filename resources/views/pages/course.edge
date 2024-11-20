@@ -46,7 +46,7 @@
   
     <section class="objectifs">
             <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10">
-            <div class="row mt-2 bg-zinc-100 p-3">
+            <div style="background:rgb(245 241 239)" class="row mt-2 p-3">
               <div>
                 <h2 class="fs-3 font-semibold my-0 pt-0 pb-2">Objectifs de la formation</h2>
                 @if(goalsTitle) 
@@ -86,10 +86,10 @@
                 <h2 class="fs-3 font-semibold my-1 pt-0 pb-2">Programme</h2>
                 <ul class="programme">
                     @each((module, index) in course.modules)
-                        <li class="p-2 bg-zinc-200 my-3 rounded-md">
+                        <li style="background:rgb(245 241 239)" class="p-2 my-3 rounded-md">
                           <div class="flex flex-column">
-                            <span class="text-md font-bold">PARTIE {{index+1}}</span>
-                            <span class="text-xl">{{module.name}}</span>
+                            <span class="text-md font-bold opacity-50">PARTIE {{index+1}}</span>
+                            <span style="font-size: 1.025rem;line-height: 1.75rem;font-weight: 600;">{{module.name}}</span>
                           </div>
                         </li>
                         <ul class="lessons">
@@ -109,7 +109,9 @@
               <div>
                 <h2 class="fs-3 font-semibold my-0 pt-0 pb-2">Modalités pratiques</h2>
                 <p><strong>Travaux pratiques</strong><br>
-                  Création d'une application fil rouge avec les derniers standards : standalone components, l'API Signal pour gérer la réactivité, la syntaxe de control flow.</p>
+                  Création d'une application fil rouge avec les derniers standards : standalone components, l'API Signal pour gérer la réactivité, la syntaxe de control flow.
+                </p>
+                <br>
                 <p><strong>Méthodes pédagogiques</strong><br>
                   Chaque nouveau concept théorique sera appliqué immédiatement de façon pratique.</p>
               </div>
