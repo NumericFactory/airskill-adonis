@@ -120,7 +120,7 @@ div.parent-cards {
 }
 
 div.card.card-hero {
-  background: #001f44;
+  background: #111827;
   border: 1px solid #8088a0;
   width: 225px;
   height: 340px;
@@ -161,12 +161,12 @@ div.card.card-hero:last-child {
   transform-origin: left;
   transform: rotate(10deg) translateY(10px);
   z-index: 0;
-  background: #001f44;
+  background: #111827;
 }
 
 div.card.card-hero:last-child:hover {
   transform: rotate(8deg) translateY(3px);
-  background-color: #004aa7;
+  background-color: #003f8c;
 }
 
 div.card.card-hero .img {
@@ -181,6 +181,12 @@ div.card.card-hero .img img {
   left: 0;
   z-index: 0;
   position: relative;
+  filter: grayscale(1);
+  transition-duration: .2s;
+}
+
+div.card.card-hero:hover .img img {
+  filter: grayscale(0);
 }
 
 
@@ -198,12 +204,12 @@ div.card.card-hero .img .circle {
 div.card.card-hero:first-child .img .circle {
   background: #d55cff73;
   top: 5px;
-  left: 9px;
+  left: 4px;
 }
 
 div.card.card-hero:last-child .img .circle {
-  background: #9bc3ff;
-  top: 3px;
+  background: #3375d7;
+  top: 6px;
   left: -2px;
 }
 
@@ -211,10 +217,12 @@ div.card.card-hero h2 {
   text-align: center;
   color: var(--light);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 17px;
+  font-size: 16.5px;
   margin: 0;
-  padding: 12px;
-  letter-spacing: 0.5px;
+  padding: 8px;
+  letter-spacing: 1px;
+  padding-top: 24px;
+  font-weight: 500;
 }
 
 section.founders {
