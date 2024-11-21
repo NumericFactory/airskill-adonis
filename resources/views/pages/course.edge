@@ -48,7 +48,7 @@
             <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10">
             <div style="background:rgb(239 238 238)" class="row mt-2 p-3">
               <div>
-                <h2 class="fs-3 font-semibold my-0 pt-0 pb-2">Objectifs de la formation</h2>
+                <h2 class="fs-3 font-bold my-0 pt-0 pb-2">Objectifs de la formation</h2>
                 @if(goalsTitle) 
                   <p class="my-2"><strong>{{goalsTitle}}</strong></p>
                 @endif
@@ -64,7 +64,7 @@
 
             <div class="row mt-2">
               <div>
-                <h2 class="fs-3 font-semibold my-0 pt-0 pb-2">Public concerné</h2>
+                <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Public concerné</h2>
                 <p>{{course.public}}</p>
               </div>
             </div>
@@ -73,7 +73,7 @@
 
             <div class="row mt-2">
               <div>
-                <h2 class="fs-3 font-semibold my-0 pt-0 pb-2">Niveau requis</h2>
+                <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Niveau requis</h2>
                 <p>{{course.requiredlevel}}</p>
               </div>
             </div>
@@ -83,7 +83,7 @@
             <div class="row mt-2">
               <!-- programme -->
               <div>
-                <h2 class="fs-3 font-semibold my-1 pt-0 pb-2">Programme</h2>
+                <h2 class="fs-4 font-bold my-1 pt-0 pb-1">Programme</h2>
                 <ul class="programme">
                     @each((module, index) in course.modules)
                         <li style="background:rgb(147 150 161 / 16%)" class="p-2 p-md-3 my-3 rounded-md">
@@ -107,7 +107,7 @@
 
             <div class="row mt-2">
               <div>
-                <h2 class="fs-3 font-semibold my-0 pt-0 pb-2">Modalités pratiques</h2>
+                <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Modalités pratiques</h2>
                 <p><strong>Travaux pratiques</strong><br>
                   Création d'une application fil rouge avec les derniers standards : standalone components, l'API Signal pour gérer la réactivité, la syntaxe de control flow.
                 </p>
@@ -121,7 +121,7 @@
 
             <div class="row mt-2">
               <div>
-                <h2 class="fs-3 font-semibold my-0 pt-0 pb-2">Modalités d'évalutation</h2>
+                <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Modalités d'évalutation</h2>
                 <p>{{course.evaluation}}</p>
               </div>
             </div>
