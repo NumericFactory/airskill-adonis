@@ -83,16 +83,16 @@
             <div class="row mt-2">
               <!-- programme -->
               <div>
-                <h2 class="fs-4 font-bold my-1 pt-0 pb-1">Programme</h2>
-                <ul class="programme">
+                <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Programme</h2>
+                <ul style="background: #f9f9fc" class="programme">
                     @each((module, index) in course.modules)
-                        <li style="background:rgb(147 150 161 / 16%)" class="p-2 p-md-3 my-3 rounded-md">
+                        <li style="background:rgb(147 150 161 / 16%)" class="p-2 p-md-3 my-3">
                           <div class="flex flex-column">
                             <span class="text-md font-bold opacity-50">PARTIE {{index+1}}</span>
                             <span style="font-size: 1.025rem;line-height: 1.75rem;font-weight: 600;">{{module.name}}</span>
                           </div>
                         </li>
-                        <ul class="lessons">
+                        <ul class="lessons pb-3 pe-3">
                           @each((course, index) in module.lessons)
                           <li>{{course.name}}</li>
                           @end
@@ -129,7 +129,7 @@
     </section>
 
      <!-- CARD INFO PROGRAMME FIXED-->
-     <div class="col-span-1 rounded-xl bg-white shadow-sm border-1 h-100 bloc-cta-formations-entreprises">
+     <div class="col-span-1 rounded-xl bg-white border-1 h-100 bloc-cta-formations-entreprises">
       <div style="min-height: 136px;
     background: #fafcff;
     border-radius: 11px 11px 3px 3px;" class="flex flex-column w-full items-start p-3 sm:p-1">
