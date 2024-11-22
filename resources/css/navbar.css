@@ -53,7 +53,7 @@ nav a {
     transition-duration: .2s;
 }
 
-nav a.active {
+nav.main-nav a.active {
     color: rgb(0 31 68);
     border-bottom-width: 3px;
     border-bottom-color: #0d213a;
