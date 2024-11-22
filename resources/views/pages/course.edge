@@ -39,14 +39,16 @@
 </div>
 </header>
 
-<div style="background: #fdfeff">
+<div style="background: #f9fafb;
+    padding-top: 0px;
+    padding-bottom: 76px;">
   {{--  <div style="max-width:calc(100% - 400px)" class="container-fluid">  --}}
     <div class="container">
   <div class="grid grid-cols-1 lg:grid-cols-[65%_31%] gap-5 mx-auto">
   
-    <section class="objectifs">
+    <section class="objectifs order-1 order-md-0">
             <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10">
-            <div style="background:rgb(239 238 238)" class="row mt-2 p-3">
+            <div style="    background: rgb(239 238 238);margin: 0;border-radius: 8px;" class="row mt-2 p-3">
               <div>
                 <h2 class="fs-3 font-bold my-0 pt-0 pb-2">Objectifs de la formation</h2>
                 @if(goalsTitle) 
@@ -142,17 +144,7 @@
   
     <!-- TABS -->
     <div>
-      <div class="sm:hidden">
-        <label for="tabs" class="sr-only">Select a tab</label>
-        <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
-        <select id="tabs" name="tabs" class="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500">
-          <option selected>Inter</option>
-          <option>Intra</option>
-          <option>Sur mesure</option>
-          <option>Billing</option>
-        </select>
-      </div>
-      <div class="hidden sm:block" style="">
+      <div>
         <nav class="isolate flex divide-x divide-gray-200 rounded-lg shadow" aria-label="Tabs" style="max-height:45px">
           <!-- Current: "text-gray-900", Default: "text-gray-500 hover:text-gray-700" -->
           <a href="#" class="group relative min-w-0 flex-1 overflow-hidden rounded-l-lg bg-white px-2 py-2 text-center text-md font-medium text-gray-900 hover:bg-gray-50 focus:z-10" aria-current="page">
