@@ -136,7 +136,8 @@
     background: transparent;
     border-radius: 11px 11px 3px 3px;" class="flex flex-column w-full items-start p-0 sm:p-1">
        <div class="container-video">
-        <img style="border-radius:8px 8px 0 0" src="{{ asset('resources/images/miniatures/angular-miniature-video-6.jpg') }}" 
+        <img style="border-radius:8px 8px 0 0" 
+        src="{{ asset('resources/images/miniatures/angular-miniature-video-7.png') }}" 
             alt="Video introduction à la Formation {{course.name}}">
         <i class="bi bi-play-circle-fill"></i>
       </div>
@@ -173,14 +174,21 @@
         @end 
       </div>  --}}
 
-      <div class="px-5 py-3">
+      <div class="px-5 py-4">
         <p>Cours pratique en présentiel ou en classe à distance</p>
       </div>
 
       <hr>
 
-      <div class="px-4 py-3 d-flex justify-content-between">
-        <span></span>
+      <div class="px-5 py-3 d-flex justify-content-between align-items-baseline">
+        <span>
+            <p style="line-height: 22px" class="text-center">
+              <i style="color: #aaa" class="bi bi-alarm mr-2"></i> 
+              <strong>4 jours</strong><br>
+              <small style="padding-left: 20px">(28 heures)</small>
+
+              </p>
+        </span>
         <span class="text-lg">
           <div class="flex flex-column">
             <strong>Prix : 1980 € H.T</strong>
@@ -192,8 +200,8 @@
 
 
 
-      <div class="flex justify-content-center items-center space-x-3 pt-4 px-4">
-        <button style="background:#001f44" class="btn w-100 text-white text-md fw-medium bg-blue-800 hover:bg-blue-700">
+      <div class="flex justify-content-center items-center space-x-3 pt-4 px-4 px-md-5">
+        <button style="background:#001f44" class="btn w-100 py-3 text-white text-md fw-medium bg-blue-800 hover:bg-blue-700">
          <span style="position:relative" class="d-flex align-center justify-center p-relative">
            <span>Dates, lieux et inscription</span>
            <svg style="position: absolute;right:3px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#e91e63" class="size-6">
@@ -206,7 +214,7 @@
         {{--  <button class="btn w-100 text-blue-100 text-md bg-fuchsia-800 hover:text-slate-100 hover:bg-fuchsia-700">Télécharger la vidéo</button>  --}}
       </div>
 
-      <div class="flex justify-content-center items-center space-x-3 pt-1 pb-4 px-3">
+      <div class="flex justify-content-center items-center space-x-3 pt-3 pb-4 px-3">
         <a class="underline" href="#">Nous contacter</a>
       </div>
 
