@@ -132,18 +132,21 @@
 
      <!-- CARD INFO PROGRAMME FIXED-->
      <div style="border-radius: 8px" class="col-span-1 border-1 h-100 bloc-cta-formations-entreprises">
-      <div style="min-height: 136px;
-    background: transparent;
-    border-radius: 11px 11px 3px 3px;" class="flex flex-column w-full items-start p-0 sm:p-1">
+      
+      <!-- 1- VIDEO -->
+      <div style="min-height: 136px;background: transparent;border-radius: 11px 11px 3px 3px;" class="flex flex-column w-full items-start p-0 sm:p-1">
        <div class="container-video">
         <img style="border-radius:8px 8px 0 0" 
         src="{{ asset('resources/images/miniatures/angular-miniature-video-7.png') }}" 
             alt="Video introduction à la Formation {{course.name}}">
         <i class="bi bi-play-circle-fill"></i>
       </div>
+      
+      <video preload="metadata" controls style="display:none;width:100%; border-radius:9px 9px 0 0" src="{{asset('resources/videos/formation-tech-entreprises/front-end/formation-angular.mp4')}}"></video>
     </div>
+
   
-    <!-- TABS -->
+    <!-- 2- TABS -->
     <div>
       <div>
         <nav class="isolate flex divide-x divide-gray-200 rounded-lg shadow" aria-label="Tabs" style="max-height:45px">
@@ -229,3 +232,7 @@
 
 @include('partials/home/recontact')
 @include('partials/footer')
+
+@section('scripts')
+<script src="{{asset('resources/js/course.js')}}"></script>
+@endsection

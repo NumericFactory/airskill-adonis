@@ -7,7 +7,7 @@ export default class PostsController {
 
     public async index({ view }: HttpContext) {
         const posts = await Post.query().preload('user')
-        console.log(posts)
+        //console.log(posts)
         return view.render('pages/blog', { posts })
     }
 

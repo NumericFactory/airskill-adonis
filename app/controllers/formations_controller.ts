@@ -10,7 +10,6 @@ export default class FormationsController {
             .filter((course: any) => course.online)
             .map((course: any) => {
                 course.slug = course.name.toLowerCase().replaceAll(' ', '-');
-                console.log(course.slug)
                 return course;
             })
 
@@ -33,7 +32,6 @@ export default class FormationsController {
 
     public async show({ view, request }: HttpContext) {
         const courseName = request.param('name').replaceAll('-', ' ');
-        console.log('COURSENAME : ', courseName)
         const ask: any = await this.fetchCourses();
         const courseId = ask.courses.find((course: any) => course.name.toLowerCase() === courseName.toLowerCase()).id
         const result: any = await this.fetchCourse(courseId);
@@ -126,7 +124,7 @@ export default class FormationsController {
     private isHoliday(date: Date, holidays: Date[]) {
         let d = date.setHours(0, 0, 0, 0);
         return holidays.some(holiday => {
-            console.log(holiday.getTime() === new Date(d).getTime())
+            //console.log(holiday.getTime() === new Date(d).getTime())
             return holiday.getTime() === new Date(d).getTime()
         });
     }

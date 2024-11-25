@@ -39,8 +39,9 @@
                 @each(course in courses)
                
                 <li style="position: relative" class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white border-1 h-100 course-item-formations-list">
-                  <a up-preload="hover" up-target=":main"  up-transition="cross-fade" href="{{ route('courses.show', [course.slug, course.id]) }}">
-                  <div style="min-height:221px" class="flex w-full items-start justify-between space-x-6 p-6">
+                  {{--  <a up-preload="hover" up-target=":main"  up-transition="cross-fade" href="{{ route('courses.show', [course.slug, course.id]) }}">  --}}
+                    <a href="{{ route('courses.show', [course.slug, course.id]) }}">
+                    <div style="min-height:221px" class="flex w-full items-start justify-between space-x-6 p-6">
                     <div class="flex-1 truncate">
                       <div class="flex items-center space-x-3">
                         <h2 class="truncate text-3xl font-medium text-gray-900">{{course.name}}</h2>
