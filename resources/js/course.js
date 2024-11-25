@@ -11,9 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const videoElt = document.querySelector('video');
     console.log(videoElt)
 
-
-
-
     playBtn.addEventListener('click', function (ev) {
         imageElt.style.display = 'none';
         videoElt.style.display = 'block';
