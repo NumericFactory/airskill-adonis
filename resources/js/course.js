@@ -27,4 +27,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-//export default {};  // to avoid error in console
+export default {};  // to avoid error in console
