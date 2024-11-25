@@ -6,7 +6,7 @@ import '../css/home-trustcustomers.css';
 import '../css/home-recontact.css';
 import '../css/home-space.css';
 import '../js/home.js';
-// import '../js/course.js';
+import '../js/course.js';
 import 'unpoly/unpoly.css';
 import 'unpoly/unpoly.js';
 import.meta.glob([
