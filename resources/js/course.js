@@ -29,6 +29,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     for (let module of modules) {
         module.addEventListener('click', function () {
+            for (let module of modules) {
+                module.classList.remove('active');
+                module.querySelector('i').classList.remove('bi-dash');
+                module.querySelector('i').classList.add('bi-plus');
+                module.querySelector('i').style.color = '#b4b4b4';
+            }
             let el = this;
             let panel = this.nextElementSibling;
             if (panel.style.maxHeight) {
@@ -39,6 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(function () { el.style.background = 'rgb(147 150 161 / 16%)'; }, 1000)
                 panel.style.maxHeight = null;
             } else {
+                for (let allLessons of lessons) {
+                    allLessons.style.maxHeight = null;
+                }
                 this.classList.add('active');
                 this.querySelector('i').classList.remove('bi-plus');
                 this.querySelector('i').classList.add('bi-dash');
