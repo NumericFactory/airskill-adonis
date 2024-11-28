@@ -23,6 +23,9 @@
           <div>
             <p class="fs-5 font-bold"><i style="color: #ffffff6e" class="bi bi-alarm mr-3"></i> {{course.duration}} jours ({{course.duration*7}} heures)</p>
           </div>
+          <div>
+            <p class="fs-5 font-bold"><i style="color: #ffffff6e" class="bi bi-people mr-3"></i> +700 apprenants</p>
+          </div>
         </div>
       </div>
       <!-- header right -->
@@ -48,7 +51,7 @@
   
     <section class="objectifs order-1 order-md-0">
             <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10">
-            <div style="    background: rgb(239 238 238);margin: 0;border-radius: 8px;" class="row mt-2 p-3">
+            <div style="background: rgb(255 255 255);border:1px solid #001f44;margin: 0;border-radius: 8px;" class="row mt-2 p-3">
               <div>
                 <h2 class="fs-3 font-bold my-0 pt-0 pb-2">Objectifs de la formation</h2>
                 @if(goalsTitle) 
@@ -88,12 +91,12 @@
                 <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Programme</h2>
                 <ul style="background: #f9f9fc" class="programme prevent-select">
                     @each((module, index) in course.modules)
-                        <li style="background:rgb(147 150 161 / 16%)" class="p-2 p-md-3 my-0 module relative">
+                        <li style="background:rgb(147 150 161 / 16%); border:1px solid transparent" class="p-2 p-md-3 my-0 module relative">
                           <div class="flex flex-column ">
                             <span class="text-md font-bold opacity-50">PARTIE {{index+1}}</span>
                             <span style="font-size: 1.025rem;line-height: 1.35rem;font-weight: 600;max-width: 85%;">{{module.name}}</span>
                           </div>
-                          <i style="right: 10px;top:calc(50% - 24px); font-size:48px; color:#b4b4b4;" class="bi bi-plus absolute"></i>
+                          <i style="right: 10px;top:calc(50% - 24px); font-size:48px" class="bi bi-plus absolute"></i>
                         </li>
                         <ul class="lessons pb-3 pe-3">
                           @each((course, index) in module.lessons)
@@ -111,11 +114,11 @@
             <div class="row mt-2">
               <div>
                 <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Modalités pratiques</h2>
-                <p><strong>Travaux pratiques</strong><br>
+                <p><strong style="opacity: .5;color: #080f19fa;">Travaux pratiques</strong><br>
                   Création d'une application fil rouge avec les derniers standards : standalone components, l'API Signal pour gérer la réactivité, la syntaxe de control flow.
                 </p>
                 <br>
-                <p><strong>Méthodes pédagogiques</strong><br>
+                <p><strong style="opacity: .5;color: #080f19fa;">Méthodes pédagogiques</strong><br>
                   Chaque nouveau concept théorique sera appliqué immédiatement de façon pratique.</p>
               </div>
             </div>

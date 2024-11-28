@@ -154,13 +154,25 @@
 
     ul.programme > li:hover {
       cursor: pointer;
-      background: rgb(255 152 23 / 16%) !important;
+    }
+
+    ul.programme > li i {
+      color: rgb(180, 180, 180);
+    }
+
+    ul.programme > li:hover i {
+     color: crimson
     }
 
     ul.programme > li.active {
-      background: rgb(255 152 23 / 16%) !important;
+      background: #fff !important;
+      border:1px solid #001f44 !important;
     }
 
+    ul.programme > li.active i {
+     color:  #e91e63;
+    }
+    
     ul.programme > li:first-child {
       border-radius: 9px;
       margin-top: 9px !important;
