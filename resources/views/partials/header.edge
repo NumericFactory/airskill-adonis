@@ -37,6 +37,11 @@
       background: #f6f5f2;
       font-size: 17px;
     }
+    .prevent-select {
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
+    }
     @media (min-width: 1200px) {
       .fs-1 {
           font-size: 4rem !important;
@@ -142,20 +147,46 @@
       filter: brightness(0.85);
     }
 
-    ul.programme li {
+    ul.programme > li {
       list-style: none;
+      border-radius: 9px;
     }
 
-    ul.programme li:first-child {
-      border-radius: 8px 8px 0 0;
+    ul.programme > li:hover {
+      cursor: pointer;
+      background: rgb(63 132 255 / 16%) !important;
+    }
+
+    ul.programme > li.active {
+      background: rgb(1 26 69 / 16%) !important;
+    }
+
+    ul.programme > li:first-child {
+      border-radius: 9px;
       margin-top: 9px !important;
     }
 
     ul.lessons  {
-      margin-left: 40px;
+      margin-left: 25px;
+      padding-left: 25px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.1s ease-out;
     }
     ul.lessons li {
-      list-style:disc;
+      list-style:none;
+      position: relative;
+      color: #001f44;
+    }
+    ul.lessons li::before {
+      content: "\F592";
+      font-family: bootstrap-icons;
+      font-style: normal;
+      color: #001f44;
+      position: absolute;
+      left: -28px;
+      top: 1px;
+      font-size: 24px;
     }
 
     .bloc-cta-formations-entreprises {

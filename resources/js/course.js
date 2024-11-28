@@ -3,13 +3,10 @@
  * manage video
  */
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('coucou course');
+    // MANAGE VIDEO
     const imageElt = document.querySelector('.container-video');
-    console.log(imageElt)
     const playBtn = document.querySelector('.container-video i');
-    console.log(playBtn)
     const videoElt = document.querySelector('video');
-    console.log(videoElt)
 
     playBtn.addEventListener('click', function (ev) {
         imageElt.style.display = 'none';
@@ -22,6 +19,40 @@ document.addEventListener('DOMContentLoaded', function () {
         videoElt.style.display = 'none';
     });
 
+
+    // ACCORDION PROGRAMME FORMATION
+    const modules = document.querySelectorAll('.module');
+    const lessons = document.querySelectorAll('.lessons');
+    console.log(lessons)
+    for (let allLessons of lessons) {
+        allLessons.style.display = 'block';
+    }
+    for (let module of modules) {
+        module.addEventListener('click', function () {
+            let el = this;
+            let panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                this.classList.remove('active');
+                this.querySelector('i').classList.remove('bi-dash');
+                this.querySelector('i').classList.add('bi-plus');
+                this.querySelector('i').style.color = '#b4b4b4';
+                setTimeout(function () { el.style.background = 'rgb(147 150 161 / 16%)'; }, 1000)
+                panel.style.maxHeight = null;
+            } else {
+                this.classList.add('active');
+                this.querySelector('i').classList.remove('bi-plus');
+                this.querySelector('i').classList.add('bi-dash');
+                this.querySelector('i').style.color = '#e91e63'
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        })
+    }
+
+
+
 });
+
+
+
 
 export default {};  // to avoid error in console
