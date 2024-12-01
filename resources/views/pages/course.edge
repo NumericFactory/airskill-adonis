@@ -4,7 +4,7 @@
 
 {{--  @!component('components/modal-video', { text: 'Login' })  --}}
 
-<header style="padding:16px 0px 200px;">
+<header style="padding:16px 0px 101px;">
    {{--  <video controls  style="border-radius: 6px;" src="https://frederic-lossignol.com/video/signals-en-12mn.mp4"></video>  --}}
 <div class="gradient"></div>
 <div class="container">
@@ -17,12 +17,9 @@
         <p class="fs-5 mb-5">{{course.subtitle}}</p>
 
         <div style="width:100%" class="grid grid-cols-1 lg:grid-cols-1 gap-2">
-          <div>
-            <p class="fs-5 font-bold"><i style="color: #ffffff6e" class="bi bi-buildings mr-3"></i> Intra / Inter / Distanciel</p>
-          </div>
-          <div>
+          {{--  <div>
             <p class="fs-5 font-bold"><i style="color: #ffffff6e" class="bi bi-alarm mr-3"></i> {{course.duration}} jours ({{course.duration*7}} heures)</p>
-          </div>
+          </div>  --}}
           <div>
             <p class="fs-5 font-bold"><i style="color: #ffffff6e" class="bi bi-people mr-3"></i> +700 apprenants</p>
           </div>
@@ -67,16 +64,23 @@
             </div>
 
             <!-- formateur -->
-            <div style="background: #fff;border:1px solid transparent;margin: 0;border-radius: 8px;" class="row mt-1">
-              <div style="background:#fff;padding: 9px;border-radius: 6px;" class="sm:flex">
-                <div class="shrink-0 sm:mb-0 sm:mr-4">
-                 <img class="rounded-full" style="width:84px" src="https://media.licdn.com/dms/image/v2/D4E03AQGkVE2Qk8MaRg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1729994530161?e=1735776000&v=beta&t=EzxRu2HgckGClXC_HpVGua4bKb_UOKlhLOV722VWGoo" alt="Formateur Angular - Frederic LOSSIGNOL">
-                </div>
-                <div>
-                  <h4 class="text-lg font-bold">Votre formateur : Frederic Lossignol</h4>
-                  <p class="mt-1">Expert Angular et NodeJS depuis 2016.</p>
+            <div class="my-3" style="background: #fff;border:1px solid transparent;margin: 0;border-radius: 8px;">
+              <div class="row align-items-center">
+                <!-- colonne 1 -->
+                <div class="col-12 col-md-7 order-1">
+                  <div style="padding: 0px;border-radius: 6px;align-items: center;
+                              gap: 5px;display: flex;" class="sm:flex">
+                    <div class="shrink-0 sm:mb-0 sm:mr-4">
+                     <img class="rounded-full" style="width:84px" src="https://media.licdn.com/dms/image/v2/D4E03AQGkVE2Qk8MaRg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1729994530161?e=1735776000&amp;v=beta&amp;t=EzxRu2HgckGClXC_HpVGua4bKb_UOKlhLOV722VWGoo" alt="Formateur Angular - Frederic LOSSIGNOL">
+                    </div>
+                    <div>
+                      <h4 class="text-lg font-bold">Votre formateur : Frederic Lossignol</h4>
+                      <p class="mt-1">Expert Angular et NodeJS depuis 2016.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
+             
             </div>
 
             <!-- data formation -->
@@ -170,7 +174,9 @@
                   </div>
                 </div>
                 <div class="col-12 col-lg-6 d-none d-lg-block">
-                  <img style="width:100%; border-radius:7px;" src="https://d1yei2z3i6k35z.cloudfront.net/2527497/674757b8e8b9b_image-formation-deconstruire-ses-peurs.png" alt="">
+                  <img style="width:100%; border-radius:7px;" 
+                        src="{{ asset('resources/images/etudiante-code-informatique.png') }}" 
+                        alt="étudiante formation {{course.name}}">
                 </div>
               </div> 
             </div>
@@ -199,15 +205,15 @@
       <div>
         <nav class="isolate flex divide-x divide-gray-200 rounded-lg shadow" aria-label="Tabs" style="max-height:45px">
           <!-- Current: "text-gray-900", Default: "text-gray-500 hover:text-gray-700" -->
-          <a href="#" class="group relative min-w-0 flex-1 overflow-hidden rounded-l-lg bg-white px-2 py-2 text-center text-md font-medium text-gray-900 hover:bg-gray-50 focus:z-10" aria-current="page">
+          <a style="background:#fff9f0!important" href="#" class="group relative min-w-0 flex-1 overflow-hidden rounded-l-lg bg-white px-2 py-2 text-center text-md font-medium text-gray-900 hover:bg-gray-50 focus:z-10" aria-current="page">
             <span>Inter</span>
             <span style="background:#001f44" aria-hidden="true" class="absolute inset-x-0 bottom-0 h-1"></span>
           </a>
-          <a href="#" class="group relative min-w-0 flex-1 overflow-hidden bg-gray-50 px-2 py-2 text-center text-md font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-700 focus:z-10">
+          <a style="background:#fff9f0!important" href="#" class="group relative min-w-0 flex-1 overflow-hidden bg-gray-50 px-2 py-2 text-center text-md font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-700 focus:z-10">
             <span>Intra</span>
             <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-1 bg-transparent"></span>
           </a>
-          <a href="#" class="group relative min-w-0 flex-1 overflow-hidden bg-gray-50 px-2 py-2 text-center text-md font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-700 focus:z-10">
+          <a style="background:#fff9f0!important" href="#" class="group relative min-w-0 flex-1 overflow-hidden bg-gray-50 px-2 py-2 text-center text-md font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-700 focus:z-10">
             <span>Sur mesure</span>
             <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-1 bg-transparent"></span>
           </a>
@@ -226,7 +232,8 @@
       </div>  --}}
 
       <div class="px-5 py-4">
-        <p>Cours pratique en présentiel ou en classe à distance</p>
+        <p>Nous délivrons des cours pratiques</p>
+        <p class="fs-6 font-bold"><i class="bi bi-buildings mr-3 opacity-50"></i> En présentiel ou en distanciel</p>
       </div>
 
       <hr>
