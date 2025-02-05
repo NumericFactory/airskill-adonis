@@ -54,6 +54,48 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     }
 
+    // 1 selectionner TOUS les éléments HTML dont a besoin l'interaction
+    let tabs = document.querySelectorAll('.course-panel-nav-tabs a');
+
+    // 3 déclarer la fonction qui sera exécutéé à chaque interaction (modifier le DOM)
+    function onClickTab() {
+
+
+    }
+
+    // 2 poser le ou les écouteurs d'event
+    for (let tab of tabs) {
+        tab.addEventListener('click', onClickTab)
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 });

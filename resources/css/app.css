@@ -349,7 +349,6 @@ div.placeholder-lines span:last-child {
 }
 
 
-
 h1.title {
   font-family: "Inter", sans-serif;
   font-weight: 800;
@@ -552,6 +551,19 @@ img {
 
 .course-item-formations-list:hover img.icon-skill-img {
   transform: scale(1.3) translateY(-5px);
+}
+
+.course-panel-nav-tabs a {
+  background: #ffffff;
+}
+
+.course-panel-nav-tabs a:hover {
+  background: #f6f6f6;
+}
+
+.course-panel-nav-tabs a.active {
+  background: #f9f5ec;
+  color: #222;
 }
 
 
