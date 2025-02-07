@@ -98,7 +98,7 @@ fs-3,
 fs-4,
 fs-5,
 fs-6 {
-  color: #001f44 !important;
+  color: #212a4a !important;
 }
 
 .fs-2 {
@@ -120,7 +120,7 @@ div.parent-cards {
 }
 
 div.card.card-hero {
-  background: #111827;
+  background: #242b3a;
   border: 1px solid #8088a0;
   width: 225px;
   height: 340px;
@@ -161,7 +161,7 @@ div.card.card-hero:last-child {
   transform-origin: left;
   transform: rotate(10deg) translateY(10px);
   z-index: 0;
-  background: #111827;
+  background: #242b3a;
 }
 
 div.card.card-hero:last-child:hover {
@@ -360,17 +360,19 @@ h1.title {
 .hero .subtitle {
   font-size: 24px;
   line-height: 32px;
-  text-align: left;
-  /* margin-bottom: 60px; */
   font-family: 'Nunito Sans', sans-serif;
+  color: #111827;
+  margin-top: 30px;
 }
 
 .highlight {
-  display: inline;
-  /* text-shadow: 2px 2px 2px #f6de86 !important; */
-  font-weight: bold;
-  font-size: 0.95em;
-  /* color: var(--primary); */
+  font-weight: 600;
+  font-size: 0.97em;
+  background: #e9ebfb;
+  border-radius: 7px;
+  padding: 0px 7px;
+  transform: rotate(-1deg);
+  display: inline-block;
 }
 
 .glow {
@@ -448,34 +450,29 @@ h1.title {
 }
 
 .hero .btn-hire {
-  padding: 15px 20px;
-  font-size: 18px;
   font-weight: 600;
-  line-height: 23px;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 21px;
   color: hsl(0, 0%, 0%);
-  background: #fff;
-  border: 1px solid #000000;
+  background: #f1f6fc;
+  border: 1px solid #bbc5d4;
   box-shadow: 0px 0px 0px #000e1b;
-  border-radius: 5px;
-  padding: 14px 9px;
+  border-radius: 8px;
+  padding: 14px 21px;
   display: inline-block;
   transform: translate(0px, 0px);
   transition: all .3s ease;
 }
 
 .hero .btn-search {
-  padding: 15px 20px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
   line-height: 21px;
-  line-height: 21px;
   color: #ffffff;
-  background: #001f44;
+  background: #212a4a;
   box-shadow: 0px 0px 0px #000000;
-  border-radius: 5px;
-  padding: 15px 12px;
+  border-radius: 8px;
+  padding: 12px 21px;
   display: inline-block;
   transform: translate(0px, 0px);
   transition: all .3s ease;
