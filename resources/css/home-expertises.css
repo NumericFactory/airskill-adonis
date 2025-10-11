@@ -54,7 +54,7 @@ section h2 {
     padding: 50px 24px;
     position: relative;
     box-sizing: border-box;
-    background: #ffffff;
+    background: #14161c;
     background-clip: padding-box;
     border: solid 2px transparent;
     border-radius: 20px;
@@ -84,10 +84,9 @@ section h2 {
     font-family: "PTSans-Bold";
     font-size: 70px;
     line-height: 91px;
-    background: linear-gradient(132.32deg, #5b8cf8 30%, #1a48af 70%);
     -webkit-background-clip: text;
     background-clip: text;
-    filter: drop-shadow(2px 3px 0px #82aaff);
+    color: #fff !important;
 }
 
 .encart .text {
@@ -96,6 +95,7 @@ section h2 {
     color: #000;
     max-width: 150px;
     margin-left: 20px;
+    color: #fff !important;
 }
 
 

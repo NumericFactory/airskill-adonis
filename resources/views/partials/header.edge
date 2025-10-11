@@ -1,63 +1,199 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
   <title>{{title || 'Airskill | Dénicheur de compétences Tech'}}</title>
-  <link rel="icon" type="image/png" href="{{ asset('resources/images/favicon.ico') }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('resources/images/apple-touch-icon.png') }}">
-  {{--  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('resources/images/favicon-32x32.png') }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('resources/images/favicon-16x16.png') }}">  --}}
-  {{--  <link rel="manifest" href="{{ asset('resources/images/site.webmanifest') }}">  --}}
+  <link rel="icon"
+        type="image/png"
+        href="{{ asset('resources/images/favicon.ico') }}">
+  <link rel="apple-touch-icon"
+        sizes="180x180"
+        href="{{ asset('resources/images/apple-touch-icon.png') }}">
+  {{--
+  <link rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="{{ asset('resources/images/favicon-32x32.png') }}">
+  <link rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="{{ asset('resources/images/favicon-16x16.png') }}"> --}}
+  {{--
+  <link rel="manifest"
+        href="{{ asset('resources/images/site.webmanifest') }}"> --}}
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous">
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+          crossorigin="anonymous"></script>
   <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=Rubik:wght@500&display=swap"
-    rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.8.1/rxjs.umd.min.js" integrity="sha512-D9LDs8YUUVa4V9Gl4Zb+xqRAc7RCzooR3+zzebgK2RMu/KU+dh90pbjEEMzPiSyRSGbSp9j1pZnrO4joGa5WEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=Rubik:wght@500&display=swap"
+        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+        rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://rsms.me/inter/inter.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.8.1/rxjs.umd.min.js"
+          integrity="sha512-D9LDs8YUUVa4V9Gl4Zb+xqRAc7RCzooR3+zzebgK2RMu/KU+dh90pbjEEMzPiSyRSGbSp9j1pZnrO4joGa5WEg=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"></script>
   <!-- CSS -->
   @vite(['resources/js/app.js'])
 
   <style>
     html {
-	    scroll-behavior: smooth !important;
+      scroll-behavior: smooth !important;
     }
+
     body {
       background: #fff;
       font-size: 17px;
     }
+
     .prevent-select {
-      -webkit-user-select: none; /* Safari */
-      -ms-user-select: none; /* IE 10 and IE 11 */
-      user-select: none; /* Standard syntax */
+      -webkit-user-select: none;
+      /* Safari */
+      -ms-user-select: none;
+      /* IE 10 and IE 11 */
+      user-select: none;
+      /* Standard syntax */
     }
+
+    .regular {
+      font-weight: 400;
+    }
+
+    .spacer {
+      height: 2em;
+    }
+
+    .wrapper-1600 {
+      max-width: 1600px;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: calc(1175px + (2 * 3em));
+      padding: 0 1em;
+      margin: auto;
+      position: relative;
+    }
+
+    .numbers-layout {
+      width: calc(100% + 3.5em);
+      margin: 0 -1.75em;
+    }
+
+    .numbers-layout>.flex>div {
+      flex: 0 0 33.333%;
+      padding: 0.25em 0.85em;
+      border-radius: 12px;
+      background: #fbfbfb;
+      margin: 0.75em;
+    }
+
+    .number-box {
+      text-align: left;
+    }
+
+    .number-box .number {
+      position: relative;
+    }
+
+    .numbers-slider {
+      display: flex;
+      flex-wrap: wrap
+    }
+
+    .flex__start {
+      -webkit-align-content: flex-start;
+      -ms-flex-line-pack: start;
+      align-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .number-box .the-number {
+      z-index: 2;
+      position: relative;
+      font-size: 3.75em;
+      font-weight: 700;
+      padding: 0 .15em 0 .1em;
+      font-family: 'Barlow Condensed', sans-serif;
+    }
+
+
+    .number-box .legend {
+      flex: 1;
+      font-size: 1.1em;
+      line-height: 1.4em;
+      padding: .9em 0 .1em 1.5em;
+    }
+
+    @media screen and (min-width: 801px) {
+      section.reveal .number-box .number::after {
+        height: 50%;
+      }
+
+      .numbers-slider {
+        flex-wrap: nowrap
+      }
+    }
+
+    @media screen and (min-width: 801px) {
+      .number-box .number::after {
+        height: 0;
+        transition: 2s;
+      }
+    }
+
+    .number-box .number::after {
+      content: '';
+      z-index: 1;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: #fee042;
+      transition: 2s;
+    }
+
     @media (min-width: 1200px) {
       .fs-1 {
-          font-size: 4rem !important;
+        font-size: 4rem !important;
       }
+
       .fs-2 {
-          font-size: calc(1.325rem + .9vw)!important;
+        font-size: calc(1.325rem + .9vw) !important;
       }
     }
-    section.programme, section.objectifs {
+
+    section.programme,
+    section.objectifs {
       padding: 8px 0;
     }
-    section.programme h2, section.objectifs h2 {
+
+    section.programme h2,
+    section.objectifs h2 {
       padding: 12px 0;
       position: relative;
       display: inline-block;
     }
+
     section.objectifs h2::after {
       content: '';
       height: 10px;
@@ -69,6 +205,7 @@
       width: calc(100% + 9px);
       border-radius: 20px;
     }
+
     section.objectifs li {
       list-style: none;
       font-size: 1.04rem;
@@ -77,34 +214,40 @@
       margin-top: 11px;
 
     }
+
     section.objectifs li.item {
       margin-left: 30px;
       position: relative;
     }
+
     section.objectifs li.item::before {
       content: "\F26E";
       font-family: bootstrap-icons;
       font-style: normal;
-      color:#e91e63;
+      color: #e91e63;
       position: absolute;
       left: -30px;
       top: 1px;
       font-size: x-large;
     }
+
     .container-video {
-    position: relative;
-    width: 100%;
+      position: relative;
+      width: 100%;
     }
-    .container-video > img {
+
+    .container-video>img {
       width: 100%;
       height: auto;
       filter: brightness(1.05);
     }
-    .container-video:hover > img {
+
+    .container-video:hover>img {
       filter: brightness(0.85);
       cursor: pointer;
     }
-    .container-video > i {
+
+    .container-video>i {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -118,78 +261,83 @@
       color: #ffffffa3;
       transition-duration: .15s;
     }
-    .container-video:hover > i {
-      color:#fff;
+
+    .container-video:hover>i {
+      color: #fff;
       font-size: 3.75rem;
     }
-    .container-video > i:hover {
-      color:#d7d8ee;
+
+    .container-video>i:hover {
+      color: #d7d8ee;
     }
 
     header {
       position: relative;
-      background:#e4e2ff;
+      background: #e4e2ff;
       background: url(https://www.m2iformation.fr/images/visuel-homepage.jpg);
       background-repeat: no-repeat;
       color: #fff;
       background-position: 0px;
-      padding-bottom:200px;
+      padding-bottom: 200px;
       background-size: cover;
-  
+
     }
-    header > div.gradient {
+
+    header>div.gradient {
       position: absolute;
       top: 0;
       left: 0;
-      height:100%;
+      height: 100%;
       width: 100%;
       background: linear-gradient(179deg, #16368b, #0000007a);
       filter: brightness(0.85);
     }
 
-    ul.programme > li {
+    ul.programme>li {
       list-style: none;
       border-radius: 9px;
     }
 
-    ul.programme > li:hover {
+    ul.programme>li:hover {
       cursor: pointer;
     }
 
-    ul.programme > li i {
+    ul.programme>li i {
       color: rgb(180, 180, 180);
     }
 
-    ul.programme > li:hover i {
-     color: crimson
+    ul.programme>li:hover i {
+      color: crimson
     }
 
-    ul.programme > li.active {
+    ul.programme>li.active {
       background: #fff !important;
-      border:1px solid #001f44 !important;
+      border: 1px solid #001f44 !important;
     }
 
-    ul.programme > li.active i {
-     color:  #e91e63;
+    ul.programme>li.active i {
+      color: #e91e63;
     }
-    
-    ul.programme > li:first-child {
+
+    ul.programme>li:first-child {
       border-radius: 9px;
       margin-top: 9px !important;
     }
 
-    ul.lessons  {
+    ul.lessons {
       margin-left: 25px;
       padding-left: 25px;
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.1s ease-out;
     }
+
     ul.lessons li {
-      list-style:none;
+      list-style: none;
       position: relative;
       color: #001f44;
     }
+
     ul.lessons li::before {
       content: "\F592";
       font-family: bootstrap-icons;
@@ -203,43 +351,46 @@
 
     .bloc-cta-formations-entreprises {
       position: sticky;
-      top: 71px; 
+      top: 71px;
       align-self: start;
       height: calc(100vh - 230px) !important;
-      margin-top:-277px;
+      margin-top: -277px;
       width: 100%;
       background-color: #fff;
     }
-  
+
     @media screen and (max-width:1280px) {
       .container-video {
         width: 100%;
       }
+
       .bloc-cta-formations-entreprises {
         position: relative;
         height: auto !important;
         margin-top: 0;
-        top:0;
+        top: 0;
       }
     }
 
     @media screen and (max-width:768px) {
-      
-      section.programme, section.objectifs {
-        margin-top:-125px;
+
+      section.programme,
+      section.objectifs {
+        margin-top: -125px;
       }
 
       .bloc-cta-formations-entreprises {
         position: relative;
-        top:-48px;
+        top: -48px;
         margin-bottom: 47px;
       }
     }
-    </style>
+  </style>
 
 </head>
+
 <body>
 
-@include('partials/home/navbar-tw')
+  @include('partials/home/navbar-tw')
 
-<main>
+  <main>
