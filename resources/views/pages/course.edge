@@ -1,247 +1,307 @@
 @include('partials/header')
-{{--  @set('title', 'Airskill | Formation {{course.name}}')  --}}
+{{-- @set('title', 'Airskill | Formation {{course.name}}') --}}
 
 <!-- MODAL -->
 
-{{--  @!component('components/modal-video', { text: 'Login' })  --}}
+{{-- @!component('components/modal-video', { text: 'Login' }) --}}
 
 <header style="padding:16px 0px 72px;">
-   {{--  <video controls  style="border-radius: 6px;" src="https://frederic-lossignol.com/video/signals-en-12mn.mp4"></video>  --}}
-<div class="gradient"></div>
-<div class="container">
-  <div class="row mt-6">
-    {{--  <div class="grid grid-cols-1 lg:grid-cols-[752px_minmax(442px,_1fr)_300px] gap-5">  --}}
-      <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-5 max-w-7xl"> 
-      <!-- header left -->
-      <div style="position:relative">
-        <h1 style="color:#fff !important;" class="super-title my-1 font-bold">Formation {{course.name}}</h1>
-        <p class="fs-5 mb-5">{{course.subtitle}}</p>
+  {{-- <video controls
+         style="border-radius: 6px;"
+         src="https://frederic-lossignol.com/video/signals-en-12mn.mp4"></video> --}}
+  <div class="gradient"></div>
+  <div class="container">
+    <div class="row mt-6">
+      {{-- <div class="grid grid-cols-1 lg:grid-cols-[752px_minmax(442px,_1fr)_300px] gap-5"> --}}
+        <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-5 max-w-7xl">
+          <!-- header left -->
+          <div style="position:relative">
+            <h1 style="color:#fff !important;"
+                class="super-title my-1 font-bold">Formation {{course.name}}</h1>
+            <p class="fs-5 mb-5">{{course.subtitle}}</p>
 
-        <div style="width:100%" class="grid grid-cols-1 lg:grid-cols-1 gap-2">
-          {{--  <div>
-            <p class="fs-5 font-bold"><i style="color: #ffffff6e" class="bi bi-alarm mr-3"></i> {{course.duration}} jours ({{course.duration*7}} heures)</p>
-          </div>  --}}
-          <div>
-            <p class="fs-5 font-bold"><i style="color: #ffffff6e" class="bi bi-people mr-3"></i> +700 apprenants</p>
-            <div class="m-0">
-              <span class="d-flex ms-5">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#d6cd68" class="size-5">
-                <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#d6cd68" class="size-5">
-                <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#d6cd68" class="size-5">
-                <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#d6cd68" class="size-5">
-                <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#d6cd68" class="size-5">
-                <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
-              </svg>
-            </span>
+            <div style="width:100%"
+                 class="grid grid-cols-1 lg:grid-cols-1 gap-2">
+              {{-- <div>
+                <p class="fs-5 font-bold"><i style="color: #ffffff6e"
+                     class="bi bi-alarm mr-3"></i> {{course.duration}} jours ({{course.duration*7}} heures)</p>
+              </div> --}}
+              <div>
+                <p class="fs-5 font-bold"><i style="color: #ffffff6e"
+                     class="bi bi-people mr-3"></i> +700 apprenants</p>
+                <div class="m-0">
+                  <span class="d-flex ms-5">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 20 20"
+                         fill="#d6cd68"
+                         class="size-5">
+                      <path fill-rule="evenodd"
+                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 20 20"
+                         fill="#d6cd68"
+                         class="size-5">
+                      <path fill-rule="evenodd"
+                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 20 20"
+                         fill="#d6cd68"
+                         class="size-5">
+                      <path fill-rule="evenodd"
+                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 20 20"
+                         fill="#d6cd68"
+                         class="size-5">
+                      <path fill-rule="evenodd"
+                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 20 20"
+                         fill="#d6cd68"
+                         class="size-5">
+                      <path fill-rule="evenodd"
+                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <!-- header right -->
-     
-        {{--  <div class="container-video">
-          <img class="rounded-xl" src="{{ asset('resources/images/miniatures/angular-miniature-video-4.png') }}" alt="" class="h-6 w-6 text-indigo-500">
-          <i class="bi bi-play-circle-fill"></i>
-        </div>  --}}
-        
-      </div>
+          <!-- header right -->
 
+          {{-- <div class="container-video">
+            <img class="rounded-xl"
+                 src="{{ asset('resources/images/miniatures/angular-miniature-video-4.png') }}"
+                 alt=""
+                 class="h-6 w-6 text-indigo-500">
+            <i class="bi bi-play-circle-fill"></i>
+          </div> --}}
+
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
 </header>
 
 <div style="background: #fff;
     padding-top: 0px;
     padding-bottom: 76px;">
-  {{--  <div style="max-width:calc(100% - 400px)" class="container-fluid">  --}}
+  {{-- <div style="max-width:calc(100% - 400px)"
+       class="container-fluid"> --}}
     <div class="container">
-  <div class="grid grid-cols-1 lg:grid-cols-[65%_31%] gap-5 mx-auto">
-  
-    <section class="objectifs order-1 order-md-0">
-            <hr class="w-48 mx-auto my-2 border-0 rounded md:my-10">
-            <!-- objectifs -->
-            <div style="background: #f9fafd;border: 1px solid #bfbfbf;margin: 0;border-radius: 8px;" class="row mt-2 p-3">
-              <div>
-                <h2 class="fs-3 font-bold my-0 pt-0 pb-2">Objectifs de la formation</h2>
-                @if(goalsTitle) 
-                  <p class="my-2"><strong>{{goalsTitle}}</strong></p>
-                @endif
-                <ul>
+      <div class="grid grid-cols-1 lg:grid-cols-[65%_31%] gap-5 mx-auto">
+
+        <section class="objectifs order-1 order-md-0">
+          <hr class="w-48 mx-auto my-2 border-0 rounded md:my-10">
+          <!-- objectifs -->
+          <div style="background: #fffcf7;border: 1px solid #e9e4d6;margin: 0;border-radius: 8px;"
+               class="row mt-2 p-4 pb-5">
+            <div>
+              <h2 class="fs-3 font-bold my-0 pt-0 pb-2">🎯 Objectifs de la formation</h2>
+              @if(goalsTitle)
+              <p class="my-2"><strong>{{goalsTitle}}</strong></p>
+              @endif
+              <ul>
                 @each((goal, index) in goals)
-                  <li class="item">{{goal}}</li>
+                <li class="item">{{goal}}</li>
                 @end
-                </ul>
-              </div>
+              </ul>
             </div>
+          </div>
 
-            <!-- formateur -->
-            <div class="my-4" style="background: #fff;border:1px solid transparent;margin: 0;border-radius: 8px;">
-              <div class="row align-items-center">
-                <!-- colonne 1 -->
-                <div class="col-12 col-md-7 order-1">
-                  <div style="padding: 0px;border-radius: 6px;align-items: center;
-                              gap: 5px;display: flex;" class="sm:flex">
-                    <div class="shrink-0 sm:mb-0 sm:mr-4">
-                     <img class="rounded-full" style="width:84px" src="https://media.licdn.com/dms/image/v2/D4E03AQGkVE2Qk8MaRg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1729994530161?e=1735776000&amp;v=beta&amp;t=EzxRu2HgckGClXC_HpVGua4bKb_UOKlhLOV722VWGoo" alt="Formateur Angular - Frederic LOSSIGNOL">
-                    </div>
-                    <div>
-                      <p style="font-size: .95rem;font-weight: 600;color: rgb(134 137 143);">Votre formateur</p>
-                      <h4 class="text-lg font-bold">Frederic Lossignol</h4>
-                      <p style="margin-top:-5px !important" class="m-0">Expert Angular et NodeJS depuis 2016.</p>
-                    </div>
+          <!-- formateur -->
+          <div class="my-4"
+               style="background: #fff;border:1px solid transparent;margin: 0;border-radius: 8px;">
+            <div class="row align-items-center">
+              <!-- colonne 1 -->
+              <div class="col-12 col-md-7 order-1">
+                <div style="padding: 0px;border-radius: 6px;align-items: center;
+                              gap: 5px;display: flex;"
+                     class="sm:flex">
+                  <div class="shrink-0 sm:mb-0 sm:mr-4">
+                    <img class="rounded-full"
+                         style="width:84px"
+                         src="{{ asset('resources/images/profils/frederic-lossignol-plant.png') }}"
+                         alt="Formateur Angular - Frederic LOSSIGNOL">
+                  </div>
+                  <div style="position: relative;left: -9px;top: 12px;">
+                    <p style="font-size: .95rem;font-weight: 600;color: rgb(255 255 255);background: #3499c0;
+position: absolute;width: auto;top: -25px;padding: 1px 11px;border-radius: 6px;">Votre formateur</p>
+                    <h4 class="text-lg font-bold">Frederic Lossignol</h4>
+                    <p style="margin-top:-5px !important"
+                       class="m-0">Expert Angular et NodeJS depuis 2016.</p>
                   </div>
                 </div>
               </div>
-             
             </div>
 
-            <!-- data formation -->
-            <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+          </div>
 
-            <div class="row mt-2">
-              <div>
-                <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Public concerné</h2>
-                <p>{{course.public}}</p>
-              </div>
+          <!-- data formation -->
+          <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+
+          <div class="row mt-2">
+            <div>
+              <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Public concerné</h2>
+              <p>{{course.public}}</p>
             </div>
+          </div>
 
-            <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+          <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10 border-gray-800 dark:border-white">
 
-            <div class="row mt-2">
-              <div>
-                <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Niveau requis</h2>
-                <p>{{course.requiredlevel}}</p>
-              </div>
+          <div class="row mt-2">
+            <div>
+              <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Niveau requis</h2>
+              <p>{{course.requiredlevel}}</p>
             </div>
+          </div>
 
-            <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+          <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10 border-gray-800 dark:border-white">
 
-            <div class="row mt-2">
-              <!-- programme -->
-              <div>
-                <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Programme</h2>
-                <ul style="background: #f9f9fc" class="programme prevent-select">
-                    @each((module, index) in course.modules)
-                        <li style="background:rgb(147 150 161 / 16%); border:1px solid transparent" class="p-2 p-md-3 my-0 module relative">
-                          <div class="flex flex-column ">
-                            <span class="text-md font-bold opacity-50">PARTIE {{index+1}}</span>
-                            <span style="font-size: 1.025rem;line-height: 1.35rem;font-weight: 600;max-width: 85%;">{{module.name}}</span>
-                          </div>
-                          <i style="right: 10px;top:calc(50% - 24px); font-size:48px" class="bi bi-plus absolute"></i>
-                        </li>
-                        <ul class="lessons pb-3 pe-3">
-                          @each((course, index) in module.lessons)
-                          <li>{{course.name}}</li>
-                          @end
-                        </ul>
-                    @end
+          <div class="row mt-2">
+            <!-- programme -->
+            <div>
+              <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Programme</h2>
+              <ul style="background: #f9f9fc"
+                  class="programme prevent-select">
+                @each((module, index) in course.modules)
+                <li style="background:rgb(147 150 161 / 16%); border:1px solid transparent"
+                    class="p-2 p-md-3 my-0 module relative">
+                  <div class="flex flex-column ">
+                    <span class="text-md font-bold opacity-50">PARTIE {{index+1}}</span>
+                    <span
+                          style="font-size: 1.025rem;line-height: 1.35rem;font-weight: 600;max-width: 85%;">{{module.name}}</span>
+                  </div>
+                  <i style="right: 10px;top:calc(50% - 24px); font-size:48px"
+                     class="bi bi-plus absolute"></i>
+                </li>
+                <ul class="lessons pb-3 pe-3">
+                  @each((course, index) in module.lessons)
+                  <li>{{course.name}}</li>
+                  @end
                 </ul>
-              </div>
-              <!-- fixed infos -->
+                @end
+              </ul>
             </div>
+            <!-- fixed infos -->
+          </div>
 
-            <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+          <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10 border-gray-800 dark:border-white">
 
-            <div class="row mt-2">
-              <div>
-                <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Modalités pratiques</h2>
-                <p><strong style="opacity: .5;color: #080f19fa;">Travaux pratiques</strong><br>
-                  Création d'une application fil rouge avec les derniers standards : standalone components, l'API Signal pour gérer la réactivité, la syntaxe de control flow.
+          <div class="row mt-2">
+            <div>
+              <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Modalités pratiques</h2>
+              <p><strong style="opacity: .5;color: #080f19fa;">Travaux pratiques</strong><br>
+                Création d'une application fil rouge avec les derniers standards : standalone components, l'API Signal
+                pour gérer la réactivité, la syntaxe de control flow.
+              </p>
+              <br>
+              <p><strong style="opacity: .5;color: #080f19fa;">Méthodes pédagogiques</strong><br>
+                Chaque nouveau concept théorique sera appliqué immédiatement de façon pratique.</p>
+            </div>
+          </div>
+
+          <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+
+          <div class="row mt-2">
+            <div>
+              <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Modalités d'évalutation</h2>
+              <p>{{course.evaluation}}</p>
+            </div>
+          </div>
+
+          <!-- formateur -->
+          <div style="background: #ebf5fa; color: #000;border:1px solid transparent;margin: 0;border-radius: 8px;"
+               class="mt-4 p-4 pb-5">
+            <div class="row">
+              <div class="col-12 col-lg-6">
+                <h2 style=""
+                    class="fs-3 font-bolder my-0 pt-0 pb-2">Apprenez auprès d'experts</h2>
+                <p class="my-2">
+                  <strong>
+                    Nos formateurs expérimentés et passionnés vous aideront à acquérir rapidement des compétences
+                    pratiques et à construire une base solide.
+                  </strong>
                 </p>
-                <br>
-                <p><strong style="opacity: .5;color: #080f19fa;">Méthodes pédagogiques</strong><br>
-                  Chaque nouveau concept théorique sera appliqué immédiatement de façon pratique.</p>
+                <ul>
+                  <li class="item"> Apprenez sur des projets concrets</li>
+                  <li class="item"> Rejoignez une communauté internationale soudée</li>
+                  <li class="item"> Bénéficiez d'un accompagnement personnalisé</li>
+                </ul>
+                <div class="text-center mt-4">
+                  <button class="btn py-2 mb-0 text-black text-md fw-medium bg-white hover:bg-gray-200">
+                    Prendre rendez-vous
+                  </button>
+                  <p class="m-0 p-0 fs-6">Discutons de votre projet</p>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6 d-none d-lg-block">
+                <img style="width:100%; border-radius:7px;"
+                     src="{{ asset('resources/images/etudiante-code-informatique.png') }}"
+                     alt="étudiante formation {{course.name}}">
               </div>
             </div>
+          </div>
 
-            <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+        </section>
 
-            <div class="row mt-2">
-              <div>
-                <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Modalités d'évalutation</h2>
-                <p>{{course.evaluation}}</p>
-              </div>
+        <!-- CARD INFO PROGRAMME FIXED-->
+        <div style="border-radius: 8px"
+             class="col-span-1 border-1 h-100 bloc-cta-formations-entreprises">
+
+          <!-- 1- VIDEO -->
+          <div style="min-height: 136px;background: transparent;border-radius: 11px 11px 3px 3px;"
+               class="flex flex-column w-full items-start p-0 sm:p-1">
+            <div class="container-video">
+              <img style="border-radius:8px 8px 0 0"
+                   src="{{ asset('resources/images/miniatures/angular-miniature-video-black.png') }}"
+                   alt="Video introduction à la Formation {{course.name}}">
+              <i class="bi bi-play-circle-fill"></i>
             </div>
 
-            <!-- formateur -->
-            <div style="background: #ced5ed; color: #000;border:1px solid transparent;margin: 0;border-radius: 8px;" class="mt-4 p-4 pb-5">
-              <div class="row">
-                <div class="col-12 col-lg-6">
-                  <h2 style="" class="fs-3 font-bolder my-0 pt-0 pb-2">Apprenez auprès d'experts</h2>
-                  <p class="my-2">
-                    <strong>
-                      Nos formateurs expérimentés et passionnés vous aideront à acquérir rapidement des compétences pratiques et à construire une base solide.
-                    </strong>
-                  </p>
-                  <ul>
-                    <li class="item"> Apprenez sur des projets concrets</li>
-                    <li class="item"> Rejoignez une communauté internationale soudée</li>
-                    <li class="item"> Bénéficiez d'un accompagnement personnalisé</li>
-                  </ul>
-                  <div class="text-center mt-4">
-                    <button class="btn py-2 mb-0 text-black text-md fw-medium bg-white hover:bg-gray-200">
-                      Prendre rendez-vous
-                    </button>
-                    <p class="m-0 p-0 fs-6">Discutons de votre projet</p>
-                  </div>
-                </div>
-                <div class="col-12 col-lg-6 d-none d-lg-block">
-                  <img style="width:100%; border-radius:7px;" 
-                        src="{{ asset('resources/images/etudiante-code-informatique.png') }}" 
-                        alt="étudiante formation {{course.name}}">
-                </div>
-              </div> 
+            <video preload="metadata"
+                   controls
+                   style="display:none;width:100%; border-radius:9px 9px 0 0"
+                   src="https://frederic-lossignol.com/video/presentation-formations-entreprises/formation-angular.mp4"></video>
+          </div>
+
+
+
+
+          <!-- 2- TABS -->
+          <div>
+            <div>
+              <nav class="course-panel-nav-tabs isolate flex divide-x divide-gray-200 rounded-lg shadow"
+                   aria-label="Tabs"
+                   style="max-height:45px">
+                <!-- Current: "text-gray-900", Default: "text-gray-500 hover:text-gray-700" -->
+                <a href="#"
+                   class="active group relative min-w-0 flex-1 overflow-hidden bg-gray-50 px-2 py-2 text-center text-md font-medium text-gray-900 hover:bg-gray-50 focus:z-10"
+                   aria-current="page">
+                  <span>Inter</span>
+                </a>
+                <a href="#"
+                   class="group relative min-w-0 flex-1 overflow-hidden bg-gray-50 px-2 py-2 text-center text-md font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-800 focus:z-10">
+                  <span>Intra</span>
+                </a>
+                <a href="#"
+                   class="group relative min-w-0 flex-1 overflow-hidden bg-gray-50 px-2 py-2 text-center text-md font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-800 focus:z-10">
+                  <span>Sur mesure</span>
+                </a>
+              </nav>
             </div>
-
-    </section>
-
-     <!-- CARD INFO PROGRAMME FIXED-->
-     <div style="border-radius: 8px" class="col-span-1 border-1 h-100 bloc-cta-formations-entreprises">
-      
-      <!-- 1- VIDEO -->
-      <div style="min-height: 136px;background: transparent;border-radius: 11px 11px 3px 3px;" class="flex flex-column w-full items-start p-0 sm:p-1">
-       <div class="container-video">
-        <img style="border-radius:8px 8px 0 0" 
-        src="{{ asset('resources/images/miniatures/angular-miniature-video-7.png') }}" 
-            alt="Video introduction à la Formation {{course.name}}">
-        <i class="bi bi-play-circle-fill"></i>
-      </div>
-      
-      <video preload="metadata" controls style="display:none;width:100%; border-radius:9px 9px 0 0" 
-      src="https://frederic-lossignol.com/video/presentation-formations-entreprises/formation-angular.mp4"></video>
-    </div>
-
-  
-
-    
-    <!-- 2- TABS -->
-    <div>
-      <div>
-        <nav class="course-panel-nav-tabs isolate flex divide-x divide-gray-200 rounded-lg shadow" aria-label="Tabs" style="max-height:45px">
-          <!-- Current: "text-gray-900", Default: "text-gray-500 hover:text-gray-700" -->
-          <a href="#" class="active group relative min-w-0 flex-1 overflow-hidden bg-gray-50 px-2 py-2 text-center text-md font-medium text-gray-900 hover:bg-gray-50 focus:z-10" aria-current="page">
-            <span>Inter</span>
-          </a>
-          <a href="#" class="group relative min-w-0 flex-1 overflow-hidden bg-gray-50 px-2 py-2 text-center text-md font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-800 focus:z-10">
-            <span>Intra</span>
-          </a>
-          <a href="#" class="group relative min-w-0 flex-1 overflow-hidden bg-gray-50 px-2 py-2 text-center text-md font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-800 focus:z-10">
-            <span>Sur mesure</span>
-          </a>
-        </nav>
-      </div>
-    </div>
-    <!-- /TABS -->
-     
+          </div>
+          <!-- /TABS -->
 
 
 
@@ -254,66 +314,84 @@
 
 
 
-      {{--  <div style="overflow: auto;height: 231px;box-shadow:rgb(207, 218, 227) -1.8px -0.8px 3px 0px inset, rgb(255, 255, 255) 3.2px -3.2px 8px 0px inset" class="grid grid-cols-1 divide-y divide-gray-100 px-4 py-2">
-        @each((date, index) in calendar)
-        <div class="py-1 flex justify-content-between align-items-center hover:bg-gray-50 px-2">
-          <p>{{date.phrase}} {{date.endOfWeek.getFullYear()}}</p><button class="rounded bg-gray-100 px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300">Réserver</button>
-        </div>
-        @end 
-      </div>  --}}
 
-      <div class="px-4 px-lg-5 py-3 py-5">
-        <p>Nous délivrons des cours pratiques</p>
-        <p class="fs-6 font-bold"><i class="bi bi-buildings mr-3 opacity-50"></i> En présentiel ou en distanciel</p>
-      </div>
+          {{-- <div
+               style="overflow: auto;height: 231px;box-shadow:rgb(207, 218, 227) -1.8px -0.8px 3px 0px inset, rgb(255, 255, 255) 3.2px -3.2px 8px 0px inset"
+               class="grid grid-cols-1 divide-y divide-gray-100 px-4 py-2">
+            @each((date, index) in calendar)
+            <div class="py-1 flex justify-content-between align-items-center hover:bg-gray-50 px-2">
+              <p>{{date.phrase}} {{date.endOfWeek.getFullYear()}}</p><button
+                      class="rounded bg-gray-100 px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300">Réserver</button>
+            </div>
+            @end
+          </div> --}}
 
-      <hr>
+          <div class="px-4 px-lg-5 py-3 py-5">
+            <p>Nous délivrons des cours pratiques</p>
+            <p class="fs-6 font-bold"><i class="bi bi-buildings mr-3 opacity-50"></i> En présentiel ou en distanciel</p>
+          </div>
 
-      <div class="px-4 px-lg-5 py-3 d-flex justify-content-between align-items-baseline">
-        <span>
-            <p style="line-height: 22px" class="text-center">
-              <i style="color: #aaa" class="bi bi-alarm mr-2"></i> 
-              <strong>4 jours</strong><br>
-              <small style="padding-left: 20px">(28 heures)</small>
+          <hr>
+
+          <div class="px-4 px-lg-5 py-3 d-flex justify-content-between align-items-baseline">
+            <span>
+              <p style="line-height: 22px"
+                 class="text-center">
+                <i style="color: #aaa"
+                   class="bi bi-alarm mr-2"></i>
+                <strong>4 jours</strong><br>
+                <small style="padding-left: 20px">(28 heures)</small>
 
               </p>
-        </span>
-        <span class="text-lg">
-          <div class="flex flex-column">
-            <strong>Prix : 1980 € H.T</strong>
-            <span class="italic text-sm text-right">Pause-café et <br>déjeuner offerts*</span>
+            </span>
+            <span class="text-lg">
+              <div class="flex flex-column">
+                <strong>Prix : 1980 € H.T</strong>
+                <span class="italic text-sm text-right">Pause-café et <br>déjeuner offerts*</span>
+              </div>
+            </span>
           </div>
-        </span>
+
+
+
+
+          <div class="flex justify-content-center items-center space-x-3 pt-4 px-4 px-md-5">
+            <button style="background:#111111"
+                    class="btn w-100 py-3 text-white text-md fw-medium bg-blue-800 hover:bg-blue-700">
+              <span style="position:relative"
+                    class="d-flex align-center justify-center p-relative">
+                <span>Dates, lieux et inscription</span>
+                <svg style="position: absolute;right:3px"
+                     xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 24 24"
+                     fill="#fee042"
+                     class="size-6">
+                  <path
+                        d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
+                  <path fill-rule="evenodd"
+                        d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
+                        clip-rule="evenodd" />
+                </svg>
+              </span>
+
+            </button>
+            {{-- <button
+                    class="btn w-100 text-blue-100 text-md bg-fuchsia-800 hover:text-slate-100 hover:bg-fuchsia-700">Télécharger
+              la vidéo</button> --}}
+          </div>
+
+          <div class="flex justify-content-center items-center space-x-3 pt-3 pb-4 px-3">
+            <a class="underline"
+               href="#">Nous contacter</a>
+          </div>
+
+        </div>
+
+
       </div>
-
-
-
-
-      <div class="flex justify-content-center items-center space-x-3 pt-4 px-4 px-md-5">
-        <button style="background:#001f44" class="btn w-100 py-3 text-white text-md fw-medium bg-blue-800 hover:bg-blue-700">
-         <span style="position:relative" class="d-flex align-center justify-center p-relative">
-           <span>Dates, lieux et inscription</span>
-           <svg style="position: absolute;right:3px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#e91e63" class="size-6">
-            <path d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
-            <path fill-rule="evenodd" d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z" clip-rule="evenodd" />
-          </svg>
-         </span>
-          
-        </button>
-        {{--  <button class="btn w-100 text-blue-100 text-md bg-fuchsia-800 hover:text-slate-100 hover:bg-fuchsia-700">Télécharger la vidéo</button>  --}}
-      </div>
-
-      <div class="flex justify-content-center items-center space-x-3 pt-3 pb-4 px-3">
-        <a class="underline" href="#">Nous contacter</a>
-      </div>
-
     </div>
-
-
   </div>
-  </div>
-</div>
- 
+
 </div>
 
 @include('partials/home/recontact')
