@@ -86,6 +86,22 @@ nav {
   }
 }
 
+@media (min-width: 2070px) {
+
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1448px;
+  }
+
+  .fs-2.super-title {
+    font-size: calc(1.975rem + .9vw) !important;
+  }
+}
+
 h1,
 h2,
 h3,
