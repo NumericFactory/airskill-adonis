@@ -104,12 +104,11 @@
         <section class="objectifs order-1 order-md-0">
           <hr class="w-48 mx-auto my-2 border-0 rounded md:my-10">
           <!-- objectifs -->
-          <div style="background: #f4f4f7;border: 0px solid #e9e4d6;margin: 0;border-radius: 8px;"
-               class="row mt-2 p-4 pb-5">
+          <div class="row mt-2 px-0 pb-3 qualiopi-bloc" style="background: #fff">
             <div>
-              <h2 class="fs-3 font-bold my-0 pt-0 pb-2">🎯 Objectifs de la formation</h2>
+              <h2 class="fs-3 font-bold my-0 pt-0 pb-2">Objectifs de la formation</h2>
               @if(goalsTitle)
-              <p class="my-2"><strong>{{goalsTitle}}</strong></p>
+              <p class="mb-4"><strong>{{goalsTitle}}</strong></p>
               @endif
               <ul style="padding-left:6px">
                 @each((goal, index) in goals)
@@ -120,8 +119,8 @@
           </div>
 
           <!-- formateur -->
-          <div class="my-4"
-               style="background: #fff;border:1px solid transparent;margin: 0;border-radius: 8px;">
+          <div class="my-1 qualiopi-bloc"
+               style="background: transparent;margin: 0;">
             <div class="row align-items-center">
               <!-- colonne 1 -->
               <div class="col-12 col-md-7 order-1">
@@ -129,14 +128,14 @@
                               gap: 5px;display: flex;"
                      class="sm:flex">
                   <div class="shrink-0 sm:mb-0 sm:mr-4">
-                    <img class="rounded-full"
-                         style="width:84px"
+                    <img class="rounded-full p-1"
+                         style="width: 97px;background: #00000038"
                          src="{{ asset('resources/images/profils/frederic-lossignol-plant.png') }}"
                          alt="Formateur Angular - Frederic LOSSIGNOL">
                   </div>
-                  <div style="position: relative;left: -9px;top: 12px;">
-                    <p style="font-size: .95rem;font-weight: 600;color: rgb(255 255 255);background: #3499c0;
-position: absolute;width: auto;top: -25px;padding: 1px 11px;border-radius: 6px;">Votre formateur</p>
+                  <div style="position: relative;left: 0px;top: 12px;">
+                    <p style="font-size: .95rem;font-weight: 600;color: rgb(255 255 255);background: #212a4a;
+position: absolute;width: auto;top: -25px;padding: 1px 11px;border-radius: 12px;">Votre formateur</p>
                     <h4 class="text-lg font-bold">Frederic Lossignol</h4>
                     <p style="margin-top:-5px !important"
                        class="m-0">Expert Angular et NodeJS depuis 2016.</p>
@@ -148,37 +147,36 @@ position: absolute;width: auto;top: -25px;padding: 1px 11px;border-radius: 6px;"
           </div>
 
           <!-- data formation -->
-          <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+          <hr class="w-48 mx-auto my-2 border-0 rounded md:my-10 border-gray-800 dark:border-white">
 
-          <div class="row mt-2">
+          <div class="row mt-2 qualiopi-bloc">
             <div>
               <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Public concerné</h2>
               <p>{{course.public}}</p>
             </div>
           </div>
 
-          <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+          <hr class="w-48 mx-auto my-2 border-0 rounded md:my-10 border-gray-800 dark:border-white">
 
-          <div class="row mt-2">
+          <div class="row mt-2 qualiopi-bloc">
             <div>
               <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Niveau requis</h2>
               <p>{{course.requiredlevel}}</p>
             </div>
           </div>
 
-          <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+          <hr class="w-48 mx-auto my-2 border-0 rounded md:my-10 border-gray-800 dark:border-white">
 
-          <div class="row mt-2">
+          <div style="background: #fafaff; border:0px solid #e0e0e0" class="row mt-2 qualiopi-bloc">
             <!-- programme -->
             <div>
               <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Programme</h2>
-              <ul style="background: #fefefe"
-                  class="programme prevent-select">
+              <ul class="programme prevent-select">
                 @each((module, index) in course.modules)
                 <li style="background:rgb(192 195 206 / 16%); border:1px solid transparent"
                     class="p-2 p-md-3 my-0 module relative">
                   <div class="flex flex-column ">
-                    <span class="text-md font-bold opacity-50">PARTIE {{index+1}}</span>
+                    <span style="color:#000b46" class="text-md font-bold opacity-50">PARTIE {{index+1}}</span>
                     <span
                           style="font-size: 1.025rem;line-height: 1.35rem;font-weight: 600;max-width: 85%;">{{module.name}}</span>
                   </div>
@@ -196,33 +194,33 @@ position: absolute;width: auto;top: -25px;padding: 1px 11px;border-radius: 6px;"
             <!-- fixed infos -->
           </div>
 
-          <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+          <hr class="w-48 mx-auto my-2 border-0 rounded md:my-10 border-gray-800 dark:border-white">
 
-          <div class="row mt-2">
+          <div class="row mt-2 qualiopi-bloc">
             <div>
               <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Modalités pratiques</h2>
-              <p><strong style="opacity: .5;color: #080f19fa;">Travaux pratiques</strong><br>
+              <p class="mt-2"><strong style="opacity: .55;color: #080f19fa">Travaux pratiques</strong><br>
                 Création d'une application fil rouge avec les derniers standards : standalone components, l'API Signal
                 pour gérer la réactivité, la syntaxe de control flow.
-              </p>
-              <br>
-              <p><strong style="opacity: .5;color: #080f19fa;">Méthodes pédagogiques</strong><br>
+              </p> 
+              <p class="mt-2"><strong style="opacity: .55;color: #080f19fa">Méthodes pédagogiques</strong><br>
                 Chaque nouveau concept théorique sera appliqué immédiatement de façon pratique.</p>
             </div>
-          </div>
 
-          <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+            <hr class="w-48 mx-auto my-3 border-0 rounded md:my-10 border-gray-800 dark:border-white">
 
-          <div class="row mt-2">
             <div>
               <h2 class="fs-4 font-bold my-0 pt-0 pb-1">Modalités d'évalutation</h2>
               <p>{{course.evaluation}}</p>
             </div>
           </div>
 
+          <hr class="w-48 mx-auto my-2 border-0 rounded md:my-10 border-gray-800 dark:border-white">
+
+
           <!-- formateur -->
-          <div style="background: #ebf5fa; color: #000;border:1px solid transparent;margin: 0;border-radius: 8px;"
-               class="mt-4 p-4 pb-5">
+          <div style="background: #ffffff;color: #000;padding: 6px !important;margin-top: 42px !important;"
+               class="mt-4 p-3 pb-5 qualiopi-bloc">
             <div class="row">
               <div class="col-12 col-lg-6">
                 <h2 style=""
@@ -328,16 +326,16 @@ position: absolute;width: auto;top: -25px;padding: 1px 11px;border-radius: 6px;"
 
           <div class="px-4 px-lg-5 py-3 py-5">
             <p>Nous délivrons des cours pratiques</p>
-            <p class="fs-6 font-bold"><i class="bi bi-buildings mr-3 opacity-50"></i> En présentiel ou en distanciel</p>
+            <p class="fs-6 font-bold"><i style="font-size: 1.55rem" class="bi bi-buildings mr-3 opacity-50"></i> En présentiel ou en distanciel</p>
           </div>
 
-          <hr>
+          <hr style="opacity:0">
 
           <div class="px-4 px-lg-5 py-3 d-flex justify-content-between align-items-baseline">
             <span>
               <p style="line-height: 22px"
                  class="text-center">
-                <i style="color: #aaa"
+                <i style="color: #aaa; font-size: 1.55rem; position: relative;top: 2px;"
                    class="bi bi-alarm mr-2"></i>
                 <strong>4 jours</strong><br>
                 <small style="padding-left: 20px">(28 heures)</small>
@@ -380,7 +378,7 @@ position: absolute;width: auto;top: -25px;padding: 1px 11px;border-radius: 6px;"
               la vidéo</button> --}}
           </div>
 
-          <div class="flex justify-content-center items-center space-x-3 pt-3 pb-4 px-3">
+          <div class="flex justify-content-center items-center space-x-3 pt-5 pb-4 px-3">
             <a class="underline"
                href="#">Nous contacter</a>
           </div>
