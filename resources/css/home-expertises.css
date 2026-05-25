@@ -10,7 +10,8 @@ section#expertises h2 {
 }
 
 section#expertises h3 {
-    color: rgb(197, 211, 223) !important;
+    color: #d85e64 !important;
+    /* font-weight: 700; */
 }
 
 /* img {
@@ -54,7 +55,7 @@ section h2 {
     padding: 50px 24px;
     position: relative;
     box-sizing: border-box;
-    background: #14161c;
+    background: #0e121d;
     background-clip: padding-box;
     border: solid 2px transparent;
     border-radius: 20px;
@@ -118,7 +119,7 @@ section h2 {
     font-size: 0.95rem;
     font-weight: 700;
     color: #132053;
-    background-color: #c1d6f5;
+    background-color: #deebff;
     border-top-left-radius: 2.25em;
     border-bottom-left-radius: 2.25em;
     list-style: none;

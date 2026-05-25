@@ -8,7 +8,7 @@
   --gray-dark: #333;
   --gray-light: #f9f9f9;
   --gray-lighter: #f1f1f1;
-  --primary: #0046fe;
+  --primary: #fb2c36;
   /* --primary: #0eab71; */
   --secondary: #ff4081;
   --success: #4caf50;
@@ -136,7 +136,7 @@ div.parent-cards {
 }
 
 div.card.card-hero {
-  background: #242b3a;
+  background: #0e1117;
   border: 1px solid #8088a0;
   width: 225px;
   height: 340px;
@@ -159,7 +159,12 @@ div.card.card-hero h2 {
 div.card.card-hero:hover {
   transform: translateY(-8px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  background-color: #0e6fa8;
+  background-color: #141010;
+
+  div.placeholder-lines span {
+    background: var(--primary);
+  }
+
 }
 
 div.card.card-hero:first-child {
@@ -170,19 +175,27 @@ div.card.card-hero:first-child {
 
 div.card.card-hero:first-child:hover {
   transform: rotate(-8deg) translateY(3px);
-  background-color: #0e6fa8;
+  background-color: #141010;
+
+  div.placeholder-lines span {
+    background: var(--primary);
+  }
 }
 
 div.card.card-hero:last-child {
   transform-origin: left;
   transform: rotate(10deg) translateY(10px);
   z-index: 0;
-  background: #242b3a;
+  background: #0e1117;
 }
 
 div.card.card-hero:last-child:hover {
   transform: rotate(8deg) translateY(3px);
-  background-color: #0e6fa8;
+  background-color: #141010;
+
+  div.placeholder-lines span {
+    background: var(--primary);
+  }
 }
 
 div.card.card-hero .img {
@@ -210,7 +223,7 @@ div.card.card-hero:hover .img img {
 div.card.card-hero .img .circle {
   width: 174px;
   height: 174px;
-  background: #242c47;
+  background: var(--primary);
   position: absolute;
   top: 5px;
   left: 4px;
@@ -219,13 +232,13 @@ div.card.card-hero .img .circle {
 }
 
 div.card.card-hero:first-child .img .circle {
-  background: #242c47;
+  background: var(--primary);
   top: 5px;
   left: 4px;
 }
 
 div.card.card-hero:last-child .img .circle {
-  background: #242c47;
+  background: var(--primary);
   top: 6px;
   left: -2px;
 }
@@ -244,7 +257,7 @@ div.card.card-hero h2 {
 
 section.founders {
   padding: 70px 16px 100px;
-  background: #f4f3ef;
+  background: #fcfcfc;
 
   .company-text {
     padding: 23px;
@@ -257,7 +270,7 @@ section.founders p {
   line-height: 28px;
   color: #111;
   margin: 0;
-  margin-bottom: 8px;
+  margin-bottom: -6px;
 }
 
 .card-founders-container {
@@ -277,7 +290,7 @@ section.founders p {
   transition-duration: .25s;
   padding: 12px;
   border-radius: 12px;
-  border-color: rgb(17 24 39 / 0.15);
+  border-color: rgb(17 24 39 / 0.12);
   box-shadow: 0 12px 12px -16px rgba(0, 0, 0, 0.25);
 }
 
@@ -352,13 +365,16 @@ div.placeholder-lines {
   justify-content: space-between;
 }
 
+
+
 div.placeholder-lines span {
   height: 5px;
   border-radius: 16px;
   width: 100%;
-  background: #689ac463;
+  background: rgba(180, 180, 255, 0.15);
   margin-bottom: 0px;
   display: block;
+  transition-duration: .3s;
 }
 
 div.placeholder-lines span:last-child {
@@ -385,17 +401,18 @@ h1.title {
 .highlight {
   font-weight: 600;
   font-size: 0.97em;
-  background: #e9ebfb;
+  background: var(--primary);
   border-radius: 7px;
   padding: 0px 7px;
   transform: rotate(-1deg);
   display: inline-block;
+  color: #fff !important;
 }
 
 .glow {
-  -webkit-box-shadow: 0px 0px 90px 16px rgba(7, 3, 255, 0.38);
-  -moz-box-shadow: 0px 0px 90px 16px rgba(7, 3, 255, 0.38);
-  box-shadow: 0px 0px 90px 16px rgba(7, 3, 255, 0.38);
+  -webkit-box-shadow: 0px 0px 90px 16px #27446b;
+  -moz-box-shadow: 0px 0px 90px 16px #27446b;
+  box-shadow: 0px 0px 90px 16px #27446b;
 }
 
 .linkedin {
@@ -471,8 +488,8 @@ h1.title {
   font-size: 17px;
   line-height: 21px;
   color: hsl(0, 0%, 100%);
-  background: #0e6fa8;
-  border: 1px solid #4090b0;
+  background: var(--primary);
+  border: 1px solid var(--primary);
   box-shadow: 0px 0px 0px #000e1b;
   border-radius: 50px;
   padding: 14px 21px;
@@ -482,7 +499,7 @@ h1.title {
 }
 
 .hero .btn-hire:hover {
-  background: #3499c0;
+  background: #ca1922;
 }
 
 .hero .btn-search {
@@ -497,7 +514,8 @@ h1.title {
   display: inline-block;
   transform: translate(0px, 0px);
   transition: all .3s ease;
-  margin-right: 10px;
+  margin-right: 8px;
+  margin-left: 8px;
 }
 
 .hero .btn-search:hover {
@@ -531,12 +549,12 @@ img {
 }
 
 .customers {
-  translate: 0px 55px;
+  translate: 0px 31px;
 }
 
 .customers h2 {
   font-size: 1.125rem;
-  color: #868686;
+  color: var(--primary) !important;
   text-align: center;
   padding: 0;
   margin: 0;

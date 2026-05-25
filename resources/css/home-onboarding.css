@@ -30,8 +30,6 @@ section.process-hire {
     gap: 0px;
 }
 
-
-
 .onboarding-items {
     display: flex;
     justify-content: space-between;
@@ -46,12 +44,12 @@ section.process-hire {
 }
 
 .onboarding-item:hover>.link a {
-    color: #0c7dbf !important;
+    color: #010101 !important;
     transition-duration: .2s;
 }
 
 .onboarding-item:hover>.link a:after {
-    color: #111 !important;
+    color: var(--primary) !important;
     transform: translate(6px, 2px);
     transition-duration: .2s;
 }
@@ -76,16 +74,16 @@ section.process-hire {
 }
 
 .onboarding-item .link a:hover {
-    color: #0e6fa8 !important;
+    color: var(--primary) !important;
 }
 
 .onboarding-item .link a:after {
     content: "\F285";
     margin-right: 3px;
     font-family: bootstrap-icons !important;
-    transform: translate(3px, 2px);
+    transform: translate(3px, 2px) scale(1.2);
     transition-duration: .2s;
-    color: #b6b6c6
+    color: #828282
 }
 
 .onboarding-item .link a:hover:after {
@@ -101,18 +99,19 @@ section.process-hire {
     background: #fff;
     border: 1px solid rgb(17 24 39 / 0.1);
     box-shadow: 0 6px 6px -6px rgba(0, 0, 0, 0.15);
-    border-radius: 0px;
+    border-radius: 19px 19px;
     min-height: 225px;
     padding-top: 10px;
     padding: 0;
     transition-duration: .3s;
+    margin: 10px;
 
 
     img {
         margin-bottom: 10px;
         align-self: center;
         width: 64px;
-        filter: hue-rotate(57deg) saturate(0.87);
+        filter: hue-rotate(57deg) saturate(0);
     }
 
     .onboarding-item-title {
@@ -143,20 +142,20 @@ section.process-hire {
     }
 
     &:first-child {
-        border-radius: 8px 8px 0 0;
+        border-radius: 19px;
     }
 
     &:last-child {
-        border-radius: 0 0 8px 8px;
+        border-radius: 19px;
     }
 
     @media screen and (min-width:992px) {
         &:first-child {
-            border-radius: 8px 0 0 8px;
+            border-radius: 19px 19px;
         }
 
         &:last-child {
-            border-radius: 0 8px 8px 0;
+            border-radius: 19px 19px;
         }
     }
 
@@ -262,11 +261,12 @@ section.process-hire {
     .onboarding-item {
         box-shadow: none;
         border: 1px solid rgb(17 24 39 / 0.1);
-        border-radius: 8px;
+        border-radius: 19px 19px;
+        ;
     }
 
     .onboarding-item .link a {
-        color: rgb(59, 59, 208) !important;
+        color: #161616 !important;
     }
 
     .onboarding-item {

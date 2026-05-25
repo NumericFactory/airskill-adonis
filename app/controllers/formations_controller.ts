@@ -31,8 +31,10 @@ export default class FormationsController {
     }
 
     public async show({ view, request }: HttpContext) {
-        const courseName = request.param('name').replaceAll('-', ' ');
+        const courseName = decodeURIComponent(request.param('name').replaceAll('-', ' '));
         const ask: any = await this.fetchCourses();
+        console.log("COURSE NAME", courseName)
+        console.log("ASK COURSES", ask.courses)
         const courseId = ask.courses.find((course: any) => course.name.toLowerCase() === courseName.toLowerCase()).id
         const result: any = await this.fetchCourse(courseId);
         const course = result.course;
