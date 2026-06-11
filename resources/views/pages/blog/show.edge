@@ -1,7 +1,7 @@
 @include('partials/header')
 
 <article class="blog-article py-16">
-    <div class="mx-auto px-4 w-full max-w-3xl 3xl:max-w-2xl">
+    <div class="mx-auto px-4 w-full max-w-4xl 3xl:max-w-3xl">
 
         {{-- Catégorie --}}
         @if(post.category)
@@ -38,7 +38,7 @@
         @end
 
         {{-- Contenu --}}
-        <div class="prose prose-indigo max-w-none text-gray-800 leading-relaxed">
+        <div class="prose prose-indigo max-w-none text-gray-800 leading-relaxed [overflow-wrap:anywhere]">
             {{{ post.content }}}
         </div>
 
@@ -50,5 +50,14 @@
 
     </div>
 </article>
+
+<script>
+  document.querySelectorAll('.prose a').forEach(function (link) {
+    const href = link.getAttribute('href')
+    if (href) {
+      link.setAttribute('href', href.replace(/^["']+|["']+$/g, ''))
+    }
+  })
+</script>
 
 @include('partials/footer')

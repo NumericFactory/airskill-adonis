@@ -51,8 +51,19 @@
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Contenu</label>
+                <div class="flex items-center justify-between mb-1">
+                    <label class="block text-sm font-medium text-gray-700">Contenu</label>
+                    <button type="button"
+                            id="toggle-html"
+                            class="text-xs px-2 py-1 rounded border border-gray-300 text-gray-500 hover:bg-gray-100 font-mono transition-colors">
+                        &lt;/&gt; HTML
+                    </button>
+                </div>
                 <div id="quill-editor"></div>
+                <textarea id="html-editor"
+                          style="display:none"
+                          rows="16"
+                          class="w-full border border-gray-300 rounded-b-lg px-4 py-3 font-mono text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-y"></textarea>
                 <div id="content-source" style="display:none">{{{ flashMessages.get('content') || '' }}}</div>
                 <textarea name="content" id="content-field" style="display:none" required></textarea>
                 @if(flashMessages.has('errors.content'))
@@ -155,13 +166,38 @@
   }
 
   const contentField = document.getElementById('content-field')
+  const htmlEditor = document.getElementById('html-editor')
+  const toggleBtn = document.getElementById('toggle-html')
+  const quillContainer = document.getElementById('quill-editor')
+  let htmlMode = false
 
   quill.on('text-change', function () {
     contentField.value = quill.getSemanticHTML()
   })
 
+  toggleBtn.addEventListener('click', function () {
+    htmlMode = !htmlMode
+    if (htmlMode) {
+      htmlEditor.value = quill.getSemanticHTML()
+      quillContainer.style.display = 'none'
+      htmlEditor.style.display = 'block'
+      toggleBtn.textContent = 'Éditeur visuel'
+      toggleBtn.classList.add('bg-indigo-50', 'border-indigo-300', 'text-indigo-600')
+    } else {
+      quill.clipboard.dangerouslyPasteHTML(htmlEditor.value)
+      htmlEditor.style.display = 'none'
+      quillContainer.style.display = 'block'
+      toggleBtn.textContent = '</> HTML'
+      toggleBtn.classList.remove('bg-indigo-50', 'border-indigo-300', 'text-indigo-600')
+    }
+  })
+
   document.querySelector('form').addEventListener('submit', function () {
-    contentField.value = quill.getSemanticHTML()
+    if (htmlMode) {
+      contentField.value = htmlEditor.value
+    } else {
+      contentField.value = quill.getSemanticHTML()
+    }
   })
 
   document.getElementById('thumbnail_file').addEventListener('change', function () {

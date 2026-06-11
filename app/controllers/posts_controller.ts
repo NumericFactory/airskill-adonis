@@ -7,6 +7,10 @@ import { DateTime } from 'luxon'
 import app from '@adonisjs/core/services/app'
 import { cuid } from '@adonisjs/core/helpers'
 
+function sanitizeContent(html: string): string {
+    return html.replace(/href="(["']+)(https?:\/\/[^"]+?)(["']+)"/g, 'href="$2"')
+}
+
 export default class PostsController {
     /**
      * GET /blog — liste paginée des articles publiés
@@ -98,6 +102,7 @@ export default class PostsController {
 
         await Post.create({
             ...data,
+            content: sanitizeContent(data.content),
             thumbnail,
             userId: auth.user!.id,
             publishedAt:
@@ -149,7 +154,7 @@ export default class PostsController {
             post.publishedAt = publishedAt ? DateTime.fromJSDate(publishedAt) : DateTime.now()
         }
 
-        post.merge(rest)
+        post.merge({ ...rest, content: rest.content ? sanitizeContent(rest.content) : rest.content })
         await post.save()
 
         return response.redirect().toRoute('admin.blog.index')
