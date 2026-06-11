@@ -1,0 +1,110 @@
+@include('partials/header')
+
+<section class="py-10">
+    <div class="container mx-auto px-4 max-w-2xl">
+        <h1 class="text-2xl font-bold mb-8">Modifier l'article</h1>
+
+        <form method="POST"
+              action="/admin/blog/{{ post.id }}"
+              class="space-y-6 bg-white rounded-xl shadow p-8">
+            {{ csrfField() }}
+            <input type="hidden"
+                   name="_method"
+                   value="PUT" />
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Titre</label>
+                <input type="text"
+                       name="title"
+                       value="{{ flashMessages.get('title') || post.title }}"
+                       class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                       required />
+                @if(flashMessages.has('errors.title'))
+                <p class="text-red-500 text-xs mt-1">{{ flashMessages.get('errors.title') }}</p>
+                @end
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Slug</label>
+                <input type="text"
+                       name="slug"
+                       value="{{ flashMessages.get('slug') || post.slug }}"
+                       class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                       required />
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Résumé (excerpt)</label>
+                <textarea name="excerpt"
+                          rows="2"
+                          class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">{{ flashMessages.get('excerpt') || post.excerpt }}</textarea>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Contenu</label>
+                <textarea name="content"
+                          rows="12"
+                          required
+                          class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">{{ flashMessages.get('content') || post.content }}</textarea>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">URL Thumbnail</label>
+                <input type="text"
+                       name="thumbnail"
+                       value="{{ flashMessages.get('thumbnail') || post.thumbnail }}"
+                       class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Catégorie</label>
+                    <select name="categoryId"
+                            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="">— Sans catégorie —</option>
+                        @each(cat in categories)
+                        <option value="{{ cat.id }}"
+                                {{
+                                post.categoryId===cat.id
+                                ? 'selected'
+                                : ''
+                                }}>{{ cat.title }}</option>
+                        @end
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Statut</label>
+                    <select name="status"
+                            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="draft"
+                                {{
+                                post.status==='draft'
+                                ? 'selected'
+                                : ''
+                                }}>Brouillon</option>
+                        <option value="published"
+                                {{
+                                post.status==='published'
+                                ? 'selected'
+                                : ''
+                                }}>Publié</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="flex gap-4 pt-4">
+                <button type="submit"
+                        class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 font-medium">
+                    Enregistrer
+                </button>
+                <a href="/admin/blog"
+                   class="px-6 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50">
+                    Annuler
+                </a>
+            </div>
+        </form>
+    </div>
+</section>
+
+@include('partials/footer')

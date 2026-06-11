@@ -1,0 +1,65 @@
+@include('partials/header')
+
+<section class="py-10">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between mb-8">
+            <h1 class="text-2xl font-bold">Gestion du blog</h1>
+            <a href="/admin/blog/create"
+               class="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700 text-sm font-medium">
+                + Nouvel article
+            </a>
+        </div>
+
+        @if(posts.length === 0)
+        <p class="text-gray-500">Aucun article pour le moment.</p>
+        @else
+        <div class="bg-white rounded-xl shadow overflow-hidden">
+            <table class="w-full text-sm">
+                <thead class="bg-gray-50 text-gray-600 text-xs uppercase">
+                    <tr>
+                        <th class="px-6 py-3 text-left">Titre</th>
+                        <th class="px-6 py-3 text-left">Catégorie</th>
+                        <th class="px-6 py-3 text-left">Auteur</th>
+                        <th class="px-6 py-3 text-left">Statut</th>
+                        <th class="px-6 py-3 text-left">Date</th>
+                        <th class="px-6 py-3"></th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    @each(post in posts)
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 font-medium text-gray-800">{{ post.title }}</td>
+                        <td class="px-6 py-4 text-gray-500">{{ post.category ? post.category.title : '—' }}</td>
+                        <td class="px-6 py-4 text-gray-500">{{ post.user.fullName || post.user.email }}</td>
+                        <td class="px-6 py-4">
+                            <span
+                                  class="px-2 py-1 rounded-full text-xs font-semibold
+                    {{ post.status === 'published' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700' }}">
+                                {{ post.status === 'published' ? 'Publié' : 'Brouillon' }}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 text-gray-500">{{ post.createdAt.toFormat('dd/MM/yyyy') }}</td>
+                        <td class="px-6 py-4 text-right flex gap-3 justify-end">
+                            <a href="/admin/blog/{{ post.id }}/edit"
+                               class="text-indigo-600 hover:underline">Éditer</a>
+                            <form method="POST"
+                                  action="/admin/blog/{{ post.id }}"
+                                  onsubmit="return confirm('Supprimer cet article ?')">
+                                {{ csrfField() }}
+                                <input type="hidden"
+                                       name="_method"
+                                       value="DELETE" />
+                                <button type="submit"
+                                        class="text-red-500 hover:underline">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                    @end
+                </tbody>
+            </table>
+        </div>
+        @end
+    </div>
+</section>
+
+@include('partials/footer')
