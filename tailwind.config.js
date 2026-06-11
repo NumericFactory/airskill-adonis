@@ -5,7 +5,11 @@ export default {
     "./resources/**/*.{js,ts,jsx,tsx,vue}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        '3xl': '1400px',
+      },
+    },
   },
   plugins: [],
 }

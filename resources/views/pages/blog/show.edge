@@ -1,33 +1,40 @@
 @include('partials/header')
 
 <article class="blog-article py-16">
-    <div class="container mx-auto px-4 max-w-3xl">
+    <div class="mx-auto px-4 w-full max-w-3xl 3xl:max-w-2xl">
 
-        {{-- En-tête article --}}
-        <header class="mb-10">
-            @if(post.category)
-            <a href="/blog?category={{ post.category.slug }}"
-               class="text-xs font-semibold text-indigo-600 uppercase tracking-wide hover:underline">
-                {{ post.category.title }}
-            </a>
+        {{-- Catégorie --}}
+        @if(post.category)
+        <a href="/blog?category={{ post.category.slug }}"
+           class="text-xs font-semibold text-indigo-600 uppercase tracking-widest hover:underline">
+            {{ post.category.title }}
+        </a>
+        @end
+
+        {{-- Titre --}}
+        <h1 class="text-3xl md:text-4xl font-bold mt-3 mb-4 leading-tight">{{ post.title }}</h1>
+
+        {{-- Résumé --}}
+        @if(post.excerpt)
+        <p class="text-lg text-gray-600 leading-relaxed mb-5 font-medium">{{ post.excerpt }}</p>
+        @end
+
+        {{-- Auteur & date --}}
+        <div class="flex items-center gap-4 text-sm text-gray-400 mb-10 pb-6 border-b border-gray-100">
+            <span>Par <strong class="text-gray-600">{{ post.user.fullName || post.user.email }}</strong></span>
+            @if(post.publishedAt)
+            <span>•</span>
+            <time>{{ post.publishedAt.toFormat('dd MMMM yyyy', { locale: 'fr' }) }}</time>
             @end
+        </div>
 
-            <h1 class="text-3xl md:text-4xl font-bold mt-3 mb-4 leading-tight">{{ post.title }}</h1>
-
-            <div class="flex items-center gap-4 text-sm text-gray-500">
-                <span>Par <strong class="text-gray-700">{{ post.user.fullName || post.user.email }}</strong></span>
-                @if(post.publishedAt)
-                <span>•</span>
-                <time>{{ post.publishedAt.toFormat('dd MMMM yyyy', { locale: 'fr' }) }}</time>
-                @end
-            </div>
-        </header>
-
-        {{-- Thumbnail --}}
+        {{-- Image --}}
         @if(post.thumbnail)
-        <img src="{{ post.thumbnail }}"
-             alt="{{ post.title }}"
-             class="w-full rounded-xl mb-10 object-cover max-h-96" />
+        <figure class="mb-10">
+            <img src="{{ post.thumbnail }}"
+                 alt="{{ post.title }}"
+                 class="w-full rounded-xl object-cover max-h-[520px]" />
+        </figure>
         @end
 
         {{-- Contenu --}}
@@ -35,8 +42,8 @@
             {{{ post.content }}}
         </div>
 
-        {{-- Pied de l'article --}}
-        <footer class="mt-16 pt-8 border-t border-gray-200 flex items-center justify-between">
+        {{-- Pied --}}
+        <footer class="mt-16 pt-8 border-t border-gray-200">
             <a href="/blog"
                class="text-indigo-600 hover:underline text-sm">← Retour au blog</a>
         </footer>

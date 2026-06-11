@@ -1,8 +1,11 @@
+import fs from 'node:fs'
 import Post from '#models/post'
 import Category from '#models/category'
 import { HttpContext } from '@adonisjs/core/http'
 import { createPostValidator, updatePostValidator } from '#validators/post_validator'
 import { DateTime } from 'luxon'
+import app from '@adonisjs/core/services/app'
+import { cuid } from '@adonisjs/core/helpers'
 
 export default class PostsController {
     /**
@@ -43,6 +46,11 @@ export default class PostsController {
             return response.abort({ message: 'Article introuvable' }, 404)
         }
 
+        const expectedCategory = post.category?.slug ?? 'non-classe'
+        if (params.categorySlug !== expectedCategory) {
+            return response.redirect().status(301).toPath(`/blog/${expectedCategory}/${post.slug}`)
+        }
+
         return view.render('pages/blog/show', { post })
     }
 
@@ -72,8 +80,25 @@ export default class PostsController {
     public async store({ request, response, auth }: HttpContext) {
         const data = await request.validateUsing(createPostValidator)
 
-        const post = await Post.create({
+        const thumbnailFile = request.file('thumbnail_file', { size: '20mb' })
+
+        let thumbnail: string | undefined
+
+        if (thumbnailFile) {
+            if (thumbnailFile.type !== 'image') {
+                return response.redirect().back()
+            }
+            const uploadsDir = app.publicPath('uploads/thumbnails')
+            fs.mkdirSync(uploadsDir, { recursive: true })
+            const ext = thumbnailFile.extname?.toLowerCase() ?? thumbnailFile.subtype
+            const fileName = `${cuid()}.${ext}`
+            await thumbnailFile.move(uploadsDir, { name: fileName })
+            thumbnail = `/uploads/thumbnails/${fileName}`
+        }
+
+        await Post.create({
             ...data,
+            thumbnail,
             userId: auth.user!.id,
             publishedAt:
                 data.status === 'published'
@@ -81,7 +106,7 @@ export default class PostsController {
                     : null,
         })
 
-        return response.redirect().toRoute('blog.show', { slug: post.slug })
+        return response.redirect().toRoute('admin.blog.index')
     }
 
     /**
@@ -104,6 +129,20 @@ export default class PostsController {
 
         const data = await request.validateUsing(updatePostValidator)
 
+        const thumbnailFile = request.file('thumbnail_file', { size: '20mb' })
+
+        if (thumbnailFile) {
+            if (thumbnailFile.type !== 'image') {
+                return response.redirect().back()
+            }
+            const uploadsDir = app.publicPath('uploads/thumbnails')
+            fs.mkdirSync(uploadsDir, { recursive: true })
+            const ext = thumbnailFile.extname?.toLowerCase() ?? thumbnailFile.subtype
+            const fileName = `${cuid()}.${ext}`
+            await thumbnailFile.move(uploadsDir, { name: fileName })
+            post.thumbnail = `/uploads/thumbnails/${fileName}`
+        }
+
         const { publishedAt, ...rest } = data
 
         if (data.status === 'published' && post.status === 'draft' && !post.publishedAt) {
@@ -113,7 +152,7 @@ export default class PostsController {
         post.merge(rest)
         await post.save()
 
-        return response.redirect().toRoute('blog.show', { slug: post.slug })
+        return response.redirect().toRoute('admin.blog.index')
     }
 
     /**
@@ -124,6 +163,6 @@ export default class PostsController {
         if (!post) return response.abort({ message: 'Article introuvable' }, 404)
 
         await post.delete()
-        return response.redirect().toRoute('blog.index')
+        return response.redirect().toRoute('admin.blog.index')
     }
 }

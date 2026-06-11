@@ -15,7 +15,7 @@ router.on('mentions-legales').render('pages/legal')
 
 // ─── Blog public ───────────────────────────────────────────────────────────
 router.get('/blog', '#controllers/posts_controller.index').as('blog.index')
-router.get('/blog/:slug', '#controllers/posts_controller.show').as('blog.show')
+router.get('/blog/:categorySlug/:slug', '#controllers/posts_controller.show').as('blog.show')
 
 // ─── Formations ────────────────────────────────────────────────────────────
 router.get('formations', '#controllers/formations_controller.index').as('courses.index')

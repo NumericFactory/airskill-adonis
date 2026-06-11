@@ -37,7 +37,7 @@
             @end
 
             <h2 class="text-lg font-bold mb-2 leading-snug">
-              <a href="/blog/{{ post.slug }}"
+              <a href="/blog/{{ post.category ? post.category.slug : 'non-classe' }}/{{ post.slug }}"
                  class="hover:text-indigo-700">{{ post.title }}</a>
             </h2>
 
