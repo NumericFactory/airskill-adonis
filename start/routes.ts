@@ -22,6 +22,11 @@ router.get('formations', '#controllers/formations_controller.index').as('courses
 router.get('formations/:name/:id', '#controllers/formations_controller.show').as('courses.show')
 router.get('formations/:categoryname', '#controllers/formations_controller.indexByCategory').as('courses.indexbycategory')
 
+// ─── Authentification ────────────────────────────────────────────────────────
+router.get('/login', '#controllers/session_controller.create').as('login.create')
+router.post('/login', '#controllers/session_controller.store').as('login.store')
+router.post('/logout', '#controllers/session_controller.destroy').as('login.destroy').use(middleware.auth())
+
 // ─── Admin blog (authentifié) ───────────────────────────────────────────────
 router
     .group(() => {
