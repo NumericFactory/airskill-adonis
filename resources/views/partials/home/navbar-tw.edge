@@ -58,6 +58,21 @@
             </a>
           </div>
         </div>
+
+        @if(await auth.check())
+        <div class="relative ml-3">
+          <form action="{{ route('login.destroy') }}" method="POST">
+            {{ csrfField() }}
+            <button type="submit"
+              title="Se déconnecter"
+              style="background: none; border: none; cursor: pointer; padding: 0.375rem 0.5rem; border-radius: 6px; color: #94a3b8; transition: color 0.15s, background 0.15s;"
+              onmouseover="this.style.color='#ef4444'; this.style.background='#fef2f2'"
+              onmouseout="this.style.color='#94a3b8'; this.style.background='none'">
+              <i class="bi bi-box-arrow-right" style="font-size: 1.1rem;"></i>
+            </button>
+          </form>
+        </div>
+        @endif
       </div>
       <div class="mr-0 flex items-center xl:hidden">
         <!-- Mobile menu button -->

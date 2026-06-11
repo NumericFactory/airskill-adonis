@@ -1,0 +1,74 @@
+@include('partials/header')
+
+<section class="py-10">
+  <div class="container mx-auto px-4">
+
+    <div class="flex items-center justify-between mb-8">
+      <div class="flex items-center gap-4">
+        <a href="{{ route('admin.dashboard') }}" style="color: #94a3b8; font-size: 0.875rem; text-decoration: none; display: flex; align-items: center; gap: 0.25rem;">
+          <i class="bi bi-arrow-left"></i> Admin
+        </a>
+        <h1 class="text-2xl font-bold">Catégories</h1>
+      </div>
+      <a href="{{ route('admin.categories.create') }}"
+         class="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700 text-sm font-medium">
+        + Nouvelle catégorie
+      </a>
+    </div>
+
+    @if(flashMessages.has('success'))
+      <div style="background: #f0fdf4; border-left: 4px solid #22c55e; padding: 0.875rem 1rem; border-radius: 0.5rem; margin-bottom: 1.5rem; font-size: 0.875rem; color: #15803d; font-weight: 500;">
+        {{ flashMessages.get('success') }}
+      </div>
+    @endif
+
+    @if(categories.length === 0)
+      <div style="text-align: center; padding: 3rem; color: #94a3b8;">
+        <i class="bi bi-tags" style="font-size: 2.5rem; display: block; margin-bottom: 0.75rem;"></i>
+        <p>Aucune catégorie pour le moment.</p>
+      </div>
+    @else
+    <div class="bg-white rounded-xl shadow overflow-hidden">
+      <table class="w-full text-sm">
+        <thead class="bg-gray-50 text-gray-600 text-xs uppercase">
+          <tr>
+            <th class="px-6 py-3 text-left">Titre</th>
+            <th class="px-6 py-3 text-left">Slug</th>
+            <th class="px-6 py-3 text-left">Description</th>
+            <th class="px-6 py-3 text-left">Articles</th>
+            <th class="px-6 py-3"></th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          @each(category in categories)
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 font-medium text-gray-800">{{ category.title }}</td>
+            <td class="px-6 py-4">
+              <span style="background: #f1f5f9; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: monospace; font-size: 0.8rem; color: #475569;">
+                {{ category.slug }}
+              </span>
+            </td>
+            <td class="px-6 py-4 text-gray-500">{{ category.description || '—' }}</td>
+            <td class="px-6 py-4 text-gray-500 text-center">{{ category.$extras.postsCount }}</td>
+            <td class="px-6 py-4 text-right flex gap-3 justify-end">
+              <a href="/admin/categories/{{ category.id }}/edit"
+                 class="text-indigo-600 hover:underline">Éditer</a>
+              <form method="POST"
+                    action="/admin/categories/{{ category.id }}"
+                    onsubmit="return confirm('Supprimer cette catégorie ?')">
+                {{ csrfField() }}
+                <input type="hidden" name="_method" value="DELETE" />
+                <button type="submit" class="text-red-500 hover:underline">Supprimer</button>
+              </form>
+            </td>
+          </tr>
+          @end
+        </tbody>
+      </table>
+    </div>
+    @endif
+
+  </div>
+</section>
+
+@include('partials/footer')

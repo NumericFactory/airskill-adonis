@@ -22,8 +22,8 @@ export default class SessionController {
       // Connecter l'utilisateur dans la session web
       await auth.use('web').login(user)
 
-      // Rediriger vers l'admin du blog
-      return response.redirect().toRoute('admin.blog.index')
+      // Rediriger vers le dashboard admin
+      return response.redirect().toRoute('admin.dashboard')
     } catch (error) {
       session.flash('error', 'Identifiants incorrects. Veuillez réessayer.')
       return response.redirect().back()

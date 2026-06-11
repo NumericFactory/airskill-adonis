@@ -3,6 +3,9 @@ node_modules
 build
 tmp
 
+# Seeders (données sensibles, ne pas versionner)
+database/seeders/
+
 # Secrets
 .env
 .env2

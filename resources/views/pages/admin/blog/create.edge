@@ -1,7 +1,15 @@
 @include('partials/header')
 
+<link href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css" rel="stylesheet">
+<style>
+  #quill-editor { min-height: 320px; font-size: 1rem; background: #fff; }
+  .ql-toolbar { border-radius: 0.5rem 0.5rem 0 0; border-color: #d1d5db !important; }
+  .ql-container { border-radius: 0 0 0.5rem 0.5rem; border-color: #d1d5db !important; }
+  .ql-editor { min-height: 300px; }
+</style>
+
 <section class="py-10">
-    <div class="container mx-auto px-4 max-w-2xl">
+    <div class="container mx-auto px-4 max-w-3xl">
         <h1 class="text-2xl font-bold mb-8">Nouvel article</h1>
 
         <form method="POST"
@@ -43,10 +51,9 @@
 
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">Contenu</label>
-                <textarea name="content"
-                          rows="12"
-                          required
-                          class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">{{ flashMessages.get('content') || '' }}</textarea>
+                <div id="quill-editor"></div>
+                <div id="content-source" style="display:none">{{{ flashMessages.get('content') || '' }}}</div>
+                <textarea name="content" id="content-field" style="display:none" required></textarea>
                 @if(flashMessages.has('errors.content'))
                 <p class="text-red-500 text-xs mt-1">{{ flashMessages.get('errors.content') }}</p>
                 @end
@@ -95,5 +102,32 @@
         </form>
     </div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
+<script>
+  const quill = new Quill('#quill-editor', {
+    theme: 'snow',
+    placeholder: 'Rédigez votre article...',
+    modules: {
+      toolbar: [
+        [{ header: [2, 3, 4, false] }],
+        ['bold', 'italic', 'underline', 'strike'],
+        ['blockquote', 'code-block'],
+        [{ list: 'ordered' }, { list: 'bullet' }],
+        ['link', 'image'],
+        ['clean']
+      ]
+    }
+  })
+
+  const source = document.getElementById('content-source')
+  if (source && source.innerHTML.trim()) {
+    quill.clipboard.dangerouslyPasteHTML(source.innerHTML)
+  }
+
+  document.querySelector('form').addEventListener('submit', function () {
+    document.getElementById('content-field').value = quill.getSemanticHTML()
+  })
+</script>
 
 @include('partials/footer')
