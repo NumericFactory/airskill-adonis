@@ -31,7 +31,7 @@ export default class PostsController {
     /**
      * GET /blog/:slug — détail d'un article
      */
-    public async show({ view, params, abort }: HttpContext) {
+    public async show({ view, params, response }: HttpContext) {
         const post = await Post.query()
             .where('slug', params.slug)
             .where('status', 'published')
@@ -40,7 +40,7 @@ export default class PostsController {
             .first()
 
         if (!post) {
-            return abort(404)
+            return response.abort({ message: 'Article introuvable' }, 404)
         }
 
         return view.render('pages/blog/show', { post })
@@ -87,9 +87,9 @@ export default class PostsController {
     /**
      * GET /admin/blog/:id/edit — formulaire édition
      */
-    public async edit({ view, params, abort }: HttpContext) {
+    public async edit({ view, params, response }: HttpContext) {
         const post = await Post.find(params.id)
-        if (!post) return abort(404)
+        if (!post) return response.abort({ message: 'Article introuvable' }, 404)
 
         const categories = await Category.all()
         return view.render('pages/admin/blog/edit', { post, categories })
@@ -98,17 +98,19 @@ export default class PostsController {
     /**
      * PUT /admin/blog/:id — mettre à jour un article
      */
-    public async update({ request, response, params, abort }: HttpContext) {
+    public async update({ request, response, params }: HttpContext) {
         const post = await Post.find(params.id)
-        if (!post) return abort(404)
+        if (!post) return response.abort({ message: 'Article introuvable' }, 404)
 
         const data = await request.validateUsing(updatePostValidator)
 
+        const { publishedAt, ...rest } = data
+
         if (data.status === 'published' && post.status === 'draft' && !post.publishedAt) {
-            post.publishedAt = DateTime.now()
+            post.publishedAt = publishedAt ? DateTime.fromJSDate(publishedAt) : DateTime.now()
         }
 
-        post.merge(data)
+        post.merge(rest)
         await post.save()
 
         return response.redirect().toRoute('blog.show', { slug: post.slug })
@@ -117,9 +119,9 @@ export default class PostsController {
     /**
      * DELETE /admin/blog/:id — supprimer un article
      */
-    public async destroy({ response, params, abort }: HttpContext) {
+    public async destroy({ response, params }: HttpContext) {
         const post = await Post.find(params.id)
-        if (!post) return abort(404)
+        if (!post) return response.abort({ message: 'Article introuvable' }, 404)
 
         await post.delete()
         return response.redirect().toRoute('blog.index')
