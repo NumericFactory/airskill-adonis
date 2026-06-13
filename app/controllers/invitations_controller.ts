@@ -11,7 +11,7 @@ const acceptInvitationValidator = vine.compile(
 )
 
 export default class InvitationsController {
-  public async show({ view, params, response }: HttpContext) {
+  public async show({ view, params }: HttpContext) {
     const user = await User.findBy('invitationToken', params.token)
 
     if (!user || !user.invitationExpiresAt || user.invitationExpiresAt < DateTime.now()) {
