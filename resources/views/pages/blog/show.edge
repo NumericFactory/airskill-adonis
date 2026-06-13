@@ -38,7 +38,8 @@
         @end
 
         {{-- Contenu --}}
-        <div class="prose prose-indigo max-w-none text-gray-800 leading-relaxed [overflow-wrap:break-word] [hyphens:none]">
+        <div class="prose prose-indigo max-w-none text-gray-800 leading-relaxed"
+             style="hyphens: none; overflow-wrap: break-word; word-break: normal;">
             {{{ post.content }}}
         </div>
 
@@ -52,6 +53,18 @@
 </article>
 
 <script>
+  // Corriger les espaces insécables (&nbsp;) déjà stockés en base
+  const proseEl = document.querySelector('.prose')
+  if (proseEl) {
+    const walker = document.createTreeWalker(proseEl, NodeFilter.SHOW_TEXT)
+    const nodes = []
+    while (walker.nextNode()) nodes.push(walker.currentNode)
+    nodes.forEach(function (node) {
+      node.textContent = node.textContent.replace(/ /g, ' ')
+    })
+  }
+
+  // Corriger les href avec guillemets parasites
   document.querySelectorAll('.prose a').forEach(function (link) {
     const href = link.getAttribute('href')
     if (href) {

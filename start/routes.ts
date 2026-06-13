@@ -34,15 +34,15 @@ router.get('/login', async ({ response, auth, view }) => {
 router.post('/login', '#controllers/session_controller.store').as('login.store')
 router.post('/logout', '#controllers/session_controller.destroy').as('login.destroy').use(middleware.auth())
 
-// ─── Admin (authentifié) ──────────────────────────────────────────────────────
+// ─── Admin (admin + teacher + school) ────────────────────────────────────────
 router
   .group(() => {
     router.get('/', '#controllers/admin_controller.index').as('admin.dashboard')
   })
   .prefix('/admin')
-  .use(middleware.auth())
+  .use([middleware.auth(), middleware.role({ roles: ['admin', 'teacher', 'school'] })])
 
-// ─── Admin blog (authentifié) ───────────────────────────────────────────────
+// ─── Admin blog (admin + teacher) ────────────────────────────────────────────
 router
     .group(() => {
         router.get('/blog', '#controllers/posts_controller.adminIndex').as('admin.blog.index')
@@ -53,9 +53,26 @@ router
         router.delete('/blog/:id', '#controllers/posts_controller.destroy').as('admin.blog.destroy')
     })
     .prefix('/admin')
-    .use(middleware.auth())
+    .use([middleware.auth(), middleware.role({ roles: ['admin', 'teacher'] })])
 
-// ─── Admin catégories (authentifié) ────────────────────────────────────────
+// ─── Admin utilisateurs (admin uniquement) ───────────────────────────────────
+router
+    .group(() => {
+        router.get('/users', '#controllers/users_controller.index').as('admin.users.index')
+        router.get('/users/create', '#controllers/users_controller.create').as('admin.users.create')
+        router.post('/users', '#controllers/users_controller.store').as('admin.users.store')
+        router.get('/users/invitation/:token', '#controllers/users_controller.showInvitation').as('admin.users.invitation')
+        router.put('/users/:id', '#controllers/users_controller.update').as('admin.users.update')
+        router.delete('/users/:id', '#controllers/users_controller.destroy').as('admin.users.destroy')
+    })
+    .prefix('/admin')
+    .use([middleware.auth(), middleware.role({ roles: ['admin'] })])
+
+// ─── Invitations (public) ─────────────────────────────────────────────────────
+router.get('/invitation/:token', '#controllers/invitations_controller.show').as('invitation.show')
+router.post('/invitation/:token', '#controllers/invitations_controller.accept').as('invitation.accept')
+
+// ─── Admin catégories (admin uniquement) ─────────────────────────────────────
 router
     .group(() => {
         router.get('/categories', '#controllers/categories_controller.index').as('admin.categories.index')
@@ -66,5 +83,5 @@ router
         router.delete('/categories/:id', '#controllers/categories_controller.destroy').as('admin.categories.destroy')
     })
     .prefix('/admin')
-    .use(middleware.auth())
+    .use([middleware.auth(), middleware.role({ roles: ['admin'] })])
 

@@ -8,7 +8,9 @@ import app from '@adonisjs/core/services/app'
 import { cuid } from '@adonisjs/core/helpers'
 
 function sanitizeContent(html: string): string {
-    return html.replace(/href="(["']+)(https?:\/\/[^"]+?)(["']+)"/g, 'href="$2"')
+    return html
+        .replace(/href="(["']+)(https?:\/\/[^"]+?)(["']+)"/g, 'href="$2"')
+        .replace(/&nbsp;/g, ' ')
 }
 
 export default class PostsController {
@@ -117,9 +119,10 @@ export default class PostsController {
     /**
      * GET /admin/blog/:id/edit — formulaire édition
      */
-    public async edit({ view, params, response }: HttpContext) {
+    public async edit({ view, params, response, auth }: HttpContext) {
         const post = await Post.find(params.id)
         if (!post) return response.abort({ message: 'Article introuvable' }, 404)
+        if (post.userId !== auth.user!.id) return response.abort({ message: 'Non autorisé' }, 403)
 
         const categories = await Category.all()
         return view.render('pages/admin/blog/edit', { post, categories })
@@ -128,9 +131,10 @@ export default class PostsController {
     /**
      * PUT /admin/blog/:id — mettre à jour un article
      */
-    public async update({ request, response, params }: HttpContext) {
+    public async update({ request, response, params, auth }: HttpContext) {
         const post = await Post.find(params.id)
         if (!post) return response.abort({ message: 'Article introuvable' }, 404)
+        if (post.userId !== auth.user!.id) return response.abort({ message: 'Non autorisé' }, 403)
 
         const data = await request.validateUsing(updatePostValidator)
 
@@ -163,9 +167,10 @@ export default class PostsController {
     /**
      * DELETE /admin/blog/:id — supprimer un article
      */
-    public async destroy({ response, params }: HttpContext) {
+    public async destroy({ response, params, auth }: HttpContext) {
         const post = await Post.find(params.id)
         if (!post) return response.abort({ message: 'Article introuvable' }, 404)
+        if (post.userId !== auth.user!.id) return response.abort({ message: 'Non autorisé' }, 403)
 
         await post.delete()
         return response.redirect().toRoute('admin.blog.index')

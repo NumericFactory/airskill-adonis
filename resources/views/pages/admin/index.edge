@@ -45,6 +45,25 @@
           </div>
         </div>
       </a>
+      @if(auth.user.role === 'admin')
+      {{-- Card Utilisateurs --}}
+      <a href="{{ route('admin.users.index') }}" style="text-decoration: none;">
+        <div style="background: white; border-radius: 1rem; padding: 2rem; border: 1px solid #e2e8f0; box-shadow: 0 2px 12px rgba(0,0,0,0.05); transition: all 0.2s; display: flex; flex-direction: column; gap: 1rem; cursor: pointer;"
+          onmouseover="this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)'; this.style.borderColor='#16a34a'; this.style.transform='translateY(-2px)'"
+          onmouseout="this.style.boxShadow='0 2px 12px rgba(0,0,0,0.05)'; this.style.borderColor='#e2e8f0'; this.style.transform='translateY(0)'">
+          <div style="width: 3rem; height: 3rem; background: #16a34a; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center;">
+            <i class="bi bi-people-fill" style="color: white; font-size: 1.25rem;"></i>
+          </div>
+          <div>
+            <h2 style="font-size: 1.1rem; font-weight: 700; color: #111c38; margin-bottom: 0.375rem;">Utilisateurs</h2>
+            <p style="font-size: 0.875rem; color: #64748b; margin: 0;">Gérer les comptes et les rôles des utilisateurs.</p>
+          </div>
+          <div style="margin-top: auto; display: flex; align-items: center; gap: 0.375rem; font-size: 0.875rem; font-weight: 600; color: #16a34a;">
+            Gérer les utilisateurs <i class="bi bi-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+      @end
     </div>
 
     {{-- Lien vers le site public --}}

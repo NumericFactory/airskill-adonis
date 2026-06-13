@@ -1,0 +1,67 @@
+@include('partials/header')
+
+<section class="py-10">
+    <div class="container mx-auto px-4 max-w-lg">
+        <div class="bg-white rounded-xl shadow p-8">
+
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-gray-800">Invitation créée</h1>
+                    <p class="text-sm text-gray-500">Pour {{ user.fullName }} — {{ user.email }}</p>
+                </div>
+            </div>
+
+            <p class="text-sm text-gray-600 mb-4">
+                Copiez ce lien et envoyez-le à l'utilisateur. Il est valable <strong>7 jours</strong>.
+            </p>
+
+            <div class="flex gap-2">
+                <input id="invitation-link"
+                       type="text"
+                       readonly
+                       value="{{ invitationUrl }}"
+                       class="flex-1 border border-gray-300 rounded-lg px-4 py-2 text-sm text-gray-700 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+                <button onclick="copyLink()"
+                        id="copy-btn"
+                        class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 text-sm font-medium whitespace-nowrap transition-colors">
+                    Copier
+                </button>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-gray-100 flex gap-4">
+                <a href="/admin/users/create"
+                   class="text-sm text-indigo-600 hover:underline">
+                    + Inviter un autre utilisateur
+                </a>
+                <a href="/admin/users"
+                   class="text-sm text-gray-500 hover:underline">
+                    Retour à la liste
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+  function copyLink() {
+    const input = document.getElementById('invitation-link')
+    const btn = document.getElementById('copy-btn')
+    navigator.clipboard.writeText(input.value).then(function () {
+      btn.textContent = 'Copié !'
+      btn.classList.replace('bg-indigo-600', 'bg-green-600')
+      btn.classList.replace('hover:bg-indigo-700', 'hover:bg-green-700')
+      setTimeout(function () {
+        btn.textContent = 'Copier'
+        btn.classList.replace('bg-green-600', 'bg-indigo-600')
+        btn.classList.replace('hover:bg-green-700', 'hover:bg-indigo-700')
+      }, 2000)
+    })
+  }
+</script>
+
+@include('partials/footer')
