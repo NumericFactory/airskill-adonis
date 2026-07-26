@@ -56,6 +56,56 @@ export default class FormationsController {
         return course;
     }
 
+    private async fetchTrainer(id: number) {
+        try {
+            const res = await fetch(`https://frederic-lossignol.com/api/v1/trainers/${id}`);
+            if (!res.ok) return null;
+            const data: any = await res.json();
+            return data.trainer || null;
+        } catch {
+            return null;
+        }
+    }
+
+    // La seule photo de formateur disponible dans le repo est celle de Frédéric Lossignol (trainer_id 1 côté API).
+    // Les autres formateurs n'ont pas de photo exposée par l'API : pas de fausse attribution, on affiche un avatar générique.
+    private getTrainerPhoto(trainerId: number) {
+        const photos: Record<number, string> = {
+            1: 'resources/images/profils/frederic-lossignol-plant.png',
+        };
+        return photos[trainerId] || null;
+    }
+
+    private buildTrainerBio(trainer: any) {
+        if (trainer.summaries && trainer.summaries.length) {
+            return trainer.summaries[0];
+        }
+        const skills = (trainer.skills || []).slice(0, 3).join(', ');
+        const years = trainer.experience_since
+            ? new Date().getFullYear() - new Date(trainer.experience_since).getFullYear()
+            : null;
+        if (skills && years) return `Expertise : ${skills}. En activité depuis ${years} ans.`;
+        if (skills) return `Expertise : ${skills}.`;
+        return '';
+    }
+
+    // Ne garde que la 1ère phrase du bio (avant la citation entre guillemets « », non affichée).
+    private trainerBioIntro(bio: string) {
+        const quoteIndex = bio.indexOf('«');
+        return quoteIndex === -1 ? bio : bio.slice(0, quoteIndex).trim();
+    }
+
+    private async getTrainerProfile(trainerId: number | null) {
+        if (!trainerId) return null;
+        const trainer = await this.fetchTrainer(trainerId);
+        if (!trainer) return null;
+        return {
+            name: trainer.first_name,
+            bio: this.trainerBioIntro(this.buildTrainerBio(trainer)),
+            photo: this.getTrainerPhoto(trainer.id),
+        };
+    }
+
     public async show({ view, request }: HttpContext) {
         const courseName = decodeURIComponent(request.param('name').replaceAll('-', ' '));
         const ask: any = await this.fetchCourses();
@@ -66,6 +116,7 @@ export default class FormationsController {
         const course = result.course;
         const matchedCategories = matchedCourse.categories || [];
         course.primaryCategory = matchedCategories.length ? matchedCategories[0].name : '';
+        const trainer = await this.getTrainerProfile(course.trainer_id);
         let goals = course.goal;
         let goalsTitle: string = '';
         if (goals) {
@@ -78,7 +129,7 @@ export default class FormationsController {
             goals = []
         }
         const calendar = this.getWeeklyDatesWithoutHolidayMondays()
-        return view.render('pages/course', { course: course, goals, goalsTitle, calendar });
+        return view.render('pages/course', { course: course, goals, goalsTitle, calendar, trainer });
     }
 
 

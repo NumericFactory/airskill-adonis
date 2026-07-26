@@ -144,7 +144,7 @@
           <hr class="w-48 mx-auto my-2 border-0 rounded md:my-10">
           <!-- objectifs -->
           <div class="row mt-2 px-0 pb-3 qualiopi-bloc"
-               style="background: #f5ede7">
+               style="background: #f5ede7; padding:16px !important">
             <div>
               <h2 class="fs-3 font-bold my-0 pt-0 pb-2">Objectifs de la formation</h2>
               @if(goalsTitle)
@@ -158,33 +158,35 @@
             </div>
           </div>
 
+          @if(trainer)
           <!-- formateur -->
           <div class="my-1 qualiopi-bloc"
                style="background: transparent;margin: 0;">
-            <div class="row align-items-center">
-              <!-- colonne 1 -->
-              <div class="col-12 col-md-7 order-1">
-                <div style="padding: 0px;border-radius: 6px;align-items: center;
-                              gap: 5px;display: flex;"
-                     class="sm:flex">
-                  <div class="shrink-0 sm:mb-0 sm:mr-4">
-                    <img class="rounded-full p-1"
-                         style="width: 97px;background: #00000038"
-                         src="{{ asset('resources/images/profils/frederic-lossignol-plant.png') }}"
-                         alt="Formateur Angular - Frederic LOSSIGNOL">
-                  </div>
-                  <div style="position: relative;left: 0px;top: 12px;">
-                    <p style="font-size: .95rem;font-weight: 600;color: rgb(255 255 255);background: #212a4a;
-position: absolute;width: auto;top: -25px;padding: 1px 11px;border-radius: 12px;">Votre formateur</p>
-                    <h4 class="text-lg font-bold">Frederic Lossignol</h4>
-                    <p style="margin-top:-5px !important"
-                       class="m-0">Expert Angular et NodeJS depuis 2016.</p>
-                  </div>
-                </div>
+            <div style="display: flex;align-items: center;gap: 16px;">
+              @if(trainer.photo)
+              <img class="rounded-full p-1"
+                   style="width: 108px;height: 105px;background: #00000038;object-fit: cover;flex-shrink: 0;"
+                   src="{{ asset(trainer.photo) }}"
+                   alt="Formateur {{course.name}} - {{trainer.name}}">
+              @else
+              <div
+                   style="width: 108px;height: 105px;border-radius: 50%;background: #212a4a;color: #fff;
+                          display: flex;align-items: center;justify-content: center;font-size: 1.6rem;font-weight: 700;flex-shrink: 0;">
+                {{ trainer.name.charAt(0).toUpperCase() }}
+              </div>
+              @endif
+              <div>
+                <p style="font-size: .85rem;font-weight: 600;color: #fff;background: #212a4a;
+                          display: inline-block;padding: 1px 11px;border-radius: 12px;margin: 0 0 6px;">Votre formateur
+                </p>
+                <h4 class="text-lg font-bold m-0">{{trainer.name}}</h4>
+                @if(trainer.bio)
+                <p class="m-0">{{trainer.bio}}</p>
+                @endif
               </div>
             </div>
-
           </div>
+          @endif
 
           <!-- data formation -->
           <hr class="w-48 mx-auto my-2 border-0 rounded md:my-10 border-gray-800 dark:border-white">
