@@ -53,7 +53,7 @@
             <a href="#contact"
                style="background:#111; border-radius:50px;"
                class="px-3 py-2 text-base font-medium text-white">
-              <i style="color: #ff727a"
+              <i style="color: #de72ff"
                  class="bi bi-telephone me-2"></i> Prendre un RDV
             </a>
           </div>
@@ -61,14 +61,16 @@
 
         @if(await auth.check())
         <div class="relative ml-3">
-          <form action="{{ route('login.destroy') }}" method="POST">
+          <form action="{{ route('login.destroy') }}"
+                method="POST">
             {{ csrfField() }}
             <button type="submit"
-              title="Se déconnecter"
-              style="background: none; border: none; cursor: pointer; padding: 0.375rem 0.5rem; border-radius: 6px; color: #94a3b8; transition: color 0.15s, background 0.15s;"
-              onmouseover="this.style.color='#ef4444'; this.style.background='#fef2f2'"
-              onmouseout="this.style.color='#94a3b8'; this.style.background='none'">
-              <i class="bi bi-box-arrow-right" style="font-size: 1.1rem;"></i>
+                    title="Se déconnecter"
+                    style="background: none; border: none; cursor: pointer; padding: 0.375rem 0.5rem; border-radius: 6px; color: #94a3b8; transition: color 0.15s, background 0.15s;"
+                    onmouseover="this.style.color='#ef4444'; this.style.background='#fef2f2'"
+                    onmouseout="this.style.color='#94a3b8'; this.style.background='none'">
+              <i class="bi bi-box-arrow-right"
+                 style="font-size: 1.1rem;"></i>
             </button>
           </form>
         </div>
@@ -151,7 +153,7 @@
         </div>
 
         <div class="flex-shrink-0">
-          <a style="background:#fb2c36"
+          <a style="background:#de72ff"
              href="mailto:contact@airskill.fr"
              target="_blank"
              class="flex items-center rounded-md px-2 py-2 text-sm font-medium text-white text-sm font-medium text-gray-500">
@@ -169,7 +171,7 @@
          href="https://airskill.neetoform.com/9e7b01557ba17310ee83"
          style="background: #e7e7e7;border-radius: 9px;color: #000;"
          class="menu-mobile-link block px-3 mx-2 py-3 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800">
-        <i style="color: #fb2c36; font-size: 19px;"
+        <i style="color: #de72ff; font-size: 19px;"
            class="bi bi-pen-fill me-1"></i>
         Faire une demande de formateur
       </a>

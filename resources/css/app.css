@@ -8,8 +8,11 @@
   --gray-dark: #333;
   --gray-light: #f9f9f9;
   --gray-lighter: #f1f1f1;
-  --primary: #fb2c36;
-  --secondary: #ff4081;
+  /* --primary: #fb2c36; */
+  --primary: #8458ff;
+  --primary-hover: #7956cb;
+  /* --secondary: #ff4081; */
+  --secondary: #c51162;
   --success: #4caf50;
   --info: #00bcd4;
   --warning: #ffeb3b;
@@ -17,6 +20,25 @@
   --light: #f8f9fa;
   --dark: #1a1b22;
   --link: #007bff;
+}
+
+.primary {
+  c: var(--primary) !important;
+
+  &:hover {
+    color: var(--primary-hover) !important;
+  }
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+
+  &:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+  }
 }
 
 html {
@@ -448,10 +470,6 @@ h1.title {
   flex-wrap: wrap;
 }
 
-.cta:hover {
-  background: #032e9b;
-}
-
 .cta-medium {
   font-size: 16.4px;
   line-height: 20px;
@@ -498,7 +516,7 @@ h1.title {
 }
 
 .hero .btn-hire:hover {
-  background: #ca1922;
+  background: var(--primary-hover);
 }
 
 .hero .btn-search {
@@ -561,7 +579,7 @@ img {
 
 .customers-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
   place-items: center;
 }
 
