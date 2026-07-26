@@ -234,6 +234,28 @@
     opacity: 0.7;
   }
 
+  .fp-domain-select {
+    display: none;
+    width: 100%;
+    border: 1px solid var(--fp-line);
+    background: var(--fp-panel);
+    border-radius: 10px;
+    padding: 11px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--fp-ink);
+  }
+
+  @media (max-width:900px) {
+    .fp-domain-list {
+      display: none;
+    }
+
+    .fp-domain-select {
+      display: block;
+    }
+  }
+
   /* ---------- GRID / CARDS ---------- */
   .fp-result-line {
     display: flex;
@@ -431,6 +453,13 @@
 
       <div>
         <div class="fp-rail-label">Domaines</div>
+        <select class="fp-domain-select"
+                id="fpDomainSelect">
+          <option value="all">Tous ({{ courses.length }})</option>
+          @each(category in categories)
+          <option value="{{ category.name.toLowerCase() }}">{{ category.name }}</option>
+          @end
+        </select>
         <ul class="fp-domain-list"
             id="fpDomainList">
           <li class="fp-domain-item active"
@@ -516,6 +545,7 @@
   (function () {
     var cards = Array.prototype.slice.call(document.querySelectorAll('#fpGrid .fp-card'));
     var domainItems = Array.prototype.slice.call(document.querySelectorAll('#fpDomainList .fp-domain-item'));
+    var domainSelect = document.getElementById('fpDomainSelect');
     var searchInput = document.getElementById('fpSearchInput');
     var emptyState = document.getElementById('fpEmptyState');
     var activeDomain = 'all';
@@ -528,7 +558,14 @@
       }).length;
       var countEl = item.querySelector('.count');
       if (countEl) countEl.textContent = count;
-      if (count === 0) item.style.display = 'none';
+
+      var option = domainSelect ? domainSelect.querySelector('option[value="' + domain + '"]') : null;
+      if (count === 0) {
+        item.style.display = 'none';
+        if (option) option.hidden = true;
+      } else if (option) {
+        option.textContent = option.textContent + ' (' + count + ')';
+      }
     });
 
     function applyFilters() {
@@ -550,9 +587,20 @@
         domainItems.forEach(function (i) { i.classList.remove('active'); });
         item.classList.add('active');
         activeDomain = item.dataset.domain;
+        if (domainSelect) domainSelect.value = activeDomain;
         applyFilters();
       });
     });
+
+    if (domainSelect) {
+      domainSelect.addEventListener('change', function () {
+        activeDomain = domainSelect.value;
+        domainItems.forEach(function (i) {
+          i.classList.toggle('active', i.dataset.domain === activeDomain);
+        });
+        applyFilters();
+      });
+    }
 
     if (searchInput) {
       searchInput.addEventListener('input', applyFilters);
