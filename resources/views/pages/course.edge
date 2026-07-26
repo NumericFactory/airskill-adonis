@@ -5,75 +5,113 @@
 
 {{-- @!component('components/modal-video', { text: 'Login' }) --}}
 
-<header style="padding:16px 0px 72px;">
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet">
+
+<style>
+  .fp-course-head {
+    --fp-ink: #131126;
+    --fp-ink-soft: #5B5770;
+    --fp-accent-1: #6D4AFF;
+    --fp-accent-2: #B18CFF;
+    --fp-accent-soft: #F2EEFF;
+    color: var(--fp-ink);
+  }
+
+  .fp-course-head .fp-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--fp-accent-1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .fp-course-head .fp-eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: var(--fp-accent-1);
+    display: inline-block;
+  }
+
+  .fp-course-head .fp-h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    color: var(--fp-ink);
+    margin: 0 0 16px;
+  }
+
+  .fp-course-head .fp-h1 span {
+    background: linear-gradient(100deg, var(--fp-accent-1), var(--fp-accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .fp-course-head .fp-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    color: var(--fp-ink-soft);
+    max-width: 560px;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .fp-course-head .fp-stat-strip {
+    display: flex;
+    gap: 14px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+
+  .fp-course-head .fp-stat-chip {
+    background: var(--fp-accent-soft);
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-size: 13.5px;
+    color: var(--fp-ink);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .fp-course-head .fp-stat-chip b {
+    font-family: 'Sora', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+  }
+</style>
+
+<header class="fp-course-head"
+        style="padding:16px 0px 72px;">
   {{-- <video controls
          style="border-radius: 6px;"
          src="https://frederic-lossignol.com/video/signals-en-12mn.mp4"></video> --}}
-  <div class="gradient"></div>
   <div class="container">
     <div class="row mt-6">
       {{-- <div class="grid grid-cols-1 lg:grid-cols-[752px_minmax(442px,_1fr)_300px] gap-5"> --}}
         <div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-5 max-w-7xl">
           <!-- header left -->
           <div style="position:relative">
-            <h1 style="color:#fff !important;"
-                class="super-title my-1 font-bold">Formation {{course.name}}</h1>
-            <p class="fs-5 mb-5">{{course.subtitle}}</p>
+            <div class="fp-eyebrow">{{ course.primaryCategory || 'Formation' }}</div>
+            <h1 class="fp-h1 my-1">Formation <span>{{course.name}}</span></h1>
+            <p class="fp-subtitle mb-5">{{course.subtitle}}</p>
 
-            <div style="width:100%"
-                 class="grid grid-cols-1 lg:grid-cols-1 gap-2">
-              {{-- <div>
-                <p class="fs-5 font-bold"><i style="color: #ffffff6e"
-                     class="bi bi-alarm mr-3"></i> {{course.duration}} jours ({{course.duration*7}} heures)</p>
-              </div> --}}
-              <div>
-                <p class="fs-5 font-bold"><i style="color: #ffffff6e"
-                     class="bi bi-people mr-3"></i> +700 apprenants</p>
-                <div class="m-0">
-                  <span class="d-flex ms-5">
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                         viewBox="0 0 20 20"
-                         fill="#f7dc77"
-                         class="size-5">
-                      <path fill-rule="evenodd"
-                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                         viewBox="0 0 20 20"
-                         fill="#f7dc77"
-                         class="size-5">
-                      <path fill-rule="evenodd"
-                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                         viewBox="0 0 20 20"
-                         fill="#f7dc77"
-                         class="size-5">
-                      <path fill-rule="evenodd"
-                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                         viewBox="0 0 20 20"
-                         fill="#f7dc77"
-                         class="size-5">
-                      <path fill-rule="evenodd"
-                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                         viewBox="0 0 20 20"
-                         fill="#f7dc77"
-                         class="size-5">
-                      <path fill-rule="evenodd"
-                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
-                            clip-rule="evenodd" />
-                    </svg>
-                  </span>
-                </div>
-              </div>
+            <div class="fp-stat-strip">
+              <div class="fp-stat-chip"><b>+700</b> apprenants formés</div>
+              <div class="fp-stat-chip"><b>5.0</b> ★★★★★</div>
+              @if(course.duration)
+              <div class="fp-stat-chip"><b>{{course.duration}}</b> jour{{ course.duration > 1 ? 's' : '' }} de formation</div>
+              @endif
             </div>
           </div>
           <!-- header right -->

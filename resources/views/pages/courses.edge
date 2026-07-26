@@ -1,88 +1,564 @@
 @let(title = 'Airskill | Formations entreprises')
 @include('partials/header')
 
-<div class="container">
-    <div class="row mt-6">
-        <div class="col-12">
-          <h1 class="fs-2 fw-bold text-center">Nos formations pour les entreprises</h1>
-  
-            <ul style="overflow: auto;
-    padding: 8px 0;
-    color: #001f44;
-    box-shadow: 0 4px 4px -3px rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid #bbbbbb;
-    background: #ffffff;"  class="d-flex flex-nowrap justify-content-evenly mt-5 mb-4 nav-formation mx-lg-5">
-              <li style="padding-right: 16px;padding-left: 16px;text-wrap: nowrap;">
-                <a up-target=":main" up-transition="cross-fade" class="link" href="{{route('courses.index')}}">
-                  <strong>Tous</strong>
-                </a>
-              </li>
-              @each(category in categories) 
-              <li style="padding-right: 16px;padding-left: 16px;text-wrap: nowrap;">
-                <a up-target=":main" up-transition="cross-fade" class="link" href="{{ route('courses.indexbycategory', [category.name]) }}">
-                  <strong>{{category.name}}</strong>
-                </a>
-              </li>
-              @end
-            </ul>
-        
-        </div>
-        <div class="col-12 mt-0 mb-5 courses-list">
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet">
 
-          @if(!courses.length) 
-          <h2 class="fs-4 text-center">Des formations bientôt disponibles.</h2>
-          @end
+<style>
+  .fp-page {
+    --fp-bg: #FAFAF9;
+    --fp-panel: #FFFFFF;
+    --fp-ink: #131126;
+    --fp-ink-soft: #5B5770;
+    --fp-line: #E7E3F5;
+    --fp-accent-1: #6D4AFF;
+    --fp-accent-2: #B18CFF;
+    --fp-accent-soft: #F2EEFF;
 
-    
-            <ul role="list" class="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 py-lg-2 px-lg-5">
+    background: var(--fp-bg);
+    color: var(--fp-ink);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
 
-                @each(course in courses)
-               
-                <li style="position: relative" class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white border-1 h-100 course-item-formations-list">
-                  {{--  <a up-preload="hover" up-target=":main"  up-transition="cross-fade" href="{{ route('courses.show', [course.slug, course.id]) }}">  --}}
-                    <a href="{{ route('courses.show', [course.slug, course.id]) }}">
-                    <div style="min-height:221px" class="flex w-full items-start justify-between space-x-6 p-6">
-                    <div class="flex-1 truncate">
-                      <div class="flex items-center space-x-3">
-                        <h2 class="truncate text-3xl font-medium text-gray-900">{{course.name}}</h2>
-                        
-                        <div style="position: absolute;bottom: 13px;right: 13px;">
-                          @each(category in course.categories)
-                          <span class="inline-flex flex-shrink-0 items-center rounded-full bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-600 ring-inset">
-                            {{category.name}}
-                          </span>
-                          @end 
-                        </div>
+  .fp-page h1,
+  .fp-page h3 {
+    font-family: 'Sora', sans-serif;
+  }
 
-                      </div>
-                      <h3 class="mt-2 fs-6 text-wrap">
-                        {{course.subtitle}}
-                      </h3>
+  .fp-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
 
-                      @if(course.duration)
-                      <p style="position:absolute;bottom:10px;color:#001f44; font-weight:500" class="fs-5">{{course.duration}} jours</p>
-                      @end
-                      {{--  <p class="mt-3 text-sm text-gray-500">
-                        {{course.goal}}
-                      </p>  --}}
-                    </div>
-                    <img style="width:3rem;height:3rem; filter:drop-shadow(2px 4px 2px rgba(0,0,0,.1)); background:transparent" class="flex-shrink-0 rounded-full bg-gray-50 icon-skill-img" 
-                    src="https://frederic-lossignol.com/{{course.iconurl}}" alt="">
-                  </div>
-                  
-                </a>
-              </li>
-            @end
-              
-              </ul>
+  /* ---------- HEADER ---------- */
+  .fp-page-head {
+    padding: 45px 48px 30px;
+    max-width: 1328px;
+    margin: 0 auto 21px;
+    border-radius: 0 0 15px 15px;
+  }
 
-        </div>
+  .fp-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--fp-accent-1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .fp-eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: var(--fp-accent-1);
+    display: inline-block;
+  }
+
+  .fp-page-head h1 {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.08;
+    margin: 0 0 16px;
+    letter-spacing: -1px;
+  }
+
+  .fp-page-head h1 span {
+    background: linear-gradient(100deg, var(--fp-accent-1), var(--fp-accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .fp-page-head p {
+    font-size: 17px;
+    color: var(--fp-ink-soft);
+    max-width: 560px;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .fp-stat-strip {
+    display: flex;
+    gap: 14px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+
+  .fp-stat-chip {
+    background: var(--fp-accent-soft);
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-size: 13.5px;
+    color: var(--fp-ink);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .fp-stat-chip b {
+    font-family: 'Sora', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  /* ---------- LAYOUT ---------- */
+  .fp-layout {
+    max-width: 1219px;
+    margin: 0 auto;
+    padding: 0 0px 90px;
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    gap: 44px;
+    align-items: start;
+  }
+
+  @media (max-width:900px) {
+    .fp-layout {
+      grid-template-columns: 1fr;
+      padding: 0 20px 60px;
+    }
+
+    .fp-page-head {
+      padding: 40px 20px 24px;
+    }
+
+    .fp-page-head h1 {
+      font-size: 34px;
+    }
+  }
+
+  /* ---------- RAIL / FILTERS ---------- */
+  .fp-rail {
+    position: sticky;
+    top: 75px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .fp-search-box {
+    border: 1px solid var(--fp-line);
+    background: var(--fp-panel);
+    border-radius: 10px;
+    padding: 11px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .fp-search-box input {
+    border: none;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    width: 100%;
+    background: transparent;
+    color: var(--fp-ink);
+  }
+
+  .fp-search-box svg {
+    flex-shrink: 0;
+    opacity: 0.45;
+  }
+
+  .fp-rail-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--fp-ink-soft);
+    margin: 4px 0 2px;
+  }
+
+  .fp-domain-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .fp-domain-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--fp-ink-soft);
+    transition: background .15s ease, color .15s ease;
+    border: 1px solid transparent;
+  }
+
+  .fp-domain-item:hover {
+    background: var(--fp-accent-soft);
+    color: var(--fp-ink);
+  }
+
+  .fp-domain-item.active {
+    background: var(--fp-panel);
+    border-color: var(--fp-line);
+    color: var(--fp-ink);
+    font-weight: 600;
+    box-shadow: 0 1px 0 rgba(19, 17, 38, 0.03);
+  }
+
+  .fp-domain-item .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .fp-domain-item .name {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex: 1;
+    text-transform: capitalize;
+  }
+
+  .fp-domain-item .count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--fp-ink-soft);
+    opacity: 0.7;
+  }
+
+  /* ---------- GRID / CARDS ---------- */
+  .fp-result-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+
+  .fp-result-line span {
+    font-size: 13.5px;
+    color: var(--fp-ink-soft);
+  }
+
+  .fp-result-line span b {
+    color: var(--fp-ink);
+  }
+
+  .fp-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  @media (max-width:640px) {
+    .fp-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .fp-card {
+    position: relative;
+    display: block;
+    background: var(--fp-panel);
+    border: 1px solid var(--fp-line);
+    border-radius: 14px;
+    padding: 22px 22px 20px 26px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+
+  .fp-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: var(--spine, var(--fp-accent-1));
+    transition: width .18s ease;
+  }
+
+  .fp-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px -18px rgba(19, 17, 38, 0.28);
+    border-color: transparent;
+  }
+
+  .fp-card:hover::before {
+    width: 8px;
+  }
+
+  .fp-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .fp-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 13px;
+    color: #fff;
+    background: var(--spine, var(--fp-accent-1));
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .fp-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .fp-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0 0 6px;
+    letter-spacing: -0.2px;
+  }
+
+  .fp-card p {
+    font-size: 13.8px;
+    line-height: 1.5;
+    color: var(--fp-ink-soft);
+    margin: 0 0 18px;
+    min-height: 42px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .fp-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--fp-line);
+  }
+
+  .fp-meta-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: var(--spine, var(--fp-accent-1));
+    font-weight: 600;
+  }
+
+  .fp-duration {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--fp-ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  .fp-duration svg {
+    opacity: 0.55;
+    flex-shrink: 0;
+  }
+
+  .fp-empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--fp-ink-soft);
+    font-size: 14px;
+  }
+</style>
+
+<div class="fp-page">
+
+  <header class="fp-page-head">
+    <div class="fp-eyebrow">Catalogue</div>
+    <h1>Nos formations <span>pour les entreprises</span></h1>
+    <p>Un catalogue conçu et animé à 100% par des expert·es en activité. Filtrez par domaine pour trouver la formation
+      adaptée à votre équipe.</p>
+
+    <div class="fp-stat-strip">
+      <div class="fp-stat-chip">Formation{{ courses.length > 1 ? 's' : '' }} finançable{{ courses.length > 1 ? 's' : ''
+        }} <b>OPCO</b></div>
+
+      <div class="fp-stat-chip"><b>{{ categories.length }}</b> domaine{{ categories.length > 1 ? 's' : '' }} couvert{{
+        categories.length > 1 ? 's' : '' }}</div>
+      <div class="fp-stat-chip"><b>100%</b> formé par des experts en activité</div>
     </div>
-   
-            
-              
-     
+  </header>
+
+  <div class="fp-layout">
+
+    <!-- RAIL -->
+    <aside class="fp-rail">
+      {{-- <div class="fp-search-box">
+        <svg width="16"
+             height="16"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2">
+          <circle cx="11"
+                  cy="11"
+                  r="7" />
+          <line x1="21"
+                y1="21"
+                x2="16.65"
+                y2="16.65" />
+        </svg>
+        <input id="fpSearchInput"
+               type="text"
+               placeholder="Rechercher">
+      </div> --}}
+
+      <div>
+        <div class="fp-rail-label">Domaines</div>
+        <ul class="fp-domain-list"
+            id="fpDomainList">
+          <li class="fp-domain-item active"
+              data-domain="all">
+            <span class="name"><span class="dot"
+                    style="background:var(--fp-ink)"></span>Tous</span>
+            <span class="count">{{ courses.length }}</span>
+          </li>
+          @let(palette =
+          ['#6D4AFF','#2F6FED','#16A38A','#D69A00','#E23B5D','#B5651D','#2FA8E0','#A431D6','#4C8C3A','#E0692F'])
+          @each((category, index) in categories)
+          <li class="fp-domain-item"
+              data-domain="{{ category.name.toLowerCase() }}">
+            <span class="name"><span class="dot"
+                    style="background:{{ palette[index % 10] }}"></span>{{ category.name }}</span>
+            <span class="count">0</span>
+          </li>
+          @end
+        </ul>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+      @if(!courses.length)
+      <div class="fp-empty-state">Des formations bientôt disponibles.</div>
+      @else
+      <div class="fp-grid"
+           id="fpGrid">
+        @each(course in courses)
+        <a class="fp-card"
+           href="{{ route('courses.show', [course.slug, course.id]) }}"
+           style="--spine:{{ course.color || '#6D4AFF' }}"
+           data-name="{{ course.name.toLowerCase() }}"
+           data-desc="{{ (course.subtitle || '').toLowerCase() }}"
+           data-categories="{{ course.categoryNames }}">
+          <div class="fp-card-top">
+            <div class="fp-badge">
+              @if(course.iconurl)
+              <img src="https://frederic-lossignol.com/{{ course.iconurl }}"
+                   alt=""
+                   loading="lazy">
+              @else
+              {{ course.name.slice(0, 2).toUpperCase() }}
+              @endif
+            </div>
+          </div>
+          <h3>{{ course.name }}</h3>
+          <p>{{ course.subtitle }}</p>
+          <div class="fp-card-meta">
+            <span class="fp-meta-tag">{{ course.primaryCategory }}</span>
+            @if(course.duration)
+            <span class="fp-duration">
+              <svg width="13"
+                   height="13"
+                   viewBox="0 0 24 24"
+                   fill="none"
+                   stroke="currentColor"
+                   stroke-width="2">
+                <circle cx="12"
+                        cy="12"
+                        r="9" />
+                <path d="M12 7v5l3 3" />
+              </svg>
+              {{ course.duration }} jour{{ course.duration > 1 ? 's' : '' }}
+            </span>
+            @endif
+          </div>
+        </a>
+        @end
+      </div>
+      @endif
+      <div class="fp-empty-state"
+           id="fpEmptyState"
+           style="display:none;">Aucune formation ne correspond à votre recherche.</div>
+    </main>
+
+  </div>
+
 </div>
+
+<script>
+  (function () {
+    var cards = Array.prototype.slice.call(document.querySelectorAll('#fpGrid .fp-card'));
+    var domainItems = Array.prototype.slice.call(document.querySelectorAll('#fpDomainList .fp-domain-item'));
+    var searchInput = document.getElementById('fpSearchInput');
+    var emptyState = document.getElementById('fpEmptyState');
+    var activeDomain = 'all';
+
+    domainItems.forEach(function (item) {
+      var domain = item.dataset.domain;
+      if (domain === 'all') return;
+      var count = cards.filter(function (card) {
+        return (card.dataset.categories || '').split(',').indexOf(domain) !== -1;
+      }).length;
+      var countEl = item.querySelector('.count');
+      if (countEl) countEl.textContent = count;
+      if (count === 0) item.style.display = 'none';
+    });
+
+    function applyFilters() {
+      var term = (searchInput ? searchInput.value : '').trim().toLowerCase();
+      var visible = 0;
+      cards.forEach(function (card) {
+        var cats = (card.dataset.categories || '').split(',');
+        var matchesDomain = activeDomain === 'all' || cats.indexOf(activeDomain) !== -1;
+        var matchesSearch = !term || card.dataset.name.indexOf(term) !== -1 || card.dataset.desc.indexOf(term) !== -1;
+        var show = matchesDomain && matchesSearch;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      if (emptyState) emptyState.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    domainItems.forEach(function (item) {
+      item.addEventListener('click', function () {
+        domainItems.forEach(function (i) { i.classList.remove('active'); });
+        item.classList.add('active');
+        activeDomain = item.dataset.domain;
+        applyFilters();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', applyFilters);
+    }
+  })();
+</script>
 
 @include('partials/home/recontact')
 

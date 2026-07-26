@@ -5,29 +5,55 @@ export default class FormationsController {
     public async index({ view }: HttpContext) {
         const categories: any = await this.fetchCourseCategories();
         const result: any = await this.fetchCourses();
+        const sortedCategories = this.sortCategories(categories.categories);
 
         const courses = result.courses
             .filter((course: any) => course.online)
-            .map((course: any) => {
-                course.slug = course.name.toLowerCase().replaceAll(' ', '-');
-                return course;
-            })
+            .map((course: any) => this.decorateCourse(course))
 
-        return view.render('pages/courses', { categories: categories.categories, courses: courses })
+        return view.render('pages/courses', {
+            categories: sortedCategories,
+            courses: this.sortCoursesByCategoryPosition(courses, sortedCategories)
+        })
     }
 
     public async indexByCategory({ view, request }: HttpContext) {
         const categoryId = decodeURI(request.param('categoryname'));
         const categories: any = await this.fetchCourseCategories();
         const result: any = await this.fetchCoursesByCategory(categoryId);
-        const courses = result.category.courses.map((course: any) => {
-            course.slug = course.name.toLowerCase().replaceAll(' ', '-');
-            return course;
-        })
+        const sortedCategories = this.sortCategories(categories.categories);
+        const courses = result.category.courses.map((course: any) => this.decorateCourse(course, categoryId))
         return view.render('pages/courses', {
-            categories: categories.categories,
-            courses: courses
+            categories: sortedCategories,
+            courses: this.sortCoursesByCategoryPosition(courses, sortedCategories)
         })
+    }
+
+    // Garde le même ordre que la sortie de l'API /api/v1/categories (par position croissante).
+    private sortCategories(categories: any[]) {
+        return [...categories].sort((a, b) => a.position - b.position);
+    }
+
+    // Ordonne les formations selon la position de leur premier domaine, pour que la vue "Tous" respecte l'ordre des domaines.
+    private sortCoursesByCategoryPosition(courses: any[], sortedCategories: any[]) {
+        const positionByName = new Map<string, number>();
+        sortedCategories.forEach((category: any) => positionByName.set(category.name.toLowerCase(), category.position));
+
+        return [...courses].sort((a, b) => {
+            const posA = positionByName.get((a.primaryCategory || '').toLowerCase()) ?? Number.MAX_SAFE_INTEGER;
+            const posB = positionByName.get((b.primaryCategory || '').toLowerCase()) ?? Number.MAX_SAFE_INTEGER;
+            return posA - posB;
+        });
+    }
+
+    private decorateCourse(course: any, fallbackCategoryName?: string) {
+        course.slug = course.name.toLowerCase().replaceAll(' ', '-');
+        const courseCategories = course.categories || [];
+        course.categoryNames = courseCategories.length
+            ? courseCategories.map((c: any) => c.name.toLowerCase()).join(',')
+            : (fallbackCategoryName || '').toLowerCase();
+        course.primaryCategory = courseCategories.length ? courseCategories[0].name : (fallbackCategoryName || '');
+        return course;
     }
 
     public async show({ view, request }: HttpContext) {
@@ -35,9 +61,11 @@ export default class FormationsController {
         const ask: any = await this.fetchCourses();
         console.log("COURSE NAME", courseName)
         console.log("ASK COURSES", ask.courses)
-        const courseId = ask.courses.find((course: any) => course.name.toLowerCase() === courseName.toLowerCase()).id
-        const result: any = await this.fetchCourse(courseId);
+        const matchedCourse = ask.courses.find((course: any) => course.name.toLowerCase() === courseName.toLowerCase())
+        const result: any = await this.fetchCourse(matchedCourse.id);
         const course = result.course;
+        const matchedCategories = matchedCourse.categories || [];
+        course.primaryCategory = matchedCategories.length ? matchedCategories[0].name : '';
         let goals = course.goal;
         let goalsTitle: string = '';
         if (goals) {

@@ -157,7 +157,7 @@ div.parent-cards {
 }
 
 div.card.card-hero {
-  background: #0e1117;
+  background: #262a32;
   border: 1px solid #8088a0;
   width: 225px;
   height: 340px;
@@ -207,7 +207,7 @@ div.card.card-hero:last-child {
   transform-origin: left;
   transform: rotate(10deg) translateY(10px);
   z-index: 0;
-  background: #0e1117;
+  background: #262a32;
 }
 
 div.card.card-hero:last-child:hover {
