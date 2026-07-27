@@ -36,8 +36,7 @@
   .fp-page-head {
     padding: 45px 48px 30px;
     max-width: 1328px;
-    margin: 0 auto 21px;
-    border-radius: 0 0 15px 15px;
+    margin: 0 auto;
   }
 
   .fp-eyebrow {
@@ -86,8 +85,28 @@
   .fp-stat-strip {
     display: flex;
     gap: 14px;
-    margin-top: 36px;
     flex-wrap: wrap;
+    max-width: 1328px;
+    margin: 0 auto 21px;
+    padding: 0 48px 24px;
+    border-radius: 0 0 15px 15px;
+  }
+
+  @media (min-width:901px) {
+    .fp-stat-strip {
+      position: sticky;
+      top: 64px;
+      z-index: 30;
+      background: #e4e2ff;
+      padding: 14px 48px;
+      box-shadow: 0 1px 0 var(--fp-line);
+    }
+  }
+
+  @media (max-width:900px) {
+    .fp-stat-strip {
+      padding: 0 20px 24px;
+    }
   }
 
   .fp-stat-chip {
@@ -136,7 +155,7 @@
   /* ---------- RAIL / FILTERS ---------- */
   .fp-rail {
     position: sticky;
-    top: 75px;
+    top: 170px;
     display: flex;
     flex-direction: column;
     gap: 22px;
@@ -416,16 +435,16 @@
     <h1>Nos formations <span>pour les entreprises</span></h1>
     <p>Un catalogue conçu et animé à 100% par des expert·es en activité. Filtrez par domaine pour trouver la formation
       adaptée à votre équipe.</p>
-
-    <div class="fp-stat-strip">
-      <div class="fp-stat-chip">Formation{{ courses.length > 1 ? 's' : '' }} finançable{{ courses.length > 1 ? 's' : ''
-        }} <b>OPCO</b></div>
-
-      <div class="fp-stat-chip"><b>{{ categories.length }}</b> domaine{{ categories.length > 1 ? 's' : '' }} couvert{{
-        categories.length > 1 ? 's' : '' }}</div>
-      <div class="fp-stat-chip"><b>100%</b> formé par des experts en activité</div>
-    </div>
   </header>
+
+  <div class="fp-stat-strip">
+    <div class="fp-stat-chip">Formation{{ courses.length > 1 ? 's' : '' }} finançable{{ courses.length > 1 ? 's' : ''
+      }} <b>OPCO</b></div>
+
+    <div class="fp-stat-chip"><b>{{ categories.length }}</b> domaine{{ categories.length > 1 ? 's' : '' }} couvert{{
+      categories.length > 1 ? 's' : '' }}</div>
+    <div class="fp-stat-chip"><b>100%</b> formé par des experts en activité</div>
+  </div>
 
   <div class="fp-layout">
 
