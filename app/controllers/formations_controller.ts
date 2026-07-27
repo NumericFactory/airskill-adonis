@@ -76,9 +76,12 @@ export default class FormationsController {
         return photos[trainerId] || null;
     }
 
-    private buildTrainerBio(trainer: any) {
-        if (trainer.summaries && trainer.summaries.length) {
-            return trainer.summaries[0];
+    // La formation indique quel bio utiliser via trainer_summary_index (index 1-based dans trainer.summaries).
+    private buildTrainerBio(trainer: any, summaryIndex?: number | null) {
+        const summaries = trainer.summaries || [];
+        if (summaries.length) {
+            const index = summaryIndex && summaries[summaryIndex - 1] ? summaryIndex - 1 : 0;
+            return summaries[index];
         }
         const skills = (trainer.skills || []).slice(0, 3).join(', ');
         const years = trainer.experience_since
@@ -95,13 +98,13 @@ export default class FormationsController {
         return quoteIndex === -1 ? bio : bio.slice(0, quoteIndex).trim();
     }
 
-    private async getTrainerProfile(trainerId: number | null) {
+    private async getTrainerProfile(trainerId: number | null, summaryIndex?: number | null) {
         if (!trainerId) return null;
         const trainer = await this.fetchTrainer(trainerId);
         if (!trainer) return null;
         return {
             name: trainer.first_name,
-            bio: this.trainerBioIntro(this.buildTrainerBio(trainer)),
+            bio: this.trainerBioIntro(this.buildTrainerBio(trainer, summaryIndex)),
             photo: this.getTrainerPhoto(trainer.id),
         };
     }
@@ -116,7 +119,7 @@ export default class FormationsController {
         const course = result.course;
         const matchedCategories = matchedCourse.categories || [];
         course.primaryCategory = matchedCategories.length ? matchedCategories[0].name : '';
-        const trainer = await this.getTrainerProfile(course.trainer_id);
+        const trainer = await this.getTrainerProfile(course.trainer_id, course.trainer_summary_index);
         let goals = course.goal;
         let goalsTitle: string = '';
         if (goals) {
