@@ -34,6 +34,7 @@
 
   /* ---------- HEADER ---------- */
   .fp-page-head {
+    background: linear-gradient(180deg, #000263 -16.76%, rgb(45 44 130));
     padding: 45px 48px 30px;
     max-width: 1328px;
     margin: 0 auto;
@@ -44,7 +45,7 @@
     font-size: 12.5px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--fp-accent-1);
+    color: var(--fp-accent-2);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -55,11 +56,12 @@
     content: "";
     width: 22px;
     height: 2px;
-    background: var(--fp-accent-1);
+    background: var(--fp-accent-2);
     display: inline-block;
   }
 
   .fp-page-head h1 {
+    color: #fff !important;
     font-size: 48px;
     font-weight: 800;
     line-height: 1.08;
@@ -76,7 +78,7 @@
 
   .fp-page-head p {
     font-size: 17px;
-    color: var(--fp-ink-soft);
+    color: rgba(255, 255, 255, .95);
     max-width: 560px;
     line-height: 1.55;
     margin: 0;
@@ -89,6 +91,7 @@
     max-width: 1328px;
     margin: 0 auto 21px;
     padding: 0 48px 24px;
+    background: rgb(45 44 130);
     border-radius: 0 0 15px 15px;
   }
 
@@ -97,7 +100,6 @@
       position: sticky;
       top: 64px;
       z-index: 30;
-      background: #e4e2ff;
       padding: 14px 48px;
       box-shadow: 0 1px 0 var(--fp-line);
     }
@@ -106,6 +108,42 @@
   @media (max-width:900px) {
     .fp-stat-strip {
       padding: 0 20px 24px;
+    }
+  }
+
+  .fp-catalog-btn {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: var(--fp-ink);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background .15s ease, transform .15s ease;
+  }
+
+  .fp-catalog-btn:hover {
+    background: #292540;
+    transform: translateY(-1px);
+  }
+
+  .fp-catalog-btn i {
+    font-size: 15px;
+  }
+
+  @media (max-width:900px) {
+    .fp-catalog-btn {
+      margin-left: 0;
+      width: 100%;
+      justify-content: center;
     }
   }
 
@@ -426,6 +464,128 @@
     color: var(--fp-ink-soft);
     font-size: 14px;
   }
+
+  /* ---------- CATALOG MODAL ---------- */
+  .fp-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(19, 17, 38, 0.55);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .fp-modal-overlay.is-open {
+    display: flex;
+  }
+
+  .fp-modal {
+    position: relative;
+    background: var(--fp-panel);
+    border-radius: 20px;
+    padding: 40px 40px 32px;
+    max-width: 460px;
+    width: 100%;
+    box-shadow: 0 30px 60px -20px rgba(19, 17, 38, 0.35);
+  }
+
+  .fp-modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: var(--fp-accent-soft);
+    color: var(--fp-ink);
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .15s ease;
+  }
+
+  .fp-modal-close:hover {
+    background: var(--fp-line);
+  }
+
+  .fp-modal h2 {
+    font-family: 'Sora', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0 0 14px;
+    letter-spacing: -0.4px;
+  }
+
+  .fp-modal h2 span {
+    background: linear-gradient(100deg, var(--fp-accent-1), var(--fp-accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .fp-modal p.fp-modal-sub {
+    font-size: 14.5px;
+    color: var(--fp-ink-soft);
+    margin: 0 0 26px;
+    line-height: 1.5;
+  }
+
+  .fp-modal label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .fp-modal input[type="email"] {
+    width: 100%;
+    border: 1px solid var(--fp-line);
+    border-radius: 10px;
+    padding: 13px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--fp-ink);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+  }
+
+  .fp-modal input[type="email"]:focus {
+    outline: none;
+    border-color: var(--fp-accent-1);
+  }
+
+  .fp-modal-submit {
+    width: 100%;
+    background: var(--fp-ink);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 15px 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .15s ease;
+  }
+
+  .fp-modal-submit:hover {
+    background: #292540;
+  }
+
+  .fp-modal-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--fp-ink-soft);
+    margin: 14px 0 0;
+    opacity: 0.8;
+  }
 </style>
 
 <div class="fp-page">
@@ -444,6 +604,13 @@
     <div class="fp-stat-chip"><b>{{ categories.length }}</b> domaine{{ categories.length > 1 ? 's' : '' }} couvert{{
       categories.length > 1 ? 's' : '' }}</div>
     <div class="fp-stat-chip"><b>100%</b> formé par des experts en activité</div>
+
+    <button type="button"
+            class="fp-catalog-btn"
+            id="fpCatalogBtn">
+      <i class="bi bi-download"></i>
+      Recevoir le catalogue PDF
+    </button>
   </div>
 
   <div class="fp-layout">
@@ -558,6 +725,32 @@
 
   </div>
 
+  <div class="fp-modal-overlay"
+       id="fpCatalogOverlay">
+    <div class="fp-modal">
+      <button type="button"
+              class="fp-modal-close"
+              id="fpCatalogClose"
+              aria-label="Fermer">&times;</button>
+
+      <div class="fp-eyebrow">Catalogue</div>
+      <h2>Le catalogue complet de nos formations <span>Airskill 2026</span></h2>
+      <p class="fp-modal-sub">Programmes, durées, tarifs et éligibilité OPCO.</p>
+
+      <form id="fpCatalogForm">
+        <label for="fpCatalogEmail">Adresse e-mail professionnelle</label>
+        <input type="email"
+               id="fpCatalogEmail"
+               name="email"
+               placeholder="prenom.nom@entreprise.com"
+               required>
+        <button type="submit"
+                class="fp-modal-submit">Recevoir le catalogue PDF</button>
+      </form>
+      <p class="fp-modal-note">Aucun spam. Désinscription en un clic.</p>
+    </div>
+  </div>
+
 </div>
 
 <script>
@@ -623,6 +816,36 @@
 
     if (searchInput) {
       searchInput.addEventListener('input', applyFilters);
+    }
+
+    var catalogBtn = document.getElementById('fpCatalogBtn');
+    var catalogOverlay = document.getElementById('fpCatalogOverlay');
+    var catalogClose = document.getElementById('fpCatalogClose');
+    var catalogForm = document.getElementById('fpCatalogForm');
+
+    function openCatalogModal() {
+      if (catalogOverlay) catalogOverlay.classList.add('is-open');
+    }
+
+    function closeCatalogModal() {
+      if (catalogOverlay) catalogOverlay.classList.remove('is-open');
+    }
+
+    if (catalogBtn) catalogBtn.addEventListener('click', openCatalogModal);
+    if (catalogClose) catalogClose.addEventListener('click', closeCatalogModal);
+    if (catalogOverlay) {
+      catalogOverlay.addEventListener('click', function (e) {
+        if (e.target === catalogOverlay) closeCatalogModal();
+      });
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeCatalogModal();
+    });
+
+    if (catalogForm) {
+      catalogForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+      });
     }
   })();
 </script>
