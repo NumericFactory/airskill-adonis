@@ -75,11 +75,11 @@
   }
 
   .fp-course-head .fp-stat-chip {
-    background: var(--fp-accent-soft);
+    background: #42418f;
     border-radius: 12px;
     padding: 10px 16px;
     font-size: 13.5px;
-    color: var(--fp-ink);
+    color: #fff;
     display: flex;
     align-items: baseline;
     gap: 8px;
@@ -133,7 +133,7 @@
   </div>
 </header>
 
-<div style="background: #fff;
+<div style="background: #f5f6f7;
     padding-top: 0px;
     padding-bottom: 76px;">
   {{-- <div style="max-width:calc(100% - 400px)"
@@ -145,7 +145,7 @@
           <hr class="w-48 mx-auto my-2 border-0 rounded md:my-10">
           <!-- objectifs -->
           <div class="row mt-2 px-0 pb-3 qualiopi-bloc"
-               style="background: #f5ede7; padding:16px !important">
+               style="background: #ededed; padding:16px !important">
             <div>
               <h2 class="fs-3 font-bold my-0 pt-0 pb-2">Objectifs de la formation</h2>
               @if(goalsTitle)
@@ -210,7 +210,7 @@
 
           <hr class="w-48 mx-auto my-2 border-0 rounded md:my-10 border-gray-800 dark:border-white">
 
-          <div style="background: #f5f6f7; border:0px solid #e0e0e0"
+          <div style="background: #fff; border:0px solid #e0e0e0"
                class="row mt-2 qualiopi-bloc">
             <!-- programme -->
             <div>
@@ -264,7 +264,7 @@
 
 
           <!-- formateur -->
-          <div style="background: #ffffff;color: #000;padding: 6px !important;margin-top: 42px !important;"
+          <div style="background: transparent;color: #000;padding: 6px !important;margin-top: 42px !important;"
                class="mt-4 p-3 pb-5 qualiopi-bloc">
             <div class="row">
               <div class="col-12 col-lg-6">
@@ -278,14 +278,15 @@
                 </p>
                 <ul>
                   <li class="item"> Apprenez sur des projets concrets</li>
-                  <li class="item"> Rejoignez une communauté internationale soudée</li>
+
                   <li class="item"> Bénéficiez d'un accompagnement personnalisé</li>
                 </ul>
                 <div class="text-center mt-4">
-                  <button class="btn py-2 mb-0 text-black text-md fw-medium bg-white hover:bg-gray-200">
-                    Prendre rendez-vous
+                  <button
+                          class="btn btn-link py-2 mb-0 text-black text-md fw-medium hover:text-primary hover:bg-gray-200">
+                    Disctutez avec votre conseiller formation
                   </button>
-                  <p class="m-0 p-0 fs-6">Discutons de votre projet</p>
+
                 </div>
               </div>
               <div class="col-12 col-lg-6 d-none d-lg-block">
@@ -303,7 +304,7 @@
              class="col-span-1 border-1 h-100 bloc-cta-formations-entreprises">
 
           <!-- 1- VIDEO -->
-          <div style="min-height: 136px;background: transparent;border-radius: 11px 11px 3px 3px;"
+          {{-- <div style="min-height: 136px;background: transparent;border-radius: 11px 11px 3px 3px;"
                class="flex flex-column w-full items-start p-0 sm:p-1">
             <div class="container-video">
               <img style="border-radius:8px 8px 0 0"
@@ -316,7 +317,7 @@
                    controls
                    style="display:none;width:100%; border-radius:9px 9px 0 0"
                    src="https://frederic-lossignol.com/video/presentation-formations-entreprises/formation-angular.mp4"></video>
-          </div>
+          </div> --}}
 
 
 
@@ -400,15 +401,15 @@
 
 
           <div class="flex justify-content-center items-center space-x-3 pt-4 px-4 px-md-5">
-            <button style="background:#111111"
-                    class="btn w-100 py-3 text-white text-md fw-medium bg-blue-800 hover:bg-blue-700">
+            <button style="background:var(--primary);color:#fff;border-radius:50px"
+                    class="btn w-100 py-3 text-md fw-medium">
               <span style="position:relative"
                     class="d-flex align-center justify-center p-relative">
-                <span>Dates, lieux et inscription</span>
+                <span>Télécharger le programme</span>
                 <svg style="position: absolute;right:3px"
                      xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 24 24"
-                     fill="#fee042"
+                     fill="#fff"
                      class="size-6">
                   <path
                         d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />

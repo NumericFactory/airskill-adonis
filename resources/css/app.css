@@ -606,7 +606,10 @@ img {
 }
 
 .course-panel-nav-tabs a {
-  background: #ffffff;
+  background: #ececec;
+  border-radius: 50px;
+  margin: 6px;
+  font-size: 0.85rem;
 }
 
 .course-panel-nav-tabs a:hover {
@@ -614,8 +617,8 @@ img {
 }
 
 .course-panel-nav-tabs a.active {
-  background: #f9f5ec;
-  color: #222;
+  background: #1a1b1b;
+  color: #f6f6f6;
 }
 
 
